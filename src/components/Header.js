@@ -1,16 +1,51 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import logo from '../assets/logo.svg';
 import menu from '../assets/menu.svg';
 import close from '../assets/close.svg';
 import Footer from './Footer';
 
-const isMobile = window.innerWidth <= 480
+const navItems = ['about', 'get-amb', 'staking', 'community', 'network', 'bridge', 'contact', 'earn'];
 
 const Header = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480)
   const [isOpen, setIsOpen] = useState(!isMobile);
   const [anchor, setAnchor] = useState('');
 
   const handleOpen = () => setIsOpen((state) => !state);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+      setIsOpen(window.innerWidth > 480);
+    };
+    window.addEventListener('resize', handleResize, true);
+
+    const bodyOffset = document.body.getBoundingClientRect().top;
+
+    const scrollData = navItems.map((id) => {
+      const section = document.getElementById(id);
+      return { id, top: section.getBoundingClientRect().top - bodyOffset };
+    });
+
+    const handleScroll = () => {
+      let currentAnchor = '';
+
+      scrollData.forEach((el) => {
+        if (window.scrollY > el.top - 400) {
+          currentAnchor = el.id
+        }
+      })
+      setAnchor(currentAnchor);
+    }
+    window.addEventListener('scroll', handleScroll, true);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
+
+
 
   return (
     <header className={`header${isOpen && isMobile ? ' header_expanded' : ''}`}>

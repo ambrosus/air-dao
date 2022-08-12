@@ -1,45 +1,45 @@
 @font-face {
   font-family: "Mersad";
-  src: url("./assets/fonts/Mersad Regular.eot");
-  src: url("./assets/fonts/Mersad Regular.woff") format("woff"),
-  url("./assets/fonts/Mersad Regular.otf") format("opentype");
+  src: url("src/assets/fonts/Mersad Regular.eot");
+  src: url("src/assets/fonts/Mersad Regular.woff") format("woff"),
+  url("src/assets/fonts/Mersad Regular.otf") format("opentype");
   font-weight: 400;
 }
 @font-face {
   font-family: "Mersad";
-  src: url("./assets/fonts/Mersad Bold.eot");
-  src: url("./assets/fonts/Mersad Bold.woff") format("woff"),
-  url("./assets/fonts/Mersad Bold.otf") format("opentype");
+  src: url("src/assets/fonts/Mersad Bold.eot");
+  src: url("src/assets/fonts/Mersad Bold.woff") format("woff"),
+  url("src/assets/fonts/Mersad Bold.otf") format("opentype");
   font-weight: 700;
 }
 @font-face {
   font-family: "Inter";
-  src: url("./assets/fonts/Inter-Regular.eot");
-  src: url("./assets/fonts/Inter-Regular.woff") format("woff"),
-  url("./assets/fonts/Inter-Regular.ttf") format('truetype');
+  src: url("src/assets/fonts/Inter-Regular.eot");
+  src: url("src/assets/fonts/Inter-Regular.woff") format("woff"),
+  url("src/assets/fonts/Inter-Regular.ttf") format('truetype');
   font-weight: 400;
 }
 @font-face {
   font-family: "Inter";
-  src: url("./assets/fonts/Inter-Medium.eot");
-  src: url("./assets/fonts/Inter-Medium.woff") format("woff"),
-  url("./assets/fonts/Inter-Medium.ttf") format('truetype');
+  src: url("src/assets/fonts/Inter-Medium.eot");
+  src: url("src/assets/fonts/Inter-Medium.woff") format("woff"),
+  url("src/assets/fonts/Inter-Medium.ttf") format('truetype');
   font-weight: 500;
 }
 @font-face {
   font-family: "Inter";
-  src: url("./assets/fonts/Inter-LightBETA.eot");
-  src: url("./assets/fonts/Inter-LightBETA.woff") format("woff"),
-  url("./assets/fonts/Inter-LightBETA.ttf") format('truetype');
+  src: url("src/assets/fonts/Inter-LightBETA.eot");
+  src: url("src/assets/fonts/Inter-LightBETA.woff") format("woff"),
+  url("src/assets/fonts/Inter-LightBETA.ttf") format('truetype');
   font-weight: 300;
 }
 @font-face {
   font-family: 'Inter';
-  src: url('./assets/fonts/Inter-Black.eot');
+  src: url('src/assets/fonts/Inter-Black.eot');
   src: local('Inter Black'), local('Inter-Black'),
-  url('./assets/fonts/Inter-Black.eot?#iefix') format('embedded-opentype'),
-  url('./assets/fonts/Inter-Black.woff') format('woff'),
-  url('./assets/fonts/Inter-Black.ttf') format('truetype');
+  url('src/assets/fonts/Inter-Black.eot?#iefix') format('embedded-opentype'),
+  url('src/assets/fonts/Inter-Black.woff') format('woff'),
+  url('src/assets/fonts/Inter-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
 }

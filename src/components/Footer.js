@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container footer__wrapper">
         <div className="footer__left">
           <a className="footer__link" href="">Privacy policy</a>
-          <a className="footer__link" href="">Terms ad conditions</a>
+          <a className="footer__link" href="">Terms and conditions</a>
           <a className="footer__mail" href= "mailto:contact@airdao.io">contact@airdao.io</a>
         </div>
         <div className="footer__right">

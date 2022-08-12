@@ -1,8 +1,14 @@
 .header {
   position: fixed;
-  left: 100px;
+  left: 50%;
+  transform: translateX(-512px);
   top: 70px;
   z-index: 999;
+
+  @include media(1070px) {
+    transform: translateX(0);
+    left: 40px;
+  }
 
   @include devices(mobile) {
     position: relative;
@@ -64,7 +70,7 @@
     border-radius: 50%;
     border: 1px solid $blue;
     left: -16px;
-    top: 1px;
+    top: 4px;
 
     @include devices(mobile) {
       content: none;

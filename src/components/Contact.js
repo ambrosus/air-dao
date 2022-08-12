@@ -40,7 +40,6 @@ const Contact = () => {
       }
     })
 
-    console.log(isError);
     if (isError) return;
 
     const res = await fetch(
@@ -55,7 +54,6 @@ const Contact = () => {
       setFormData({
         name: '',
         email: '',
-        company: '',
         message: '',
         page: '',
       });
@@ -89,7 +87,7 @@ const Contact = () => {
           <form onSubmit={onSubmit}>
             <div style={{position: 'relative', margin: '20px 0'}}>
               <input
-                className="contact-content__input"
+                className={`contact-content__input${errors.name ? ' contact-content__input_error' : ''}`}
                 type="text"
                 placeholder="Your name"
                 onChange={setField.bind(this, 'name')}
@@ -99,7 +97,7 @@ const Contact = () => {
             </div>
             <div style={{position: 'relative'}}>
               <input
-                className="contact-content__input"
+                className={`contact-content__input${errors.email ? ' contact-content__input_error' : ''}`}
                 type="email"
                 placeholder="Email"
                 onChange={setField.bind(this, 'email')}
@@ -109,7 +107,7 @@ const Contact = () => {
             </div>
             <div style={{position: 'relative'}}>
               <textarea
-                className="contact-content__input contact-content__input_third"
+                className={`contact-content__input contact-content__input_third${errors.message ? ' contact-content__input_error' : ''}`}
                 placeholder="Your message"
                 onChange={setField.bind(this, 'message')}
                 value={formData.message}

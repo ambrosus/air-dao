@@ -14,11 +14,11 @@ const Content = () => {
       <section id="about" className="about-us">
         <h3>About us</h3>
         <h4 className="about-us__subtitle">
-          We are a DAO focused on building products that empower the freedom of interaction
+          We make crypto products that are safe and simple for everyone
         </h4>
         <p className="about-us__text">
-          We hold AMB coin to collectively fund and govern the community
-          of builders and share ownership of what we create together
+          Powered by the Ambrosus layer one blockchain and the AMB native coin,
+          becoming an AirDAO community member is the safest way to participate in crypto and DeFi
         </p>
         <UiButton withBorder className="about-us__btn">Read light paper</UiButton>
         <UiButton>Documentation  →</UiButton>

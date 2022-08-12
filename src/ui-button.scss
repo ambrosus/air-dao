@@ -1,9 +1,28 @@
 .ui-button {
   font-weight: 500;
+  padding: 10px 20px;
+
+  &:hover {
+    color: $dark-blue;
+  }
 }
 
 .ui-button_border {
   border: 2px solid $black;
-  padding: 10px 20px;
   border-radius: 24px;
+
+  &:hover {
+    border-color: $dark-blue;
+    color: $dark-blue;
+  }
+  
+  &:active, &:focus {
+    border-color: $dark-blue;
+    color: $dark-blue;
+    background: rgba(53, 104, 221, 0.15);
+  }
+
+  @include devices(mobile) {
+    margin-bottom: 10px;
+  }
 }

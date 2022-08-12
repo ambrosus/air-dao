@@ -12,6 +12,10 @@
       margin-right: 20px;
     }
   }
+
+  a {
+    font-weight: 500;
+  }
 }
 
 .content > section {
@@ -108,6 +112,10 @@
 
 .firepot__link {
   margin-top: auto;
+
+  @include devices(mobile) {
+    margin-top: 20px;
+  }
 }
 
 .earn {
@@ -188,7 +196,7 @@
 
   @include devices(mobile) {
     width: 55%;
-    padding: 35px 20px 25px 40px;
+    padding: 25px 20px 15px 40px;
   }
 
   h3 {
@@ -221,6 +229,7 @@
 }
 
 .ambrosus__highlight {
+  z-index: -1;
   position: absolute;
   transform: translate(-260px, -290px);
 
@@ -327,7 +336,7 @@
   border-radius: 24px 0 0 24px;
   border: 2px solid $black;
   background: white;
-  padding: 50px 33px 40px 54px;
+  padding: 50px 33px 40px;
   text-align: center;
   width: calc(100% - 320px);
   z-index: 1;
@@ -350,6 +359,10 @@
   padding: 8px 0;
   position: relative;
 
+  &_error {
+    border-color: #E07777;
+  }
+
   &_third {
     margin-top: 50px;
     resize: vertical;
@@ -359,6 +372,23 @@
   &::placeholder {
     color: #bdbdbd;
     font-family: Inter, sans-serif;
+  }
+  &_error::placeholder {
+    color: #E07777;
+  }
+  &:hover {
+    border-color: $dark-blue;
+
+    &::placeholder {
+      color: #0E0E0E;
+    }
+  }
+  &:active {
+    border-color: #0E0E0E;
+
+    &::placeholder {
+      color: #0E0E0E;
+    }
   }
 }
 
@@ -399,7 +429,8 @@
 
   @include devices(mobile) {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    padding-right: 0;
 
     & > div {
       text-align: center;

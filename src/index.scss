@@ -1,28 +1,29 @@
-@import "./variables.scss";
+@import "src/variables";
 @import "normalize";
-@import "./fonts.css";
-@import "./mixins";
-@import "./ui-button";
-@import "./header.scss";
-@import "./content";
-@import "./footer";
-
-html {
-  scroll-behavior: smooth;
-}
+@import "src/fonts.css";
+@import "src/mixins";
+@import "src/ui-button";
+@import "src/header";
+@import "src/content";
+@import "src/footer";
 
 body {
   position: relative;
 }
 
 .background {
-  background: url("./assets/background.png") no-repeat top right;
+  background: url("src/assets/background.png") no-repeat top right;
   position: fixed;
   top: 0;
   right: 0;
   z-index: -1;
+
+  @include devices(mobile) {
+    left: 30%;
+  }
 }
-p, span, button {
+
+p, span, button, a {
   font-family: Inter, sans-serif;
   font-weight: 300;
   line-height: 140%;
@@ -66,17 +67,33 @@ nav a{
 .error-message {
   font-size: 11px;
   text-align: left;
-  margin-top: 8px;
+  margin-top: 3px;
   color: #E07777;
   position: absolute;
   width: 100%;
 
   &:after {
-    content: url("./assets/error.svg");
+    content: url("src/assets/error.svg");
     position: absolute;
     width: 22px;
     height: 22px;
-    top: -35px;
+    top: -30px;
     right: 0;
+  }
+}
+
+a:hover, a:focus, a:active {
+  color: $dark-blue;
+}
+
+a:focus, a:active {
+  text-decoration: underline;
+}
+
+input, textarea {
+  outline: none;
+
+  &:focus {
+    border-color: $dark-blue;
   }
 }
