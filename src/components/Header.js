@@ -31,7 +31,7 @@ const Header = () => {
       let currentAnchor = '';
 
       scrollData.forEach((el) => {
-        if (window.scrollY > el.top - 400) {
+        if (window.scrollY > el.top - 200) {
           currentAnchor = el.id
         }
       })
