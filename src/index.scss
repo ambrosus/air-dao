@@ -1,6 +1,6 @@
 @import "src/variables";
 @import "normalize";
-@import "src/fonts.css";
+@import "fonts";
 @import "src/mixins";
 @import "src/ui-button";
 @import "src/header";
@@ -12,7 +12,7 @@ body {
 }
 
 .background {
-  background: url("src/assets/background.png") no-repeat top right;
+  background: url("./assets/background.png") no-repeat top right;
   position: fixed;
   top: 0;
   right: 0;
@@ -73,7 +73,7 @@ nav a{
   width: 100%;
 
   &:after {
-    content: url("src/assets/error.svg");
+    content: url("./assets/error.svg");
     position: absolute;
     width: 22px;
     height: 22px;
