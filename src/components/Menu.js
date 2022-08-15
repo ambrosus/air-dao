@@ -140,76 +140,81 @@ const Menu = () => {
         )}
       </div>
       {isOpen && (
-        <div className="side-menu__content">
-          {(isMobile && address) && <AddressBlock address={address} setAddress={setAddress}/>}
-          <span className="side-menu__title">Products</span>
-          <ul className="side-menu__list">
-            <li>
-              <a href="/"><b>Firepot</b> Swap</a>
-            </li>
-            <li>
-              <a href="/">
-                <b>Firepot</b> Pool
-              </a>
-            </li>
-            <li>
-              <a className="side-menu__list-link" href="https://staking.ambrosus.io/">
-                Stake
-                <img src={link} alt="link"/>
-              </a>
-            </li>
-            <li>
-              <a className="side-menu__list-link" href="https://bridge.ambrosus.io/">
-                Bridge
-                <img src={link} alt="link"/>
-              </a>
-            </li>
-            <li>
-              <a className="side-menu__list-link" href="https://explorer-beta.ambrosus.io/">
-                AMB Network Explorer
-                <img src={link} alt="link"/>
-              </a>
-            </li>
-            <li className="side-menu__list-vote">
-              <span>Vote</span>
-              <span>Coming Soon</span>
-            </li>
-          </ul>
-          <span className="side-menu__title">Explore</span>
-          <ul className="side-menu__list side-menu__list_small">
-            <li>
-              <a href="/">AirDAO main</a>
-            </li>
-            <li>
-              <a href="/">Docs</a>
-            </li>
-            <li>
-              <a href="/">Feedback</a>
-            </li>
-          </ul>
-          <ul className="side-menu__list side-menu__list_socials">
-            <li>
-              <a href="/">
-                <Twitter/>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <Telegram/>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <Reddit/>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <Circles/>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <>
+          <div className="side-menu__content">
+            {(isMobile && address) && <AddressBlock address={address} setAddress={setAddress}/>}
+            <span className="side-menu__title">Products</span>
+            <ul className="side-menu__list">
+              <li>
+                <a href="/"><b>Firepot</b> Swap</a>
+              </li>
+              <li>
+                <a href="/">
+                  <b>Firepot</b> Pool
+                </a>
+              </li>
+              <li>
+                <a className="side-menu__list-link" href="https://staking.ambrosus.io/">
+                  Stake
+                  <img src={link} alt="link"/>
+                </a>
+              </li>
+              <li>
+                <a className="side-menu__list-link" href="https://bridge.ambrosus.io/">
+                  Bridge
+                  <img src={link} alt="link"/>
+                </a>
+              </li>
+              <li>
+                <a className="side-menu__list-link" href="https://explorer-beta.ambrosus.io/">
+                  AMB Network Explorer
+                  <img src={link} alt="link"/>
+                </a>
+              </li>
+              <li className="side-menu__list-vote">
+                <span>Vote</span>
+                <span>Coming Soon</span>
+              </li>
+            </ul>
+            <span className="side-menu__title">Explore</span>
+            <ul className="side-menu__list side-menu__list_small">
+              <li>
+                <a href="/">Docs</a>
+              </li>
+              <li>
+                <a href="/">Feedback</a>
+              </li>
+              <li>
+                <a href="/">Brand materials</a>
+              </li>
+            </ul>
+            <ul className="side-menu__list side-menu__list_socials">
+              <li>
+                <a href="/">
+                  <Twitter/>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <Telegram/>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <Reddit/>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <Circles/>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="/" className="side-menu__to-main">
+            ← Go back to AirDAO main
+          </a>
+        </>
       )}
     </div>
   );

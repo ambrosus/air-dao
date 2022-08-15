@@ -91,10 +91,10 @@
 }
 
 .side-menu__blue {
-  color: $dark-blue;
+  color: #3568DD;
 
   b {
-    color: $dark-blue;
+    color: #3568DD;
   }
 }
 
@@ -190,4 +190,15 @@
   font-family: sans-serif;
   margin-left: auto;
   margin-right: 15px;
+}
+
+.side-menu__to-main {
+  display: block;
+  width: fit-content;
+  margin: auto auto 0;
+  color: #3568DD;
+
+  @media only screen and (max-width: 481px) {
+    margin: 20px auto;
+  }
 }
