@@ -144,8 +144,14 @@ const Menu = () => {
           {(isMobile && address) && <AddressBlock address={address} setAddress={setAddress}/>}
           <span className="side-menu__title">Products</span>
           <ul className="side-menu__list">
-            <li className="side-menu__blue"><b>Firepot</b> Swap</li>
-            <li><b>Firepot</b> Pool</li>
+            <li>
+              <a href="/"><b>Firepot</b> Swap</a>
+            </li>
+            <li>
+              <a href="/">
+                <b>Firepot</b> Pool
+              </a>
+            </li>
             <li>
               <a className="side-menu__list-link" href="https://staking.ambrosus.io/">
                 Stake
@@ -171,10 +177,15 @@ const Menu = () => {
           </ul>
           <span className="side-menu__title">Explore</span>
           <ul className="side-menu__list side-menu__list_small">
-            <li>AirDAO main</li>
-            <li>Docs</li>
-            <li>Feedback</li>
-            <li>Brand Materials</li>
+            <li>
+              <a href="/">AirDAO main</a>
+            </li>
+            <li>
+              <a href="/">Docs</a>
+            </li>
+            <li>
+              <a href="/">Feedback</a>
+            </li>
           </ul>
           <ul className="side-menu__list side-menu__list_socials">
             <li>
