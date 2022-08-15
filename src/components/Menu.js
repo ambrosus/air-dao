@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react';
 import logo from '../assets/logo.svg';
 import { ReactComponent as Twitter } from '../assets/twitter.svg';
 import { ReactComponent as Telegram } from '../assets/telegram.svg';
@@ -9,7 +10,6 @@ import close from '../assets/close.svg';
 import metamask from '../assets/metamask.svg';
 import copy from '../assets/copy.svg';
 import logout from '../assets/logout.svg';
-import {useEffect, useState} from 'react';
 import { utils } from 'ethers';
 
 const ambMainNetChainId = 16718;
