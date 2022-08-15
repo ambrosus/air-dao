@@ -10,6 +10,37 @@ import metamask from '../assets/metamask.svg';
 import copy from '../assets/copy.svg';
 import logout from '../assets/logout.svg';
 import {useEffect, useState} from 'react';
+import { utils } from 'ethers';
+
+const ambMainNetChainId = 16718;
+
+const changeChainId = async () => {
+  const chainId = utils.hexValue(ambMainNetChainId);
+
+  try {
+    await window.ethereum.request({
+      method: 'wallet_switchEthereumChain',
+      params: [{ chainId }],
+    });
+  } catch (switchError) {
+    await window.ethereum.request({
+      method: 'wallet_addEthereumChain',
+      params: [
+        {
+          chainId,
+          chainName: 'Ambrosus',
+          nativeCurrency: {
+            name: 'Amber',
+            symbol: 'AMB',
+            decimals: 18,
+          },
+          rpcUrls: ['https://network.ambrosus.io/'],
+          blockExplorerUrls: ['https://explorer.ambrosus.io/'],
+        },
+      ],
+    });
+  }
+};
 
 const AddressBlock = ({ address, setAddress }) => {
   const copyToClipboard = () => {
@@ -48,13 +79,28 @@ const Menu = () => {
       setIsOpen(window.innerWidth > 480);
     };
     window.addEventListener('resize', handleResize, true);
-  });
 
-  const handleMetamask = () => {
-    if (typeof window.ethereum !== "undefined") {
+    window.ethereum.on('networkChanged', (networkId) => {
+      if (networkId !== ambMainNetChainId.toString()) {
+        setAddress('');
+      }
+    });
+  }, []);
+
+  const handleMetamask = async () => {
+    const getAddress = () => {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
         .then((accounts) => setAddress(accounts[0]));
+    }
+
+    if (typeof window.ethereum !== "undefined") {
+      if (window.ethereum.networkVersion === ambMainNetChainId.toString()) {
+        getAddress();
+      } else {
+        await changeChainId()
+        getAddress()
+      }
     } else {
       window.open("https://metamask.io/download/", "_blank");
     }
