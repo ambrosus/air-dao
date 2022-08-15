@@ -81,8 +81,8 @@ const Contact = () => {
         <div className="contact-content">
           <h3>Contact us</h3>
           <p>
-            The future is ours to build, together. If you're a business owner, developer,
-            or simply want to be a part of the AirDAO community, don't hesitate to reach out today.
+            The future is ours to build, together. If you would like to be a part
+            of the AirDAO community, don't hesitate to reach out today
           </p>
           <form onSubmit={onSubmit}>
             <div style={{position: 'relative', margin: '20px 0'}}>
