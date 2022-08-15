@@ -80,11 +80,13 @@ const Menu = () => {
     };
     window.addEventListener('resize', handleResize, true);
 
-    window.ethereum.on('networkChanged', (networkId) => {
-      if (networkId !== ambMainNetChainId.toString()) {
-        setAddress('');
-      }
-    });
+    if (window.ethereum) {
+      window.ethereum.on('networkChanged', (networkId) => {
+        if (networkId !== ambMainNetChainId.toString()) {
+          setAddress('');
+        }
+      });
+    }
   }, []);
 
   const handleMetamask = async () => {
