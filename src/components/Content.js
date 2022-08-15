@@ -35,12 +35,12 @@ const Content = () => {
           <span className="exchange-label">DEX</span>
           <img className="firepot__logo" src={firepot} alt="firepot"/>
           <h3>FirepotSwap</h3>
-          <p>Buy the AMB coin  on a Decentralized Exchange</p>
+          <p>Buy the AMB coin on a Decentralized Exchange</p>
           <a href="" className="firepot__link">Read more  →</a>
         </div>
       </section>
       <section id="staking" className="earn">
-        <h3>Earn AMB with staking program</h3>
+        <h3>Earn AMB with staking program</h3>
         <p style={{ marginTop: 15 }}>
           Join us in securing the Ambrosus network by staking your AMB
           tokens and earn rewards every 6 hours. Get started today and
