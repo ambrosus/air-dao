@@ -143,7 +143,7 @@ const Menu = () => {
                 </a>
               </li>
               <li>
-                <a className="side-menu__list-link" href="/bridge">
+                <a className="side-menu__list-link" href="https://airdao.io/bridge/">
                   Bridge
                 </a>
               </li>
