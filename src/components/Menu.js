@@ -81,7 +81,7 @@ const Menu = () => {
     window.addEventListener('resize', handleResize, true);
 
     if (window.ethereum) {
-      window.ethereum.on('networkChanged', (networkId) => {
+      window.ethereum.on('chainChanged', (networkId) => {
         if (networkId !== ambMainNetChainId.toString()) {
           setAddress('');
         }
