@@ -138,7 +138,7 @@ const Menu = () => {
                 <a href="/">Firepot Pool</a>
               </li>
               <li>
-                <a className="side-menu__list-link" href="https://airdao.io/bridge/staking/">
+                <a className="side-menu__list-link" href="https://airdao.io/staking/">
                   Stake
                 </a>
               </li>
