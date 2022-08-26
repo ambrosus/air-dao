@@ -11,6 +11,7 @@
   overflow: auto;
   box-shadow: 66px 0px 27px rgba(71, 117, 224, 0.01), 37px 0px 22px rgba(71, 117, 224, 0.05), 17px 0px 17px rgba(71, 117, 224, 0.09), 4px 0px 9px rgba(71, 117, 224, 0.1), 0px 0px 0px rgba(71, 117, 224, 0.1);
   font-family: Inter, sans-serif;
+  box-sizing: border-box;
 
   @media only screen and (max-width: 1050px) {
     padding-top: 0;
