@@ -198,10 +198,6 @@ const Menu = () => {
               </li>
             </ul>
           </div>
-          <a href="/" className="side-menu__guide">
-            <img src={question} alt="question"/>
-            Bridge Guide
-          </a>
         </>
       )}
     </div>
