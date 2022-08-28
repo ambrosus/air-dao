@@ -21,15 +21,15 @@
 }
 @font-face {
   font-family: "Inter";
-  src: url("./assets/fonts/Inter-Medium.eot");
-  src: url("./assets/fonts/Inter-Medium.woff") format("woff"),
+  src: url("./assets/fonts/Inter-Medium.woff") format("woff");
+  src: url("./assets/fonts/Inter-Medium.eot"),
   url("./assets/fonts/Inter-Medium.ttf") format('truetype');
   font-weight: 500;
 }
 @font-face {
   font-family: "Inter";
-  src: url("./assets/fonts/Inter-LightBETA.eot");
-  src: url("./assets/fonts/Inter-LightBETA.woff") format("woff"),
+  src: url("./assets/fonts/Inter-LightBETA.woff") format("woff");
+  src: url("./assets/fonts/Inter-LightBETA.eot"),
   url("./assets/fonts/Inter-LightBETA.ttf") format('truetype');
   font-weight: 300;
 }
