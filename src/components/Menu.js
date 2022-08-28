@@ -104,11 +104,7 @@ const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a
-                        style={{ color: '#457EFF' }}
-                        className="side-menu__list-link"
-                        href="/bridge"
-                    >
+                    <a className="side-menu__list-link" href="/bridge">
                       Bridge
                     </a>
                   </li>
