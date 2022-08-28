@@ -13,7 +13,7 @@ const useAutoLogin = () => {
   useEffect(() => {
     const { ethereum } = window;
     // eslint-disable-next-line no-underscore-dangle
-    const isUnlocked = ethereum._metamask && ethereum._metamask.isUnlocked();
+    const isUnlocked = ethereum && ethereum._metamask && ethereum._metamask.isUnlocked();
     const lastAuthorizedWallet = localStorage.getItem('wallet');
 
     if (lastAuthorizedWallet === 'metamask' && isUnlocked) {
