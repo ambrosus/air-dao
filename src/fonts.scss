@@ -4,6 +4,7 @@
   src: url("./assets/fonts/Mersad Regular.woff") format("woff"),
   url("./assets/fonts/Mersad Regular.otf") format("opentype");
   font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: "Mersad";
@@ -11,6 +12,7 @@
   src: url("./assets/fonts/Mersad Bold.woff") format("woff"),
   url("./assets/fonts/Mersad Bold.otf") format("opentype");
   font-weight: 700;
+  font-display: swap;
 }
 @font-face {
   font-family: "Inter";
@@ -18,6 +20,7 @@
   src: url("./assets/fonts/Inter-Regular.woff") format("woff"),
   url("./assets/fonts/Inter-Regular.ttf") format('truetype');
   font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: "Inter";
@@ -25,6 +28,7 @@
   src: url("./assets/fonts/Inter-Medium.eot"),
   url("./assets/fonts/Inter-Medium.ttf") format('truetype');
   font-weight: 500;
+  font-display: swap;
 }/* inter-300 - latin */
 @font-face {
   font-family: 'Inter';
@@ -36,6 +40,7 @@
   url('./assets/fonts/inter-v12-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
   url('./assets/fonts/inter-v12-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('./assets/fonts/inter-v12-latin-300.svg#Inter') format('svg'); /* Legacy iOS */
+  font-display: swap;
 }
 @font-face {
   font-family: 'Inter';
@@ -46,4 +51,5 @@
   url('./assets/fonts/Inter-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
