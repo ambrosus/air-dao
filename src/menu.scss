@@ -47,6 +47,10 @@
 
 .side-menu__logo {
   width: 140px;
+
+  svg {
+    width: 100%;
+  }
 }
 
 .side-menu__connect-wallet {
