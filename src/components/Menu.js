@@ -37,7 +37,7 @@ const AddressBlock = ({ address = '' }) => {
             address.length - 4,
             address.length,
         )}`}</span>
-        <button onClick={logout} type="button">
+        <button onClick={logout} type="button" style={{ marginLeft: 'auto' }}>
           <img src={logoutIcon} alt="log out" />
         </button>
         <button

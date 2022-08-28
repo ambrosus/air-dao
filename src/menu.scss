@@ -179,7 +179,7 @@
 
 .address-block {
   background: #457EFF12;
-  padding: 17px 22px;
+  padding: 17px 0px 17px 22px;
   display: flex;
   align-items: center;
   border-radius: 15px;
@@ -203,7 +203,7 @@
 }
 
 .address-block__copy {
-  margin-left: auto;
+  margin-left: 5px;
   margin-right: 8px;
 }
 
