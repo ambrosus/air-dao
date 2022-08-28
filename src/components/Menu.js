@@ -6,9 +6,9 @@ import { ReactComponent as Reddit } from '../assets/reddit.svg';
 import { ReactComponent as Circles } from '../assets/circles.svg';
 import menu from '../assets/menu.svg';
 import close from '../assets/close.svg';
-import metamask from '../assets/metamask.svg';
-import copy from '../assets/copy.svg';
-import logoutIcon from '../assets/logout.svg';
+import { ReactComponent as Metamask } from '../assets/metamask.svg';
+import { ReactComponent as Copy } from '../assets/copy.svg';
+import { ReactComponent as Logout } from '../assets/logout.svg';
 import house from '../assets/house.svg';
 import docs from '../assets/docs.svg';
 import message from '../assets/message-plus.svg';
@@ -28,24 +28,22 @@ const AddressBlock = ({ address = '' }) => {
 
   return (
       <div className="address-block">
-        <img
-            className="address-block__metamask-icon"
-            src={metamask}
-            alt="metamask"
-        />
+        <div className="address-block__metamask-icon">
+          <Metamask />
+        </div>
         <span>{`${address.slice(0, 4)}...${address.slice(
             address.length - 4,
             address.length,
         )}`}</span>
         <button onClick={logout} type="button" style={{ marginLeft: 'auto' }}>
-          <img src={logoutIcon} alt="log out" />
+          <Logout />
         </button>
         <button
             onClick={copyToClipboard}
             type="button"
             className="address-block__copy"
         >
-          <img src={copy} alt="copy" />
+          <Copy />
         </button>
       </div>
   );
