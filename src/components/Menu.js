@@ -9,10 +9,10 @@ import close from '../assets/close.svg';
 import { ReactComponent as Metamask } from '../assets/metamask.svg';
 import { ReactComponent as Copy } from '../assets/copy.svg';
 import { ReactComponent as Logout } from '../assets/logout.svg';
-import house from '../assets/house.svg';
-import docs from '../assets/docs.svg';
-import message from '../assets/message-plus.svg';
-import book from '../assets/book.svg';
+import { ReactComponent as House } from '../assets/house.svg';
+import { ReactComponent as Docs } from '../assets/docs.svg';
+import { ReactComponent as Message } from '../assets/message-plus.svg';
+import { ReactComponent as Book } from '../assets/book.svg';
 import useAuthorization from "../hooks/useAuthorization";
 import {useWeb3React} from "@web3-react/core";
 
@@ -123,19 +123,19 @@ const Header = () => {
                 </ul>
                 <ul className="side-menu__list side-menu__list_small">
                   <li>
-                    <img src={house} alt="main" />
+                    <House />
                     <a href="/">AIRDAO Main</a>
                   </li>
                   <li>
-                    <img src={docs} alt="docs" />
+                    <Docs />
                     <a href="/">Docs</a>
                   </li>
                   <li>
-                    <img src={message} alt="message" />
+                    <Message />
                     <a href="/">Feedback</a>
                   </li>
                   <li>
-                    <img src={book} alt="book" />
+                    <Book />
                     <a href="/">Brand materials</a>
                   </li>
                 </ul>
