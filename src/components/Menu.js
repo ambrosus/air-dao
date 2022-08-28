@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../assets/logo.svg';
+import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Twitter } from '../assets/twitter.svg';
 import { ReactComponent as Telegram } from '../assets/telegram.svg';
 import { ReactComponent as Reddit } from '../assets/reddit.svg';
@@ -68,7 +68,9 @@ const Header = () => {
   return (
       <div className={`side-menu${isOpen ? ' side-menu_expanded' : ''}`}>
         <div className="side-menu__mobile-wrapper">
-          <img className="side-menu__logo" src={logo} alt="logo" />
+          <div className="side-menu__logo">
+            <Logo />
+          </div>
           <button
               type="button"
               onClick={handleOpen}
