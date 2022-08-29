@@ -93,14 +93,11 @@ const Header = () => {
                 )}
                 <ul className="side-menu__list">
                   <li>
-                    <a href="/firepot/swap">Firepot Swap</a>
-                  </li>
-                  <li>
-                    <a href="/firepot/pool">Firepot Pool</a>
+                    <a href="/firepot/swap">FirepotSwap</a>
                   </li>
                   <li>
                     <a className="side-menu__list-link" href="/staking">
-                      Stake
+                      Staking
                     </a>
                   </li>
                   <li>
@@ -113,7 +110,7 @@ const Header = () => {
                         className="side-menu__list-link"
                         href="https://explorer-beta.ambrosus.io/"
                     >
-                      AMB Network Explorer
+                      Network Explorer
                     </a>
                   </li>
                   <li className="side-menu__list-vote">
@@ -132,7 +129,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Message />
-                    <a href="/">Feedback</a>
+                    <a href="mailto:support@airdao.io ">Feedback</a>
                   </li>
                   <li>
                     <Book />
