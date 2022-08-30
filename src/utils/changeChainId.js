@@ -3,7 +3,7 @@ import networks from './networks.json';
 
 const changeChainId = async (provider, chainId) => {
   const selectedNetwork = networks[chainId]
-  const hexChainId = utils.hexValue(chainId);
+  const hexChainId = utils.hexValue(+chainId);
 
   try {
     await provider.request({
