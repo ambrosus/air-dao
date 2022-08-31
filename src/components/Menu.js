@@ -108,7 +108,7 @@ const Header = () => {
                   <li>
                     <a
                         className="side-menu__list-link"
-                        href="https://explorer-beta.ambrosus.io/"
+                        href="/explorer"
                     >
                       Network Explorer
                     </a>
