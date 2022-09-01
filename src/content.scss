@@ -23,16 +23,15 @@
 }
 
 .about-us {
-  border: 2px solid $black;
+  max-width: 50%;
   border-radius: 24px;
-  background: #fff;
   padding: 40px 24px;
 }
 
 .about-us__subtitle {
   font-family: Mersad, sans-serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 40px;
   margin: 24px 0;
 }
 
@@ -194,6 +193,16 @@
   border: 2px solid $black;
   padding: 40px 24px;
 
+  &--swap {
+    align-items: flex-start;
+    padding: 75px 24px 50px;
+    width: -webkit-fill-available;
+
+    button:last-child {
+      margin-top: 15px;
+    }
+  }
+
   @include devices(mobile) {
     width: 55%;
     padding: 25px 20px 15px 40px;
@@ -243,7 +252,7 @@
   border-radius: 24px;
   padding: 40px 36px;
   position: relative;
-  background: linear-gradient(135deg, #2E4571 0%, #162B44 100%);
+  background: linear-gradient(135deg, #1D1D1D 0%, #0E0E0E 100%);
 
   @include devices(mobile) {
     flex-direction: column;
@@ -294,8 +303,7 @@
 }
 
 .bridge {
-  background: $beige;
-  border: 2px solid $black;
+  background: linear-gradient(135deg, #E1EBFF 0%, #CBD5E9 100%);
 
   h3 {
     margin: 33px 0 16px;
@@ -415,26 +423,20 @@
   }
 }
 
-.validator {
-  display: flex;
-
-  @include devices(mobile) {
-    flex-direction: column-reverse;
-  }
-}
-
 .validator-left {
-  text-align: right;
-  padding-right: 23px;
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  padding-right: 0;
+
+  & > div {
+    text-align: center;
+  }
 
   @include devices(mobile) {
-    display: flex;
+    width: 100%;
     flex-direction: column;
-    padding-right: 0;
-
-    & > div {
-      text-align: center;
-    }
+    align-items: center;
   }
 }
 
@@ -479,5 +481,75 @@
 
   button {
     margin-top: 25px;
+  }
+}
+
+.binance {
+  background: linear-gradient(135deg, #1D1D1D 0%, #0E0E0E 100%);
+  border-radius: 24px;
+  max-width: 50%;
+  padding: 24px 42px 24px 24px;
+
+  @include devices(mobile) {
+    max-width: none;
+  }
+
+  img {
+    margin-bottom: 34px;
+  }
+
+  p, h3, button {
+    color: white;
+  }
+}
+
+.binance__cex {
+  text-align: right;
+}
+
+.binance__text {
+  margin: 16px 0 36px;
+}
+
+.binance__btn {
+  border-color: white;
+}
+
+.swap-title {
+  font-size: 40px;
+}
+
+.community--swap {
+  box-sizing: border-box;
+
+  @include devices(mobile) {
+    h3, p {
+      display: block;
+    }
+    img {
+      display: none;
+    }
+
+    .community__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 24px;
+      width: 100%;
+      text-align: center;
+
+      p {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.firepot-logo {
+  display: none;
+
+  @include devices(mobile) {
+    display: block!important;
+    margin-bottom: 30px;
   }
 }

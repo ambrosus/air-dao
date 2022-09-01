@@ -14,6 +14,7 @@ function App() {
   return isLoaded && (
         <div>
           <img className="background" src={bg} alt="background"/>
+          <div className="white-overlay" />
           {/*<Header/>*/}
           <Menu/>
           <div className="container">

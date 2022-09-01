@@ -33,23 +33,12 @@
   font-weight: 300;
 }
 
-.footer__left, .footer__right {
+.footer__left {
   padding-bottom: 17px;
+  margin-left: auto;
 
   @include devices(mobile) {
     padding-bottom: 37px;
-  }
-}
-
-.footer__right {
-  text-align: right;
-
-  p {
-    font-size: 12px;
-
-    @include devices(mobile) {
-      display: none;
-    }
   }
 }
 
@@ -62,5 +51,14 @@
 
   img {
     margin-left: 16px;
+  }
+}
+
+.footer__grey {
+  font-size: 12px;
+  opacity: .3;
+
+  &--margin {
+    margin-top: 18px;
   }
 }

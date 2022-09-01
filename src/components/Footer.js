@@ -1,8 +1,3 @@
-import twitter from '../assets/twitter.svg';
-import telegram from '../assets/telegram.svg';
-import reddit from '../assets/reddit.svg';
-import circles from '../assets/circles.svg';
-
 const Footer = () => {
   return (
     <footer className="footer">
@@ -10,17 +5,8 @@ const Footer = () => {
         <div className="footer__left">
           <a className="footer__link" href="">Privacy policy</a>
           <a className="footer__link" href="">Terms and conditions</a>
-          <a className="footer__mail" href= "mailto:contact@airdao.io">contact@airdao.io</a>
-        </div>
-        <div className="footer__right">
-          <div className="footer__socials">
-            <img src={twitter} alt="twitter"/>
-            <img src={telegram} alt="telegram"/>
-            <img src={reddit} alt="reddit"/>
-            <img src={circles} alt="circles"/>
-          </div>
-          <p>©2021 AirDAO</p>
-          <p>All rights reserved</p>
+          <p className="footer__grey footer__grey--margin">©2021 AirDAO</p>
+          <p className="footer__grey">All rights reserved</p>
         </div>
       </div>
     </footer>

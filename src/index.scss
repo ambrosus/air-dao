@@ -38,6 +38,10 @@ h3 {
   font-family: Mersad, sans-serif;
   font-weight: 700;
   font-size: 32px;
+
+  @include devices(mobile) {
+    font-size: 32px!important;
+  }
 }
 
 .container {
@@ -46,6 +50,7 @@ h3 {
   padding-left: 20px;
   padding-right: 20px;
   overflow: hidden;
+  position: relative;
 
   @include devices(mobile) {
     padding: 0;
@@ -97,4 +102,12 @@ input, textarea {
   &:focus {
     border-color: $dark-blue;
   }
+}
+
+.white-overlay {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 80vh;
+  background: linear-gradient(180deg, #FFFFFF 38.42%, rgba(255, 255, 255, 0.47) 84.05%, rgba(255, 255, 255, 0) 100%);;
 }
