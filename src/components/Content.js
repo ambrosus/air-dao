@@ -25,7 +25,9 @@ const Content = () => {
           ecosystem of handy dApps under a single browser tab
         </p>
         <UiButton withBorder className="about-us__btn">Read Litepaper</UiButton>
-        <UiButton>Documentation  →</UiButton>
+        <UiButton>
+          <a href="https://github.com/ambrosus/" target="_blank">Documentation  →</a>
+        </UiButton>
       </section>
       <section className="binance">
         <p className="binance__cex">CEX</p>
@@ -140,8 +142,12 @@ const Content = () => {
               We are powered by the Ambrosus layer 1 blockchain that allows the AirDAO Web
               App's centralized dashboard to be designed for speed, security and affordability.
             </p>
-            <UiButton withBorder className="ambrosus-content__btn">Ecosystem</UiButton>
-            <UiButton>Governance forum  →</UiButton>
+            <UiButton withBorder className="ambrosus-content__btn">
+              <a href="https://ambrosus.io/" target="_blank">Ecosystem</a>
+            </UiButton>
+            <UiButton>
+              <a href="https://gov.ambrosus.io/">Governance forum  →</a>
+            </UiButton>
           </div>
         </div>
       </section>
@@ -164,10 +170,14 @@ const Content = () => {
             Whether you have questions about AirDAO, crypto, or DeFi, we're here to help.
             So join us, and let's build amazing things together
           </p>
-          <a className="community__link" href="">Twitter →</a>
+          <a className="community__link" href="https://twitter.com/airdao_io" target="_blank">
+            Twitter →
+          </a>
           <a className="community__link" href="">Telegram →</a>
           <a className="community__link" href="">Medium →</a>
-          <a className="community__link" href="">Reddit →</a>
+          <a className="community__link" href="https://www.reddit.com/r/AirDAO/" target="_blank">
+            Reddit →
+          </a>
         </div>
       </section>
       <Contact/>

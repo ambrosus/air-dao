@@ -125,7 +125,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Docs />
-                    <a href="/">Docs</a>
+                    <a href="https://github.com/ambrosus/" target="_blank">Docs</a>
                   </li>
                   <li>
                     <Message />
@@ -133,12 +133,12 @@ const Header = () => {
                   </li>
                   <li>
                     <Book />
-                    <a href="/">Brand materials</a>
+                    <a href="https://drive.google.com/drive/folders/1oaihzknRMGLKlmTe-7HU5Vx6I_-sQay1?usp=sharing" target="_blank">Brand materials</a>
                   </li>
                 </ul>
                 <ul className="side-menu__list side-menu__list_socials">
                   <li>
-                    <a href="/">
+                    <a href="https://twitter.com/airdao_io" target="_blank">
                       <Twitter />
                     </a>
                   </li>
@@ -148,7 +148,7 @@ const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="/">
+                    <a href="https://www.reddit.com/r/AirDAO/" target="_blank">
                       <Reddit />
                     </a>
                   </li>
