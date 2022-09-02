@@ -1,7 +1,11 @@
 .content {
   padding-top: 70px;
-  max-width: 688px;
+  max-width: 792px;
   margin-left: auto;
+
+  @include media(1140px) {
+    max-width: 688px;
+  }
 
   @include devices(mobile) {
     height: auto;
@@ -20,12 +24,37 @@
 
 .content > section {
   margin-bottom: 80px;
+
+  &:last-child {
+    margin-bottom: 50px;
+  }
 }
 
 .about-us {
-  max-width: 50%;
+  max-width: 80%;
   border-radius: 24px;
   padding: 40px 24px;
+
+  @include media(1140px) {
+    max-width: 387px;
+  }
+
+  @include devices(mobile) {
+    max-width: none;
+    margin-top: 100px;
+  }
+}
+
+.about-us__title-br {
+  @include devices(mobile) {
+    display: none;
+  }
+}
+
+.about-us__br {
+  @include media(1140px) {
+    display: none;
+  }
 }
 
 .about-us__subtitle {
@@ -37,7 +66,7 @@
 
 .about-us__text {
   font-size: 20px;
-  margin-bottom: 120px;
+  margin-bottom: 100px;
 
   @include devices(mobile) {
     margin-bottom: 40px;
@@ -45,7 +74,7 @@
 }
 
 .about-us__btn {
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 .content__semi-wrapper {
@@ -71,6 +100,7 @@
   font-weight: 500;
   text-transform: uppercase;
 }
+
 .trade {
   position: relative;
   background: $beige;
@@ -121,9 +151,19 @@
   padding: 40px 24px;
   border-radius: 24px;
   background: linear-gradient(135deg, #E1EBFF 0%, #CBD5E9 100%);
+  width: 80%;
+
+  @include media(1140px) {
+    width: auto;
+    box-sizing: border-box;
+  }
 
   h3 {
     width: 50%;
+
+    @include devices(mobile) {
+      width: auto;
+    }
   }
 }
 
@@ -131,6 +171,10 @@
   margin: 24px 0 50px;
   display: flex;
   flex-wrap: wrap;
+
+  @include media(1140px) {
+    margin: 24px 0;
+  }
 
   @include devices(mobile) {
     flex-direction: column;
@@ -172,6 +216,7 @@
   @include devices(mobile) {
     display: block;
     text-align: center;
+    padding: 0 20px;
 
     h3 {
       margin-bottom: 16px;
@@ -186,8 +231,6 @@
 }
 
 .community__content {
-  display: flex;
-  flex-direction: column;
   background: #fff;
   border-radius: 0 24px 24px 0;
   border: 2px solid $black;
@@ -200,12 +243,20 @@
 
     button:last-child {
       margin-top: 15px;
+
+      @include devices(mobile) {
+        margin-top: 0;
+      }
     }
   }
 
   @include devices(mobile) {
-    width: 55%;
-    padding: 25px 20px 15px 40px;
+    padding: 40px 24px 10px;
+
+    &_low {
+      padding: 20px 24px 10px;
+      width: 45%;
+    }
   }
 
   h3 {
@@ -217,16 +268,26 @@
   }
 
   p {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 
     @include devices(mobile) {
       display: none;
+    }
+  }
+
+  &--swap p {
+    margin-bottom: 80px;
+
+    @include media(1140px) {
+      margin-bottom: 30px;
     }
   }
 }
 
 .community__link {
   margin-top: 13px;
+  display: block;
+  width: fit-content;
 
   @include devices(mobile) {
     margin-bottom: 24px;
@@ -262,7 +323,7 @@
   }
 
   p {
-    line-height: 25px;
+    line-height: 28px;
     margin-bottom: 115px;
 
     @include devices(mobile) {
@@ -281,7 +342,7 @@
 
 .ambrosus-content__btn {
   border-color: white;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 .ambrosus-content__img {
@@ -349,6 +410,10 @@
   width: calc(100% - 320px);
   z-index: 1;
 
+  @include media(1140px) {
+    width: calc(100% - 200px);
+  }
+
   @include devices(mobile) {
     width: 100%;
     padding: 40px 27px;
@@ -372,9 +437,8 @@
   }
 
   &_third {
-    margin-top: 50px;
+    margin-top: 10px;
     resize: vertical;
-    height: 17px;
   }
 
   &::placeholder {
@@ -409,6 +473,10 @@
   transform: translateX(-20px);
   z-index: 0;
 
+  @include media(1140px) {
+    transform: translateX(-50px);
+  }
+
   @include devices(mobile) {
     position: absolute;
     width: calc(100% + 90px);
@@ -420,23 +488,68 @@
 
   img {
     width: calc(100% + 20px);
+
+    @include media(1140px) {
+      width: calc(100% + 50px);
+    }
+  }
+}
+
+.validator {
+  display: flex;
+  justify-content: flex-end;
+
+  @include media(1140px) {
+    flex-direction: column-reverse;
+  }
+
+  @include devices(mobile) {
+    flex-direction: column-reverse;
   }
 }
 
 .validator-left {
+  text-align: right;
+  flex-direction: column;
+  padding-right: 23px;
   display: flex;
-  width: 80%;
-  justify-content: space-around;
-  padding-right: 0;
+  justify-content: center;
 
-  & > div {
-    text-align: center;
+  @include media(1140px) {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    margin-top: 32px;
+    width: 85%;
+
+    div {
+      margin-bottom: 0!important;
+    }
+  }
+
+  & > div:first-child {
+    margin-bottom: 42px;
   }
 
   @include devices(mobile) {
-    width: 100%;
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    padding-right: 0;
+    width: auto;
+
+    & > div {
+      text-align: center;
+
+      &:first-child {
+        margin-bottom: 36px!important;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.validator-left__break {
+  @include devices(mobile) {
+    display: none;
   }
 }
 
@@ -444,27 +557,38 @@
   color: $dark-blue;
   font-weight: 900;
   font-size: 48px;
-  margin-top: 48px;
-  margin-bottom: 8px;
   line-height: 110%;
+  margin-bottom: 8px;
 }
 
 .validator-left__small {
   font-weight: 500;
+
+  @include media(1140px) {
+    text-align: center;
+  }
 }
 
 .validator-right {
+  box-sizing: border-box;
   max-width: 480px;
   background: linear-gradient(135deg, #E1EBFF 0%, #CBD5E9 100%);
-  padding: 40px 34px;
+  padding: 40px 60px 40px 34px;
   border-radius: 24px;
 
   h3 {
     margin-bottom: 16px;
+    max-width: 380px;
+    font-size: 40px;
+    line-height: 44px;
   }
 
   p {
     margin-bottom: 60px;
+  }
+
+  @include devices(mobile) {
+    padding-right: 24px;
   }
 }
 
@@ -485,17 +609,28 @@
 }
 
 .binance {
+  box-sizing: border-box;
   background: linear-gradient(135deg, #1D1D1D 0%, #0E0E0E 100%);
   border-radius: 24px;
-  max-width: 50%;
-  padding: 24px 42px 24px 24px;
+  max-width: 49%;
+  padding: 24px 42px 44px 24px;
+
+  @include media(1140px) {
+    max-width: 55%;
+  }
 
   @include devices(mobile) {
     max-width: none;
+    margin: 80px 40px!important;
+  }
+
+  h3 {
+    line-height: 35px;
   }
 
   img {
     margin-bottom: 34px;
+    margin-top: 35px;
   }
 
   p, h3, button {
@@ -532,6 +667,7 @@
 
     .community__content {
       display: flex;
+      margin: 0 20px!important;
       flex-direction: column;
       align-items: center;
       border-radius: 24px;
@@ -551,5 +687,15 @@
   @include devices(mobile) {
     display: block!important;
     margin-bottom: 30px;
+  }
+}
+
+.firepot-img {
+  background-image: url("./assets/firepot.svg");
+}
+
+.swap-btn {
+  @include media(1140px) {
+    display: block;
   }
 }

@@ -107,6 +107,7 @@ const Contact = () => {
             </div>
             <div style={{position: 'relative'}}>
               <textarea
+                rows={4}
                 className={`contact-content__input contact-content__input_third${errors.message ? ' contact-content__input_error' : ''}`}
                 placeholder="Your message"
                 onChange={setField.bind(this, 'message')}

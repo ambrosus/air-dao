@@ -12,16 +12,15 @@ const getLibrary = (provider = null) => new providers.Web3Provider(provider);
 function App() {
   const isLoaded = useAutoLogin();
   return isLoaded && (
-        <div>
-          <img className="background" src={bg} alt="background"/>
-          <div className="white-overlay" />
-          {/*<Header/>*/}
-          <Menu/>
-          <div className="container">
-            <Content/>
-          </div>
-          <Footer/>
-        </div>
+    <div className="page-wrapper">
+      <img className="background" src={bg} alt="background"/>
+      <div className="white-overlay" />
+      <Menu/>
+      <div className="container">
+        <Content/>
+      </div>
+      <Footer/>
+    </div>
   );
 }
 

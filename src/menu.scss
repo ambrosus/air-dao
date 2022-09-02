@@ -1,3 +1,24 @@
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #A8B7DA82;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #A8B7DA82;
+}
 .side-menu {
   position: fixed;
   display: flex;
@@ -6,7 +27,7 @@
   width: 320px;
   height: 100vh;
   z-index: 999999;
-  border-radius: 18px;
+  border-radius: 0 18px 18px 0;
   background: #EEEEEE;
   overflow: auto;
   box-shadow: 66px 0px 27px rgba(71, 117, 224, 0.01), 37px 0px 22px rgba(71, 117, 224, 0.05), 17px 0px 17px rgba(71, 117, 224, 0.09), 4px 0px 9px rgba(71, 117, 224, 0.1), 0px 0px 0px rgba(71, 117, 224, 0.1);
@@ -16,9 +37,10 @@
   @media only screen and (max-width: 1050px) {
     padding-top: 0;
     padding-bottom: 0;
-    height: auto;
+    height: 56px;
+    transition: .3s;
     padding-right: 14px;
-
+    overflow: hidden;
     &_expanded {
       height: 100vh!important;
     }
@@ -34,13 +56,12 @@
 
 .side-menu__mobile-wrapper {
   @media only screen and (max-width: 1050px) {
-    padding: 8px 0;
     display: flex;
     align-items: center;
   }
 
   @media only screen and (max-width: 720px) {
-    padding: 15px 24px;
+    padding: 0 24px;
   }
 }
 

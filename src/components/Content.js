@@ -15,10 +15,14 @@ const Content = () => {
     <div className="content">
       <section id="about" className="about-us">
         <h1 className="about-us__subtitle">
-          The worlds first fully integrated L1
+          The worlds first {' '}
+          <br className="about-us__title-br"/>
+          fully integrated L1
         </h1>
         <p className="about-us__text">
-          Running on AMB's L1, the AirDAO Web App is an ecosystem of handy dApps under a single browser tab
+          Running on AMB's L1, the AirDAO Web App is an
+          <br className="about-us__br" />
+          ecosystem of handy dApps under a single browser tab
         </p>
         <UiButton withBorder className="about-us__btn">Read Litepaper</UiButton>
         <UiButton>Documentation  →</UiButton>
@@ -26,7 +30,7 @@ const Content = () => {
       <section className="binance">
         <p className="binance__cex">CEX</p>
         <img src={binance} alt="binance" />
-        <h3>Trade AMB coin on Binance</h3>
+        <h3>Trade AMB <br/> coin on Binance</h3>
         <p className="binance__text">Buy and trade AMB with BUSD or BTC directly on Binance</p>
         <UiButton withBorder className="binance__btn">Trade on Binance</UiButton>
       </section>
@@ -36,7 +40,9 @@ const Content = () => {
           <img src={firepot} alt="firepot" className="firepot-logo"/>
           <h3 className="swap-title">FirepotSwap</h3>
           <p>Buy the AMB coin <br/> on a Decentralized Exchange</p>
-          <UiButton withBorder>Use FirepotSwap</UiButton>
+          <UiButton withBorder className="swap-btn">
+            <a href="/firepot/swap">Use FirepotSwap</a>
+          </UiButton>
           <UiButton>Governance forum  →</UiButton>
         </div>
       </section>
@@ -58,17 +64,32 @@ const Content = () => {
           </span>
           <span className="earn__list-item">
             <img src={check} alt="check"/>
-            <span>Rewards are distributed every 6 hours</span>
+            <span>Rewards are distributed <br/> every 6 hours</span>
           </span>
           <span className="earn__list-item">
             <img style={{ top: '14px' }} src={check} alt="check"/>
             <span>Unstake at any time</span>
           </span>
         </div>
-        <UiButton withBorder className="about-us__btn">Start staking</UiButton>
+        <UiButton withBorder className="about-us__btn">
+          <a href="/staking">Start staking</a>
+        </UiButton>
         <UiButton>Read article →</UiButton>
       </section>
       <section id="earn" className="validator">
+        <div className="validator-left">
+          <div>
+            <p className="validator-left__big">150+</p>
+            <p className="validator-left__small">
+              Total amount {' '}
+              <br className="validator-left__break"/>
+              of Amber Nodes</p>
+          </div>
+          <div>
+            <p className="validator-left__big">14,808</p>
+            <p className="validator-left__small">Total amount <br/> of Amber Node Holders</p>
+          </div>
+        </div>
         <div className="validator-right">
           <h3>Became a validator to earn AMB</h3>
           <p>
@@ -87,16 +108,6 @@ const Content = () => {
             Documentation  →
           </a>
         </div>
-        <div className="validator-left">
-          <div>
-            <p className="validator-left__big">14,808</p>
-            <p className="validator-left__small">Total amount <br/> of Amber Node Holders</p>
-          </div>
-          <div>
-            <p className="validator-left__big">150+</p>
-            <p className="validator-left__small">Total amount <br/> of Amber Nodes</p>
-          </div>
-        </div>
       </section>
       <section id="bridge" className="content__semi-wrapper">
         <div className="bridge">
@@ -106,7 +117,9 @@ const Content = () => {
             Securely bridge your AMB coins between BNB Chain or Ethereum
             networks, or bring liquidity to the Ambrosus Network
           </p>
-          <UiButton withBorder className="bridge__btn">Use bridge</UiButton>
+          <UiButton withBorder className="bridge__btn">
+            <a href="/bridge">Use bridge</a>
+          </UiButton>
         </div>
         <div className="ambassador">
           <img src={ambassador} alt="new"/>
@@ -143,7 +156,7 @@ const Content = () => {
       </div>
       <section id="community" className="community">
         <img className="community__img" src={community} alt="community"/>
-        <div className="community__content">
+        <div className="community__content community__content_low">
           <h3>AirDAO community</h3>
           <p>
             AirDAO's rapidly expanding ecosystem is full of exciting opportunities

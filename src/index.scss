@@ -12,6 +12,11 @@ body {
   position: relative;
 }
 
+.page-wrapper {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
 .background {
   background: url("./assets/background.png") no-repeat top right;
   position: fixed;

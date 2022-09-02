@@ -77,7 +77,7 @@ const Header = () => {
             <img src={isOpen ? close : menu} alt="menu" />
           </button>
         </div>
-        {isOpen && (
+        {/*{isOpen && (*/}
             <>
               <div className="side-menu__content">
                 {address ? (
@@ -160,7 +160,7 @@ const Header = () => {
                 </ul>
               </div>
             </>
-        )}
+        {/*)}*/}
       </div>
   );
 };

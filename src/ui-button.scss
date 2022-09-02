@@ -4,6 +4,10 @@
 
   &:hover {
     color: $dark-blue;
+
+    a {
+      color: $dark-blue;
+    }
   }
 }
 
