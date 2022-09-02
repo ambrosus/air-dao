@@ -325,6 +325,7 @@
   p {
     line-height: 28px;
     margin-bottom: 115px;
+    font-size: 20px;
 
     @include devices(mobile) {
       margin-bottom: 30px;
