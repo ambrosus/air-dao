@@ -159,8 +159,10 @@ const Content = () => {
         <div className="community__content community__content_low">
           <h3>AirDAO community</h3>
           <p>
-            AirDAO's rapidly expanding ecosystem is full of exciting opportunities
-            to learn and grow. We look forward to seeing you in the AirDAO community.
+            We are a group of passionate individuals and builders across the globe who
+            are committed to supporting you in your journey in the blockchain world.
+            Whether you have questions about AirDAO, crypto, or DeFi, we're here to help.
+            So join us, and let's build amazing things together
           </p>
           <a className="community__link" href="">Twitter →</a>
           <a className="community__link" href="">Telegram →</a>
