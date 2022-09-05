@@ -34,7 +34,11 @@ const Content = () => {
         <img src={binance} alt="binance" />
         <h3>Trade AMB <br/> coin on Binance</h3>
         <p className="binance__text">Buy and trade AMB with BUSD or BTC directly on Binance</p>
-        <UiButton withBorder className="binance__btn">Trade on Binance</UiButton>
+        <UiButton withBorder className="binance__btn">
+          <a href="https://accounts.binance.com/en/register?ref=E8NGKMF8" target="_blank">
+            Trade on Binance
+          </a>
+        </UiButton>
       </section>
       <section id="community" className="community community--swap">
         <img className="community__img" src={swap} alt="community"/>
@@ -76,7 +80,11 @@ const Content = () => {
         <UiButton withBorder className="about-us__btn">
           <a href="/staking">Start staking</a>
         </UiButton>
-        <UiButton>Read article →</UiButton>
+        <UiButton>
+          <a href="https://blog.ambrosus.io/ambrosus-arcadia-a-complete-guide-to-ambrosus-ecosystems-simple-staking-service-53e9ad6c107d" target="_blank">
+            Read article →
+          </a>
+        </UiButton>
       </section>
       <section id="earn" className="validator">
         <div className="validator-left">
@@ -100,7 +108,9 @@ const Content = () => {
             earning rewards of up to 35% APY
           </p>
           <UiButton withBorder className="validator-right__btn">
-            Setup node
+            <a href="https://github.com/ambrosus/community-wiki/wiki/Installation-guides" target="_blank">
+              Setup node
+            </a>
           </UiButton>
           <a
             style={{fontSize: 14}}
