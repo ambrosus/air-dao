@@ -67,7 +67,9 @@ const Header = () => {
       <div className={`side-menu${isOpen ? ' side-menu_expanded' : ''}`}>
         <div className="side-menu__mobile-wrapper">
           <div className="side-menu__logo">
-            <Logo />
+            <a href="https://airdao.io/">
+              <Logo />
+            </a>
           </div>
           <button
               type="button"
@@ -97,7 +99,7 @@ const Header = () => {
                   </li>
                   <li>
                     <a className="side-menu__list-link" href="/staking">
-                      Staking
+                      Stake
                     </a>
                   </li>
                   <li>
@@ -115,6 +117,10 @@ const Header = () => {
                   </li>
                   <li className="side-menu__list-vote">
                     <span>DAO Tools</span>
+                    <span>Coming Soon</span>
+                  </li>
+                  <li className="side-menu__list-vote">
+                    <span>Stablecoin</span>
                     <span>Coming Soon</span>
                   </li>
                 </ul>

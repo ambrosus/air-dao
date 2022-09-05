@@ -2,6 +2,7 @@
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 /* Track */
@@ -151,16 +152,26 @@
 .side-menu__list-vote {
   display: flex;
   align-items: center;
+  padding: 1.5px 0;
 
   span {
     color: #a2a2a2;
 
     &:last-child {
+      display: none;
       font-size: 11px;
       padding: 4px 8px;
       margin-left: 8px;
       border-radius: 4px;
       border: 1px solid #a2a2a2;
+    }
+  }
+
+  &:hover {
+    padding: 0;
+
+    span:last-child {
+      display: block;
     }
   }
 }

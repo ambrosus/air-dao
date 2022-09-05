@@ -49,7 +49,7 @@ const Content = () => {
           <UiButton withBorder className="swap-btn">
             <a href="/firepot/swap">Use FirepotSwap</a>
           </UiButton>
-          <UiButton>Governance forum  →</UiButton>
+          <UiButton>Learn more  →</UiButton>
         </div>
       </section>
       <section id="staking" className="earn">
@@ -82,7 +82,7 @@ const Content = () => {
         </UiButton>
         <UiButton>
           <a href="https://blog.ambrosus.io/ambrosus-arcadia-a-complete-guide-to-ambrosus-ecosystems-simple-staking-service-53e9ad6c107d" target="_blank">
-            Read article →
+            Learn more →
           </a>
         </UiButton>
       </section>
@@ -117,7 +117,7 @@ const Content = () => {
             target="_blank"
             href="https://blog.ambrosus.io/ambrosus-arcadia-a-complete-guide-to-ambrosus-ecosystems-simple-staking-service-53e9ad6c107d"
           >
-            Documentation  →
+            Learn more  →
           </a>
         </div>
       </section>
@@ -156,7 +156,7 @@ const Content = () => {
               <a href="https://ambrosus.io/" target="_blank">Ecosystem</a>
             </UiButton>
             <UiButton>
-              <a href="https://gov.ambrosus.io/">Governance forum  →</a>
+              <a href="https://gov.ambrosus.io/">Learn more  →</a>
             </UiButton>
           </div>
         </div>
