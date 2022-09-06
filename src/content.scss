@@ -238,6 +238,7 @@
   padding: 40px 24px;
 
   &--swap {
+    position: relative;
     align-items: flex-start;
     padding: 75px 24px 50px;
     width: -webkit-fill-available;
@@ -374,7 +375,11 @@
 }
 
 .bridge__btn {
-  margin-top: 30px;
+  margin-top: auto;
+
+  @include devices(mobile) {
+    margin-top: 30px;
+  }
 }
 
 .ambassador {
@@ -732,4 +737,16 @@
 
 .timeline__text {
   margin: 20px 0 40px;
+}
+
+.firepot-dex {
+  position: absolute;
+  font-weight: 500;
+  right: 42px;
+  top: 20px;
+  color: #3568DD;
+
+  @include devices(mobile) {
+    right: 20px;
+  }
 }

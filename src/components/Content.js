@@ -56,6 +56,7 @@ const Content = () => {
       <section id="community" className="community community--swap">
         <img className="community__img" src={swap} alt="community"/>
         <div className="community__content community__content--swap">
+          <span className="firepot-dex">DEX</span>
           <img src={firepot} alt="firepot" className="firepot-logo"/>
           <h3 className="swap-title">FirepotSwap</h3>
           <p>Buy the AMB coin <br/> on a Decentralized Exchange</p>
