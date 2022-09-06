@@ -2,6 +2,10 @@
   font-weight: 500;
   padding: 10px 20px;
 
+  a {
+    white-space: nowrap;
+  }
+
   &:hover {
     color: $dark-blue;
 

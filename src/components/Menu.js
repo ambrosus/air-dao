@@ -6,6 +6,7 @@ import { ReactComponent as Reddit } from '../assets/reddit.svg';
 import { ReactComponent as Circles } from '../assets/circles.svg';
 import menu from '../assets/menu.svg';
 import close from '../assets/close.svg';
+import question from '../assets/circle-question-mark.svg';
 import { ReactComponent as Metamask } from '../assets/metamask.svg';
 import { ReactComponent as Copy } from '../assets/copy.svg';
 import { ReactComponent as Logout } from '../assets/logout.svg';
@@ -13,6 +14,7 @@ import { ReactComponent as House } from '../assets/house.svg';
 import { ReactComponent as Docs } from '../assets/docs.svg';
 import { ReactComponent as Message } from '../assets/message-plus.svg';
 import { ReactComponent as Book } from '../assets/book.svg';
+import { ReactComponent as Smile } from '../assets/smile.svg';
 import useAuthorization from "../hooks/useAuthorization";
 import {useWeb3React} from "@web3-react/core";
 
@@ -79,7 +81,7 @@ const Header = () => {
             <img src={isOpen ? close : menu} alt="menu" />
           </button>
         </div>
-        {/*{isOpen && (*/}
+        {isOpen && (
             <>
               <div className="side-menu__content">
                 {address ? (
@@ -95,24 +97,27 @@ const Header = () => {
                 )}
                 <ul className="side-menu__list">
                   <li>
-                    <a href="/firepot/swap">FirepotSwap</a>
+                    <a href="/firepot/swap">
+                      FirepotSwap
+                      <img src={question} alt="question"/>
+                    </a>
                   </li>
                   <li>
                     <a className="side-menu__list-link" href="/staking">
                       Stake
+                      <img src={question} alt="question"/>
                     </a>
                   </li>
                   <li>
                     <a className="side-menu__list-link" href="/bridge">
                       Bridge
+                      <img src={question} alt="question"/>
                     </a>
                   </li>
                   <li>
-                    <a
-                        className="side-menu__list-link"
-                        href="/explorer"
-                    >
+                    <a className="side-menu__list-link" href="/explorer">
                       Network Explorer
+                      <img src={question} alt="question"/>
                     </a>
                   </li>
                   <li className="side-menu__list-vote">
@@ -141,6 +146,10 @@ const Header = () => {
                     <Book />
                     <a href="https://drive.google.com/drive/folders/1oaihzknRMGLKlmTe-7HU5Vx6I_-sQay1?usp=sharing" target="_blank">Brand materials</a>
                   </li>
+                  <li>
+                    <Smile />
+                    <a href="mailto:support@airdao.io ">Team</a>
+                  </li>
                 </ul>
                 <ul className="side-menu__list side-menu__list_socials">
                   <li>
@@ -166,7 +175,7 @@ const Header = () => {
                 </ul>
               </div>
             </>
-        {/*)}*/}
+        )}
       </div>
   );
 };

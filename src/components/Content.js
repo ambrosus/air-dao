@@ -13,7 +13,7 @@ import Contact from './Contact';
 const Content = () => {
   return (
     <div className="content">
-      <section id="about" className="about-us">
+      <div id="about" className="about-us">
         <h1 className="about-us__subtitle">
           The worlds first {' '}
           <br className="about-us__title-br"/>
@@ -28,17 +28,30 @@ const Content = () => {
         <UiButton>
           <a href="https://github.com/ambrosus/" target="_blank">Documentation  →</a>
         </UiButton>
-      </section>
-      <section className="binance">
-        <p className="binance__cex">CEX</p>
-        <img src={binance} alt="binance" />
-        <h3>Trade AMB <br/> coin on Binance</h3>
-        <p className="binance__text">Buy and trade AMB with BUSD or BTC directly on Binance</p>
-        <UiButton withBorder className="binance__btn">
-          <a href="https://accounts.binance.com/en/register?ref=E8NGKMF8" target="_blank">
-            Trade on Binance
-          </a>
-        </UiButton>
+      </div>
+      <section className="content__semi-wrapper binance-wrapper">
+        <div className="binance">
+          <p className="binance__cex">CEX</p>
+          <img src={binance} alt="binance" />
+          <h3>Trade AMB <br/> coin on Binance</h3>
+          <p className="binance__text">Buy and trade AMB with BUSD or BTC directly on Binance</p>
+          <UiButton withBorder className="binance__btn">
+            <a href="https://accounts.binance.com/en/register?ref=E8NGKMF8" target="_blank">
+              Trade on Binance
+            </a>
+          </UiButton>
+        </div>
+        <div className="bridge">
+          <img src={bridge} alt="bridge"/>
+          <h3>The AirDAO Bridge</h3>
+          <p>
+            Securely bridge your AMB coins between BNB Chain or Ethereum
+            networks, or bring liquidity to the Ambrosus Network
+          </p>
+          <UiButton withBorder className="bridge__btn">
+            <a href="/bridge">Use bridge</a>
+          </UiButton>
+        </div>
       </section>
       <section id="community" className="community community--swap">
         <img className="community__img" src={swap} alt="community"/>
@@ -121,17 +134,12 @@ const Content = () => {
           </a>
         </div>
       </section>
-      <section id="bridge" className="content__semi-wrapper">
-        <div className="bridge">
-          <img src={bridge} alt="bridge"/>
-          <h3>The AirDAO Bridge</h3>
-          <p>
-            Securely bridge your AMB coins between BNB Chain or Ethereum
-            networks, or bring liquidity to the Ambrosus Network
-          </p>
-          <UiButton withBorder className="bridge__btn">
-            <a href="/bridge">Use bridge</a>
-          </UiButton>
+      <section id="bridge" className="content__semi-wrapper ambrosus">
+        <div className="timeline">
+          <p className="timeline__title">Q1, Q2, Q3</p>
+          <h3 className="timeline__title-main">“View our timeline”</h3>
+          <p className="timeline__text">text</p>
+          <UiButton withBorder>Read</UiButton>
         </div>
         <div className="ambassador">
           <img src={ambassador} alt="new"/>
@@ -153,7 +161,7 @@ const Content = () => {
               App's centralized dashboard to be designed for speed, security and affordability.
             </p>
             <UiButton withBorder className="ambrosus-content__btn">
-              <a href="https://ambrosus.io/" target="_blank">Ecosystem</a>
+              <a href="https://ambrosus.io/" target="_blank">AMB Ecosystem</a>
             </UiButton>
             <UiButton>
               <a href="https://gov.ambrosus.io/">Learn more  →</a>
