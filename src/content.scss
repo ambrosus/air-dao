@@ -371,6 +371,10 @@
 
   img {
     margin-top: 40px;
+
+    @include devices(mobile) {
+      margin-top: 0;
+    }
   }
 
   h3 {
