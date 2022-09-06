@@ -369,8 +369,12 @@
 .bridge {
   background: linear-gradient(135deg, #E1EBFF 0%, #CBD5E9 100%);
 
+  img {
+    margin-top: 40px;
+  }
+
   h3 {
-    margin: 33px 0 16px;
+    margin: 43px 0 16px;
   }
 }
 
