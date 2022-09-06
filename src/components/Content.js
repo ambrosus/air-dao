@@ -24,9 +24,9 @@ const Content = () => {
           <br className="about-us__br" />
           ecosystem of handy dApps under a single browser tab
         </p>
-        <UiButton withBorder className="about-us__btn">Read Litepaper</UiButton>
+        <UiButton withBorder className="about-us__btn">Enter AirDao</UiButton>
         <UiButton>
-          <a href="https://github.com/ambrosus/" target="_blank">Documentation  →</a>
+          <a href="https://github.com/ambrosus/" target="_blank">Read Litepaper  →</a>
         </UiButton>
       </div>
       <section className="content__semi-wrapper binance-wrapper">
