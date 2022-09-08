@@ -2996,6 +2996,11 @@ agent-base@6:
   dependencies:
     debug "4"
 
+airdao-menu@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.1.0.tgz#1d6b7d9c828029c56bf75419d3205f4b042b70c0"
+  integrity sha512-bqr9raaCH6N2zd8F3LICW5rbQdy8RwdOzwCbx1iaGaY/Y1g+4iR51cjmd/TGSoVAwQfVEn51Fjl4vEkaxWkQ/w==
+
 ajv-formats@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ajv-formats/-/ajv-formats-2.1.1.tgz#6e669400659eb74973bbf2e33327180a0996b520"
