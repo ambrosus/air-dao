@@ -8,12 +8,14 @@ import bridge from '../assets/bridge.svg';
 import binance from '../assets/binance.svg';
 import swap from '../assets/swap.png';
 import firepot from '../assets/firepot.svg';
+import logoSymbol from '../assets/logo-symbol.svg';
 import Contact from './Contact';
 
 const Content = () => {
   return (
     <div className="content">
       <div id="about" className="about-us">
+        <img src={logoSymbol} className={"about-us__logo-symbol"} alt={'logo-symbol'}/>
         <h1 className="about-us__subtitle">
           The worlds first {' '}
           <br className="about-us__title-br"/>

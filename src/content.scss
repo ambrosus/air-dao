@@ -47,6 +47,13 @@
   }
 }
 
+.about-us__logo-symbol {
+  margin-bottom: 45px;
+  @include devices(mobile) {
+    display: none;
+  }
+}
+
 .about-us__title-br {
   @include devices(mobile) {
     display: none;
@@ -62,8 +69,12 @@
 .about-us__subtitle {
   font-family: Mersad, sans-serif;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 64px;
   margin: 24px 0;
+
+  @include devices(mobile) {
+    font-size: 40px;
+  }
 }
 
 .about-us__text {
