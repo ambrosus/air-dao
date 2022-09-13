@@ -27,7 +27,7 @@
       "tokenSymbol": "AMB",
     "tokenDenomination": 18,
 
-    "explorerUrl": "https://explorer.ambrosus.io/",
+    "explorerUrl": "https://airdao.io/explorer/",
       "rpcUrl": "https://network.ambrosus.io/",
       "rpcUrlWS": "wss://network.ambrosus.io/ws"
     }
