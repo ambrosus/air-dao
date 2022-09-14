@@ -757,6 +757,7 @@
 
 .timeline__text {
   margin: 20px 0 40px;
+  text-align: center;
 }
 
 .firepot-dex {
@@ -769,4 +770,8 @@
   @include devices(mobile) {
     right: 20px;
   }
+}
+
+.binance__btn-second {
+  margin-top: 10px;
 }

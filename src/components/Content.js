@@ -17,38 +17,43 @@ const Content = () => {
       <div id="about" className="about-us">
         <img src={logoSymbol} className={"about-us__logo-symbol"} alt={'logo-symbol'}/>
         <h1 className="about-us__subtitle">
-          The worlds first {' '}
-          <br className="about-us__title-br"/>
-          fully integrated L1
+          The World’s First Fully-Integrated Blockchain Experience
         </h1>
         <p className="about-us__text">
-          Running on AMB's L1, the AirDAO Web App is an
-          <br className="about-us__br" />
-          ecosystem of handy dApps under a single browser tab
+          Powered by the Ambrosus Network blockchain and its AMB token, AirDAO is an
+          ecosystem of innovative, user-friendly dApps accessible through a single dashboard.
         </p>
-        <UiButton withBorder className="about-us__btn">Enter AirDao</UiButton>
+        <UiButton withBorder className="about-us__btn">
+          <a href="/bridge" target="_blank">
+            Use Bridge
+          </a>
+        </UiButton>
         <UiButton>
-          <a href="https://github.com/ambrosus/" target="_blank">Read Litepaper  →</a>
+          <a href="/firepot/swap" target="_blank">Swap Tokens  →</a>
         </UiButton>
       </div>
       <section className="content__semi-wrapper binance-wrapper">
         <div className="binance">
           <p className="binance__cex">CEX</p>
           <img src={binance} alt="binance" />
-          <h3>Trade AMB <br/> coin on Binance</h3>
-          <p className="binance__text">Buy and trade AMB with BUSD or BTC directly on Binance</p>
+          <h3>Buy AMB on Binance</h3>
+          <p className="binance__text">Trade AMB on Binance, the world’s largest cryptocurrency exchange.</p>
           <UiButton withBorder className="binance__btn">
-            <a href="https://accounts.binance.com/en/register?ref=E8NGKMF8" target="_blank">
-              Trade on Binance
+            <a href="https://www.binance.com/en/trade/AMB_BUSD" target="_blank">
+              Buy AMB →
+            </a>
+          </UiButton>
+          <UiButton className="binance__btn binance__btn-second">
+            <a href="https://accounts.binance.com/en/register?ref=428083495" target="_blank">
+              Create Binance Account →
             </a>
           </UiButton>
         </div>
         <div className="bridge">
           <img src={bridge} alt="bridge"/>
-          <h3>The AirDAO Bridge</h3>
+          <h3>Bridge AMB</h3>
           <p>
-            Securely bridge your AMB coins between BNB Chain or Ethereum
-            networks, or bring liquidity to the Ambrosus Network
+            Securely bridge AMB between AirDAO and compatible blockchains.
           </p>
           <UiButton withBorder className="bridge__btn">
             <a href="/bridge">Use bridge</a>
@@ -60,33 +65,33 @@ const Content = () => {
         <div className="community__content community__content--swap">
           <span className="firepot-dex">DEX</span>
           <img src={firepot} alt="firepot" className="firepot-logo"/>
-          <h3 className="swap-title">FirepotSwap</h3>
-          <p>Buy the AMB coin <br/> on a Decentralized Exchange</p>
+          <h3 className="swap-title">FirepotSwap.</h3>
+          <p>
+            Buy and trade AMB and other crypto with FirepotSwap,
+            AirDAO’s native decentralized exchange.
+          </p>
           <UiButton withBorder className="swap-btn">
             <a href="/firepot/swap">Use FirepotSwap</a>
           </UiButton>
-          <UiButton>Learn more  →</UiButton>
         </div>
       </section>
       <section id="staking" className="earn">
-        <h3>Earn AMB with staking program</h3>
+        <h3>Stake AMB.</h3>
         <p style={{ marginTop: 15 }}>
-          Join us in securing the Ambrosus network by staking your AMB
-          tokens and earn rewards every 6 hours. Get started today and
-          become a vital part of the AirDAO ecosystem
+          Start earning AMB rewards in seconds using the AirDAO Staking platform.
         </p>
         <div className="earn__list">
           <span className="earn__list-item">
             <img src={check} alt="check"/>
-            <span>Starts from 1000 AMB</span>
+            <span>Starting at 1000 AMB</span>
           </span>
           <span className="earn__list-item">
             <img src={check} alt="check"/>
-            <span>No node manual set up</span>
+            <span>No technical expertise needed</span>
           </span>
           <span className="earn__list-item">
             <img src={check} alt="check"/>
-            <span>Rewards are distributed <br/> every 6 hours</span>
+            <span>Receive rewards every 6 hours</span>
           </span>
           <span className="earn__list-item">
             <img style={{ top: '14px' }} src={check} alt="check"/>
@@ -94,38 +99,35 @@ const Content = () => {
           </span>
         </div>
         <UiButton withBorder className="about-us__btn">
-          <a href="/staking">Start staking</a>
+          <a href="/staking">Start Earning</a>
         </UiButton>
         <UiButton>
           <a href="https://blog.ambrosus.io/ambrosus-arcadia-a-complete-guide-to-ambrosus-ecosystems-simple-staking-service-53e9ad6c107d" target="_blank">
-            Learn more →
+            How it works
           </a>
         </UiButton>
       </section>
       <section id="earn" className="validator">
         <div className="validator-left">
           <div>
-            <p className="validator-left__big">150+</p>
-            <p className="validator-left__small">
-              Total amount {' '}
-              <br className="validator-left__break"/>
-              of Amber Nodes</p>
+            <p className="validator-left__big">15,000+</p>
+            <p className="validator-left__small">Total AMB Holders</p>
           </div>
           <div>
-            <p className="validator-left__big">14,808</p>
-            <p className="validator-left__small">Total amount <br/> of Amber Node Holders</p>
+            <p className="validator-left__big">120+</p>
+            <p className="validator-left__small">
+              Validators
+            </p>
           </div>
         </div>
         <div className="validator-right">
-          <h3>Became a validator to earn AMB</h3>
+          <h3>Become a Validator.</h3>
           <p>
-            Are you thinking of becoming a validator? Here's a step-by-step process on how
-            to easily stake your AMB tokens using our Arcadia Staking platform to start
-            earning rewards of up to 35% APY
+            Earn AMB and help power the AirDAO ecosystem by setting up and operating an Ambrosus Network validator node.
           </p>
           <UiButton withBorder className="validator-right__btn">
-            <a href="https://github.com/ambrosus/community-wiki/wiki/Installation-guides" target="_blank">
-              Setup node
+            <a href="https://github.com/ambrosus/ambrosus-nop" target="_blank">
+              Setup Node →
             </a>
           </UiButton>
           <a
@@ -140,8 +142,8 @@ const Content = () => {
       <section id="bridge" className="content__semi-wrapper ambrosus">
         <div className="timeline">
           <p className="timeline__title">Q1, Q2, Q3</p>
-          <h3 className="timeline__title-main">“View our timeline”</h3>
-          <p className="timeline__text">text</p>
+          <h3 className="timeline__title-main">Roadmap.</h3>
+          <p className="timeline__text">View Roadmap</p>
           <UiButton withBorder>Read</UiButton>
         </div>
         <div className="ambassador">
@@ -150,7 +152,11 @@ const Content = () => {
           <p>
             Do you believe in AirDAO? Join the community and help build the AirDAO ecosystem
           </p>
-          <UiButton className="ambassador__btn">Learn more →</UiButton>
+          <UiButton className="ambassador__btn">
+            <a href="https://air-dao.notion.site/Ambassador-Program-168a4cff7d46414a95887a219c6469cc">
+              Learn more →
+            </a>
+          </UiButton>
         </div>
       </section>
       <section id="network" className="ambrosus">
@@ -158,46 +164,48 @@ const Content = () => {
         <div className="ambrosus-content">
           <img className="ambrosus-content__img" src={amb} alt="ambrosus"/>
           <div>
-            <h3>Ambrosus L1</h3>
+            <h3>Ambrosus Network</h3>
             <p>
-              We are powered by the Ambrosus layer 1 blockchain that allows the AirDAO Web
-              App's centralized dashboard to be designed for speed, security and affordability.
+              AirDAO is powered by the Ambrosus Network, an ultra-secure and
+              lightning-fast Layer-1 blockchain with minimal transactions costs.
             </p>
             <UiButton withBorder className="ambrosus-content__btn">
-              <a href="https://ambrosus.io/" target="_blank">AMB Ecosystem</a>
-            </UiButton>
-            <UiButton>
-              <a href="https://gov.ambrosus.io/">Learn more  →</a>
+              <a href="https://ambrosus.io/" target="_blank">AMB Technology</a>
             </UiButton>
           </div>
         </div>
       </section>
       <div className="community-mobile">
-        <h3>AirDAO community</h3>
+        <h3>Community</h3>
         <p>
-          We are a group of passionate individuals and builders across the globe
-          who are committed to supporting you in your journey in the blockchain world.
-          Whether you have questions about AirDAO, crypto, or DeFi, we're here to help.
-          So join us, and let's build amazing things together
+          The AirDAO community is the foundation of supporters, contributors
+          and developers supporting the ecosystem. Join the discussion, follow
+          us on social media, and become a part of the AirDAO community today.
         </p>
       </div>
       <section id="community" className="community">
         <img className="community__img" src={community} alt="community"/>
         <div className="community__content community__content_low">
-          <h3>AirDAO community</h3>
+          <h3>Community</h3>
           <p>
-            We are a group of passionate individuals and builders across the globe who
-            are committed to supporting you in your journey in the blockchain world.
-            Whether you have questions about AirDAO, crypto, or DeFi, we're here to help.
-            So join us, and let's build amazing things together
+            The AirDAO community is the foundation of supporters, contributors
+            and developers supporting the ecosystem. Join the discussion, follow
+            us on social media, and become a part of the AirDAO community today.
           </p>
           <a className="community__link" href="https://twitter.com/airdao_io" target="_blank">
             Twitter →
           </a>
-          <a className="community__link" href="">Telegram →</a>
-          <a className="community__link" href="">Medium →</a>
+          <a className="community__link" href="https://t.me/airDAO_official" target="_blank">
+            Telegram →
+          </a>
+          <a className="community__link" href="https://blog.airdao.io" target="_blank">
+            Medium →
+          </a>
           <a className="community__link" href="https://www.reddit.com/r/AirDAO/" target="_blank">
             Reddit →
+          </a>
+          <a className="community__link" href="https://gov.airdao.io" target="_blank">
+            Discussion →
           </a>
         </div>
       </section>
