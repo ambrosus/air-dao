@@ -29,7 +29,7 @@ const Content = () => {
           </a>
         </UiButton>
         <UiButton withBorder>
-          <a href="/firepot/swap" target="_blank">Swap Tokens  →</a>
+          <a href="/firepot/swap" target="_blank">Swap Tokens</a>
         </UiButton>
       </div>
       <section className="content__semi-wrapper binance-wrapper">
