@@ -28,7 +28,7 @@ const Content = () => {
             Use Bridge
           </a>
         </UiButton>
-        <UiButton>
+        <UiButton withBorder>
           <a href="/firepot/swap" target="_blank">Swap Tokens  →</a>
         </UiButton>
       </div>
@@ -38,7 +38,7 @@ const Content = () => {
           <img src={binance} alt="binance" />
           <h3>Buy AMB on Binance</h3>
           <p className="binance__text">Trade AMB on Binance, the world’s largest cryptocurrency exchange.</p>
-          <UiButton withBorder className="binance__btn">
+          <UiButton withBorder className="binance__btn binance__btn-first">
             <a href="https://www.binance.com/en/trade/AMB_BUSD" target="_blank">
               Buy AMB →
             </a>
@@ -65,7 +65,7 @@ const Content = () => {
         <div className="community__content community__content--swap">
           <span className="firepot-dex">DEX</span>
           <img src={firepot} alt="firepot" className="firepot-logo"/>
-          <h3 className="swap-title">FirepotSwap.</h3>
+          <h3 className="swap-title">FirepotSwap</h3>
           <p>
             Buy and trade AMB and other crypto with FirepotSwap,
             AirDAO’s native decentralized exchange.
@@ -76,7 +76,7 @@ const Content = () => {
         </div>
       </section>
       <section id="staking" className="earn">
-        <h3>Stake AMB.</h3>
+        <h3>Stake AMB</h3>
         <p style={{ marginTop: 15 }}>
           Start earning AMB rewards in seconds using the AirDAO Staking platform.
         </p>
@@ -103,7 +103,7 @@ const Content = () => {
         </UiButton>
         <UiButton>
           <a href="https://blog.ambrosus.io/ambrosus-arcadia-a-complete-guide-to-ambrosus-ecosystems-simple-staking-service-53e9ad6c107d" target="_blank">
-            How it works
+            How it works →
           </a>
         </UiButton>
       </section>
@@ -121,7 +121,7 @@ const Content = () => {
           </div>
         </div>
         <div className="validator-right">
-          <h3>Become a Validator.</h3>
+          <h3>Become a Validator</h3>
           <p>
             Earn AMB and help power the AirDAO ecosystem by setting up and operating an Ambrosus Network validator node.
           </p>
@@ -130,21 +130,14 @@ const Content = () => {
               Setup Node →
             </a>
           </UiButton>
-          <a
-            style={{fontSize: 14}}
-            target="_blank"
-            href="https://blog.ambrosus.io/ambrosus-arcadia-a-complete-guide-to-ambrosus-ecosystems-simple-staking-service-53e9ad6c107d"
-          >
-            Learn more  →
-          </a>
         </div>
       </section>
       <section id="bridge" className="content__semi-wrapper ambrosus">
         <div className="timeline">
           <p className="timeline__title">Q1, Q2, Q3</p>
-          <h3 className="timeline__title-main">Roadmap.</h3>
+          <h3 className="timeline__title-main">Roadmap</h3>
           <p className="timeline__text">View Roadmap</p>
-          <UiButton withBorder>Read</UiButton>
+          <UiButton withBorder>Read →</UiButton>
         </div>
         <div className="ambassador">
           <img src={ambassador} alt="new"/>
