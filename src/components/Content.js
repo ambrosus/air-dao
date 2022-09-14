@@ -8,6 +8,7 @@ import bridge from '../assets/bridge.svg';
 import binance from '../assets/binance.svg';
 import swap from '../assets/swap.png';
 import firepot from '../assets/firepot.svg';
+import roadmap from '../assets/roadmap.svg';
 import logoSymbol from '../assets/logo-symbol.svg';
 import Contact from './Contact';
 
@@ -91,7 +92,7 @@ const Content = () => {
           </span>
           <span className="earn__list-item">
             <img src={check} alt="check"/>
-            <span>Receive rewards every 6 hours</span>
+            <span>Receive rewards <br/> every 6 hours</span>
           </span>
           <span className="earn__list-item">
             <img style={{ top: '14px' }} src={check} alt="check"/>
@@ -134,7 +135,7 @@ const Content = () => {
       </section>
       <section id="bridge" className="content__semi-wrapper ambrosus">
         <div className="timeline">
-          <p className="timeline__title">Q1, Q2, Q3</p>
+          <img className="timeline__img" src={roadmap} alt="roadmap"/>
           <h3 className="timeline__title-main">Roadmap</h3>
           <p className="timeline__text">View Roadmap</p>
           <UiButton withBorder>Read →</UiButton>
@@ -197,7 +198,7 @@ const Content = () => {
           <a className="community__link" href="https://www.reddit.com/r/AirDAO/" target="_blank">
             Reddit →
           </a>
-          <a className="community__link" href="https://gov.airdao.io" target="_blank">
+          <a className="community__link" href="https://discussions.airdao.io/" target="_blank">
             Discussion →
           </a>
         </div>
