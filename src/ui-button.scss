@@ -4,10 +4,10 @@
 
   a {
     white-space: nowrap;
+  }
 
-    &:hover {
-      text-decoration: none;
-    }
+  a:focus, a:active {
+    text-decoration: none;
   }
 
   &:hover {

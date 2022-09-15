@@ -25,12 +25,12 @@ const Content = () => {
           ecosystem of innovative, user-friendly dApps accessible through a single dashboard.
         </p>
         <UiButton withBorder className="about-us__btn">
-          <a href="/bridge" target="_blank">
-            Use Bridge
-          </a>
+          <a href="/firepot/swap">Trade AMB on Firepot</a>
         </UiButton>
         <UiButton withBorder>
-          <a href="/firepot/swap" target="_blank">Swap Tokens</a>
+          <a href="/bridge">
+            AMB Bridge
+          </a>
         </UiButton>
       </div>
       <section className="content__semi-wrapper binance-wrapper">
@@ -41,7 +41,7 @@ const Content = () => {
           <p className="binance__text">Trade AMB on Binance, the world’s largest cryptocurrency exchange.</p>
           <UiButton withBorder className="binance__btn binance__btn-first">
             <a href="https://www.binance.com/en/trade/AMB_BUSD" target="_blank">
-              Buy AMB →
+              Buy AMB
             </a>
           </UiButton>
           <UiButton className="binance__btn binance__btn-second">
@@ -57,7 +57,9 @@ const Content = () => {
             Securely bridge AMB between AirDAO and compatible blockchains.
           </p>
           <UiButton withBorder className="bridge__btn">
-            <a href="/bridge">Use bridge</a>
+            <a href="/bridge">
+              AMB Bridge
+            </a>
           </UiButton>
         </div>
       </section>
@@ -128,7 +130,7 @@ const Content = () => {
           </p>
           <UiButton withBorder className="validator-right__btn">
             <a href="https://github.com/ambrosus/ambrosus-nop" target="_blank">
-              Setup Node →
+              Setup Node
             </a>
           </UiButton>
         </div>
@@ -137,14 +139,18 @@ const Content = () => {
         <div className="timeline">
           <img className="timeline__img" src={roadmap} alt="roadmap"/>
           <h3 className="timeline__title-main">Roadmap</h3>
-          <p className="timeline__text">View Roadmap</p>
-          <UiButton withBorder>Read →</UiButton>
+          <p className="timeline__text">Discover future developments <br/> and user-friendly DeFi products.</p>
+          <UiButton withBorder>
+            <a href="https://air-dao.notion.site/Roadmap-ded5934b02244bdca65af75ce82fe0aa" target="_blank">
+              Read →
+            </a>
+          </UiButton>
         </div>
         <div className="ambassador">
           <img src={ambassador} alt="new"/>
           <h3>Ambassador Program</h3>
           <p>
-            Do you believe in AirDAO? Join the community and help build the AirDAO ecosystem
+            Do you believe in AirDAO?<br/>Join the community and help <br/> build the ecosystem.
           </p>
           <UiButton className="ambassador__btn">
             <a href="https://air-dao.notion.site/Ambassador-Program-168a4cff7d46414a95887a219c6469cc">
