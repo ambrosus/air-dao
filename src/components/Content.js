@@ -142,7 +142,7 @@ const Content = () => {
           <p className="timeline__text">Discover future developments <br/> and user-friendly DeFi products.</p>
           <UiButton withBorder>
             <a href="https://air-dao.notion.site/Roadmap-ded5934b02244bdca65af75ce82fe0aa" target="_blank">
-              Read →
+              Read
             </a>
           </UiButton>
         </div>
