@@ -18,7 +18,8 @@ const Content = () => {
       <div id="about" className="about-us">
         <img src={logoSymbol} className={"about-us__logo-symbol"} alt={'logo-symbol'}/>
         <h1 className="about-us__subtitle">
-          The World’s First Fully-Integrated Blockchain Experience
+          Your Gateway to <br />
+          Decentralized Finance
         </h1>
         <p className="about-us__text">
           Powered by the Ambrosus Network blockchain and its AMB token, AirDAO is an
