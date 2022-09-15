@@ -204,7 +204,7 @@ const Content = () => {
           <a className="community__link" href="https://www.reddit.com/r/AirDAO/" target="_blank">
             Reddit →
           </a>
-          <a className="community__link" href="https://discussions.airdao.io/" target="_blank">
+          <a className="community__link" href="http://community.airdao.io/" target="_blank">
             Discussion →
           </a>
         </div>
