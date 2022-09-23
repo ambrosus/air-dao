@@ -2,8 +2,9 @@ import UiButton from './UiButton';
 import contact from '../assets/contact.png';
 import {useState} from 'react';
 import thumb from '../assets/thumb.svg';
+import {PrismicText} from "@prismicio/react";
 
-const Contact = () => {
+const Contact = ({heading, leadText}) => {
   const [status, setStatus] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -79,10 +80,11 @@ const Contact = () => {
         </div>
       ) : (
         <div className="contact-content">
-          <h3>Contact Us</h3>
+          <h3>
+            <PrismicText field={heading} />
+          </h3>
           <p>
-            The future is ours to build together. If you have ideas or
-            opportunities that you’d like to share with us, don’t hesitate to reach out today.
+            <PrismicText field={leadText} />
           </p>
           <form onSubmit={onSubmit}>
             <div style={{position: 'relative', margin: '20px 0'}}>
