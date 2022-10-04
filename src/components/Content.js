@@ -36,6 +36,7 @@ const Content = () => {
   const data = usePrismicPageData('homepage');
 
   const groupedPartners = useMemo(() => {
+    console.log('test');
     if (data) {
       return groupArr(data.partners_link, 6);
     } else return [];
