@@ -792,3 +792,78 @@
 .timeline__img {
   margin: 50px 0 30px;
 }
+
+.partners-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.partners-list__item {
+  margin-right: 38px;
+  margin-bottom: 30px;
+
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+.partners-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.partners-mobile-list-item {
+  display: flex!important;
+  flex-wrap: wrap;
+
+  & > a {
+    margin-right: 0;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.slick-prev, .slick-next {
+  width: 33px;
+  height: 33px;
+  border-left: 2px solid #1D1D1D;
+  border-top: 2px solid #1D1D1D;
+  background: transparent;
+  top: 90px;
+
+  &:before, &:after {
+    content: '';
+  }
+}
+
+.slick-prev {
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.slick-next {
+  right: 0;
+  transform: rotate(135deg);
+}
+
+.slick-list {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.slick-dots li button:before {
+  width: 12px;
+  height: 12px;
+  content: '';
+  border-radius: 50%;
+  background: #A2B2D8;
+}
+
+.partners {
+  margin-top: 100px;
+
+  @include media(555px) {
+    margin-top: 110px;
+  }
+}
