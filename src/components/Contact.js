@@ -1,10 +1,10 @@
 import UiButton from './UiButton';
 import contact from '../assets/contact.png';
-import {useState} from 'react';
+import { useState } from 'react';
 import thumb from '../assets/thumb.svg';
-import {PrismicText} from "@prismicio/react";
+import { PrismicText } from '@prismicio/react';
 
-const Contact = ({heading, leadText}) => {
+const Contact = ({ heading, leadText }) => {
   const [status, setStatus] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -25,7 +25,7 @@ const Contact = ({heading, leadText}) => {
   const handleErrors = (fieldName, isError) => {
     setErrors((state) => ({
       ...state,
-        [fieldName]: isError,
+      [fieldName]: isError,
     }));
   };
 
@@ -37,9 +37,9 @@ const Contact = ({heading, leadText}) => {
     Object.keys(formData).forEach((fieldName) => {
       if (!formData[fieldName]) {
         handleErrors(fieldName, true);
-        isError = true
+        isError = true;
       }
-    })
+    });
 
     if (isError) return;
 
@@ -48,10 +48,10 @@ const Contact = ({heading, leadText}) => {
       {
         method: 'POST',
         body: JSON.stringify(formData),
-      },
+      }
     ).then((res) => res.status);
 
-    if(res < 400) {
+    if (res < 400) {
       setFormData({
         name: '',
         email: '',
@@ -60,26 +60,23 @@ const Contact = ({heading, leadText}) => {
       });
       setStatus(true);
     }
-  }
+  };
 
   const closeSuccess = () => setStatus(false);
 
   return (
-    <section id="contact" className="contact">
+    <section id='contact' className='contact'>
       {status ? (
-        <div className="contact__success contact-content">
-          <img src={thumb} alt="thumb up"/>
+        <div className='contact__success contact-content'>
+          <img src={thumb} alt='thumb up' />
           <h3>Message sent</h3>
           <p>Thank you, we will get back to you</p>
-          <UiButton
-            withBorder
-            onClick={closeSuccess}
-          >
+          <UiButton withBorder onClick={closeSuccess}>
             Send one more message
           </UiButton>
         </div>
       ) : (
-        <div className="contact-content">
+        <div className='contact-content'>
           <h3>
             <PrismicText field={heading} />
           </h3>
@@ -87,48 +84,66 @@ const Contact = ({heading, leadText}) => {
             <PrismicText field={leadText} />
           </p>
           <form onSubmit={onSubmit}>
-            <div style={{position: 'relative', margin: '20px 0'}}>
+            <div style={{ position: 'relative', margin: '20px 0' }}>
               <input
-                className={`contact-content__input${errors.name ? ' contact-content__input_error' : ''}`}
-                type="text"
-                placeholder="Your name"
+                className={`contact-content__input${
+                  errors.name ? ' contact-content__input_error' : ''
+                }`}
+                type='text'
+                placeholder='Your name'
                 onChange={setField.bind(this, 'name')}
                 value={formData.name}
               />
-              {errors.name && <p className="error-message">Please fill out the field</p>}
+              {errors.name && (
+                <p className='error-message'>Please fill out the field</p>
+              )}
             </div>
-            <div style={{position: 'relative'}}>
+            <div style={{ position: 'relative' }}>
               <input
-                className={`contact-content__input${errors.email ? ' contact-content__input_error' : ''}`}
-                type="email"
-                placeholder="Email"
+                className={`contact-content__input${
+                  errors.email ? ' contact-content__input_error' : ''
+                }`}
+                type='email'
+                placeholder='Email'
                 onChange={setField.bind(this, 'email')}
                 value={formData.email}
               />
-              {errors.email && <p className="error-message">Please fill out the field</p>}
+              {errors.email && (
+                <p className='error-message'>Please fill out the field</p>
+              )}
             </div>
-            <div style={{position: 'relative'}}>
+            <div className='contact-content__topic'>
+              <label>
+                Category
+                <select>
+                  <option value='1'>One</option>
+                  <option value='2'>Two</option>
+                  <option value='3'>Three</option>
+                </select>
+              </label>
+            </div>
+            <div style={{ position: 'relative' }}>
               <textarea
                 rows={4}
-                className={`contact-content__input contact-content__input_third${errors.message ? ' contact-content__input_error' : ''}`}
-                placeholder="Your message"
+                className={`contact-content__input contact-content__input_third${
+                  errors.message ? ' contact-content__input_error' : ''
+                }`}
+                placeholder='Your message'
                 onChange={setField.bind(this, 'message')}
                 value={formData.message}
               />
-              {errors.message && <p className="error-message">Please fill out the field</p>}
+              {errors.message && (
+                <p className='error-message'>Please fill out the field</p>
+              )}
             </div>
-            <UiButton
-              type="submit"
-              withBorder
-              className="contact-content__btn"
-            >
+            <UiButton type='submit' withBorder className='contact-content__btn'>
               Submit
             </UiButton>
           </form>
         </div>
       )}
-      <div className="contact__img">
-        <img src={contact} alt="contact"/>
+      <div className='contact__img'>
+        <img src={contact} alt='contact' />
       </div>
     </section>
   );
