@@ -5,12 +5,17 @@ import thumb from '../assets/thumb.svg';
 import { PrismicText } from '@prismicio/react';
 import SmallArrowUp from '../assets/images/Arrows/SmallArrowUp';
 import SmallArrowDown from '../assets/images/Arrows/SmallArrowDown';
+import { useRef } from 'react';
+import { useOnClickOutside } from '../hooks/useOnClickOutside';
 
 const Contact = ({ heading, leadText }) => {
   const baseUrl = process.env.REACT_APP_ZAPPIER_HOOK;
 
   const [status, setStatus] = useState(false);
   const [isDropDawn, setIsDropDawn] = useState(false);
+
+  const menuRef = useRef(null);
+  useOnClickOutside(menuRef, () => setIsDropDawn(false));
 
   const [formData, setFormData] = useState({
     name: '',
@@ -118,25 +123,35 @@ const Contact = ({ heading, leadText }) => {
               )}
             </div>
             <div className='contact-content__topic'>
-              <span
+              <div
+                style={{
+                  display: 'flex',
+
+                  flexGrow: 1,
+                  justifyContent: 'space-between',
+                }}
                 onClick={() => setIsDropDawn((prev) => !prev)}
-              >{`Category: ${formData.category}`}</span>
-              <span onClick={() => setIsDropDawn((prev) => !prev)}>
-                {isDropDawn ? <SmallArrowDown /> : <SmallArrowUp />}
-              </span>
+              >
+                <span>{`Category: ${formData.category}`}</span>
+                <span>
+                  {isDropDawn ? <SmallArrowDown /> : <SmallArrowUp />}
+                </span>
+              </div>
               {isDropDawn && (
-                <ul
-                  className='contact-content__topic-select'
-                  onClick={(e) => {
-                    setField('category', e.target.innerText);
-                    setIsDropDawn(false);
-                  }}
-                >
-                  <li>Tech support</li>
-                  <li>Business development</li>
-                  <li>Marketing and Press</li>
-                  <li>Other</li>
-                </ul>
+                <div className='contact-content__topic-select'>
+                  <ul
+                    onClick={(e) => {
+                      setField('category', e.target.innerText);
+                      setIsDropDawn(false);
+                    }}
+                    ref={menuRef}
+                  >
+                    <li>Tech support</li>
+                    <li>Business development</li>
+                    <li>Marketing and Press</li>
+                    <li>Other</li>
+                  </ul>
+                </div>
               )}
             </div>
             <div style={{ position: 'relative' }}>
