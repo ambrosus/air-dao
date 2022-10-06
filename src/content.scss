@@ -167,7 +167,7 @@
 .earn {
   padding: 40px 24px;
   border-radius: 24px;
-  background: linear-gradient(135deg, #E1EBFF 0%, #CBD5E9 100%);
+  background: linear-gradient(135deg, #e1ebff 0%, #cbd5e9 100%);
   width: 80%;
 
   @include media(1140px) {
@@ -335,7 +335,7 @@
   border-radius: 24px;
   padding: 40px 36px;
   position: relative;
-  background: linear-gradient(135deg, #1D1D1D 0%, #0E0E0E 100%);
+  background: linear-gradient(135deg, #1d1d1d 0%, #0e0e0e 100%);
 
   @include devices(mobile) {
     flex-direction: column;
@@ -358,7 +358,10 @@
     margin-bottom: 24px;
   }
 
-  h3, p, button, a {
+  h3,
+  p,
+  button,
+  a {
     color: white;
   }
 }
@@ -377,7 +380,8 @@
   }
 }
 
-.bridge, .ambassador {
+.bridge,
+.ambassador {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -387,7 +391,7 @@
 }
 
 .bridge {
-  background: linear-gradient(135deg, #E1EBFF 0%, #CBD5E9 100%);
+  background: linear-gradient(135deg, #e1ebff 0%, #cbd5e9 100%);
 
   img {
     margin-top: 40px;
@@ -411,7 +415,7 @@
 }
 
 .ambassador {
-  border: 2px solid #99B4D8;
+  border: 2px solid #99b4d8;
   background: #fff;
 
   h3 {
@@ -440,7 +444,7 @@
   border-radius: 24px 0 0 24px;
   border: 2px solid $black;
   background: white;
-  padding: 50px 33px 40px;
+  padding: 50px 33px 30px 54px;
   text-align: center;
   width: calc(100% - 320px);
   z-index: 1;
@@ -468,7 +472,7 @@
   position: relative;
 
   &_error {
-    border-color: #E07777;
+    border-color: #e07777;
   }
 
   &_third {
@@ -481,26 +485,68 @@
     font-family: Inter, sans-serif;
   }
   &_error::placeholder {
-    color: #E07777;
+    color: #e07777;
   }
   &:hover {
     border-color: $dark-blue;
 
     &::placeholder {
-      color: #0E0E0E;
+      color: #0e0e0e;
     }
   }
   &:active {
-    border-color: #0E0E0E;
+    border-color: #0e0e0e;
 
     &::placeholder {
-      color: #0E0E0E;
+      color: #0e0e0e;
     }
   }
 }
 
 .contact-content__btn {
   margin-top: 45px;
+}
+
+.contact-content__topic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  position: relative;
+  cursor: pointer;
+
+  &-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    position: absolute;
+    width: 416px;
+    // height: 155px;
+
+    right: 0;
+    top: 20px;
+    padding: 18px 0;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+    color: #000000;
+    z-index: 1000;
+    cursor: pointer;
+
+    background: #ffffff;
+    border: 1px solid #a2b2d8;
+    box-shadow: 4px 8px 8px rgba(53, 104, 221, 0.23);
+    border-radius: 16px;
+
+    & > li:hover {
+      color: #3568dd;
+    }
+  }
+}
+select {
 }
 
 .contact__img {
@@ -557,7 +603,7 @@
     width: 85%;
 
     div {
-      margin-bottom: 0!important;
+      margin-bottom: 0 !important;
     }
   }
 
@@ -575,7 +621,7 @@
       text-align: center;
 
       &:first-child {
-        margin-bottom: 36px!important;
+        margin-bottom: 36px !important;
         margin-left: 0;
       }
     }
@@ -607,7 +653,7 @@
 .validator-right {
   box-sizing: border-box;
   max-width: 480px;
-  background: linear-gradient(135deg, #E1EBFF 0%, #CBD5E9 100%);
+  background: linear-gradient(135deg, #e1ebff 0%, #cbd5e9 100%);
   padding: 40px 60px 40px 34px;
   border-radius: 24px;
 
@@ -645,7 +691,7 @@
 
 .binance {
   box-sizing: border-box;
-  background: linear-gradient(135deg, #1D1D1D 0%, #0E0E0E 100%);
+  background: linear-gradient(135deg, #1d1d1d 0%, #0e0e0e 100%);
   border-radius: 24px;
   padding: 24px 42px 44px 24px;
 
@@ -662,7 +708,9 @@
     margin-top: 35px;
   }
 
-  p, h3, button {
+  p,
+  h3,
+  button {
     color: white;
   }
 }
@@ -691,7 +739,8 @@
   box-sizing: border-box;
 
   @include devices(mobile) {
-    h3, p {
+    h3,
+    p {
       display: block;
     }
     img {
@@ -700,7 +749,7 @@
 
     .community__content {
       display: flex;
-      margin: 0 20px!important;
+      margin: 0 20px !important;
       flex-direction: column;
       align-items: center;
       border-radius: 24px;
@@ -718,13 +767,13 @@
   display: none;
 
   @include devices(mobile) {
-    display: block!important;
+    display: block !important;
     margin-bottom: 30px;
   }
 }
 
 .firepot-img {
-  background-image: url("./assets/firepot.svg");
+  background-image: url('./assets/firepot.svg');
 }
 
 .swap-btn {
@@ -741,14 +790,14 @@
   border-radius: 24px;
   padding: 24px;
   background: #fff;
-  border: 2px solid #A2B2D8;
+  border: 2px solid #a2b2d8;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .timeline__title {
-  color: #A2B2D8;
+  color: #a2b2d8;
   font-size: 48px;
   margin-bottom: 20px;
   margin-top: 30px;
@@ -773,7 +822,7 @@
   font-weight: 500;
   right: 42px;
   top: 20px;
-  color: #3568DD;
+  color: #3568dd;
 
   @include devices(mobile) {
     right: 20px;

@@ -13,34 +13,9 @@ import logoSymbol from '../assets/logo-symbol.svg';
 import Contact from './Contact';
 import {usePrismicPageData} from "../hooks/usePrismicPageData";
 import {PrismicText} from "@prismicio/react";
-import Slider from 'react-slick';
-import {useMemo} from 'react';
-
-const groupArr = (data, n) => {
-  const group = [];
-  for (let i = 0, j = 0; i < data.length; i++) {
-    if (i >= n && i % n === 0) {
-      j++;
-    }
-    group[j] = group[j] || [];
-    group[j].push(data[i])
-  }
-  return group;
-}
-const settings = {
-  dots: true,
-  infinite: true,
-};
 
 const Content = () => {
   const data = usePrismicPageData('homepage');
-
-  const groupedPartners = useMemo(() => {
-    console.log('test');
-    if (data) {
-      return groupArr(data.partners_link, 6);
-    } else return [];
-  }, [data])
 
   return data && (
     <div className="content">
@@ -239,40 +214,6 @@ const Content = () => {
         </div>
       </section>
       <Contact heading={data.contact_heading} leadText={data.contact_lead_text} />
-      <section className="partners">
-        <h3 className="partners-title">
-          <PrismicText field={data.partners_heading} />
-        </h3>
-        {window.innerWidth > 555 ? (
-          <div className="partners-list">
-            {data.partners_link.map((el) => (
-              <a
-                className="partners-list__item"
-                href={el.partners_link_href.url}
-                target={el.partners_link_href.target}
-              >
-                <img src={el.partners_logo.url} alt={el.partners_logo.alt}/>
-              </a>
-            ))}
-          </div>
-        ) : (
-          <Slider {...settings}>
-            {groupedPartners.map((el) => (
-              <div className="partners-mobile-list-item">
-                {el.map((item) => (
-                  <a
-                    className="partners-list__item"
-                    href={item.partners_link_href.url}
-                    target={item.partners_link_href.target}
-                  >
-                    <img src={item.partners_logo.url} alt={item.partners_logo.alt}/>
-                  </a>
-                ))}
-              </div>
-            ))}
-          </Slider>
-        )}
-      </section>
     </div>
   );
 };
