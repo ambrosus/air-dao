@@ -444,7 +444,7 @@
   border-radius: 24px 0 0 24px;
   border: 2px solid $black;
   background: white;
-  padding: 50px 33px 40px;
+  padding: 50px 33px 30px 54px;
   text-align: center;
   width: calc(100% - 320px);
   z-index: 1;
@@ -508,6 +508,45 @@
 }
 
 .contact-content__topic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  position: relative;
+  cursor: pointer;
+
+  &-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    position: absolute;
+    width: 416px;
+    // height: 155px;
+
+    right: 0;
+    top: 20px;
+    padding: 18px 0;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+    color: #000000;
+    z-index: 1000;
+    cursor: pointer;
+
+    background: #ffffff;
+    border: 1px solid #a2b2d8;
+    box-shadow: 4px 8px 8px rgba(53, 104, 221, 0.23);
+    border-radius: 16px;
+
+    & > li:hover {
+      color: #3568dd;
+    }
+  }
+}
+select {
 }
 
 .contact__img {

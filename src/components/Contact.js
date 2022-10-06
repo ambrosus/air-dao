@@ -3,22 +3,29 @@ import contact from '../assets/contact.png';
 import { useState } from 'react';
 import thumb from '../assets/thumb.svg';
 import { PrismicText } from '@prismicio/react';
+import SmallArrowUp from '../assets/images/Arrows/SmallArrowUp';
+import SmallArrowDown from '../assets/images/Arrows/SmallArrowDown';
 
 const Contact = ({ heading, leadText }) => {
+  const baseUrl = process.env.REACT_APP_ZAPPIER_HOOK;
+
   const [status, setStatus] = useState(false);
+  const [isDropDawn, setIsDropDawn] = useState(false);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    category: 'Tech support',
     message: '',
     page: window.location.href,
   });
   const [errors, setErrors] = useState({});
 
-  const setField = (field, e) => {
+  const setField = (field, value) => {
     handleErrors(field, false);
     setFormData({
       ...formData,
-      [field]: e.target.value,
+      [field]: value,
     });
   };
 
@@ -43,19 +50,17 @@ const Contact = ({ heading, leadText }) => {
 
     if (isError) return;
 
-    const res = await fetch(
-      'https://hooks.zapier.com/hooks/catch/11186117/bdbj4w9',
-      {
-        method: 'POST',
-        body: JSON.stringify(formData),
-      }
-    ).then((res) => res.status);
+    const res = await fetch(baseUrl, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    }).then((res) => res.status);
 
     if (res < 400) {
       setFormData({
         name: '',
         email: '',
         message: '',
+        category: 'Tech support',
         page: '',
       });
       setStatus(true);
@@ -91,7 +96,7 @@ const Contact = ({ heading, leadText }) => {
                 }`}
                 type='text'
                 placeholder='Your name'
-                onChange={setField.bind(this, 'name')}
+                onChange={(e) => setField('name', e.target.value)}
                 value={formData.name}
               />
               {errors.name && (
@@ -105,7 +110,7 @@ const Contact = ({ heading, leadText }) => {
                 }`}
                 type='email'
                 placeholder='Email'
-                onChange={setField.bind(this, 'email')}
+                onChange={(e) => setField('email', e.target.value)}
                 value={formData.email}
               />
               {errors.email && (
@@ -113,14 +118,26 @@ const Contact = ({ heading, leadText }) => {
               )}
             </div>
             <div className='contact-content__topic'>
-              <label>
-                Category
-                <select>
-                  <option value='1'>One</option>
-                  <option value='2'>Two</option>
-                  <option value='3'>Three</option>
-                </select>
-              </label>
+              <span
+                onClick={() => setIsDropDawn((prev) => !prev)}
+              >{`Category: ${formData.category}`}</span>
+              <span onClick={() => setIsDropDawn((prev) => !prev)}>
+                {isDropDawn ? <SmallArrowDown /> : <SmallArrowUp />}
+              </span>
+              {isDropDawn && (
+                <ul
+                  className='contact-content__topic-select'
+                  onClick={(e) => {
+                    setField('category', e.target.innerText);
+                    setIsDropDawn(false);
+                  }}
+                >
+                  <li>Tech support</li>
+                  <li>Business development</li>
+                  <li>Marketing and Press</li>
+                  <li>Other</li>
+                </ul>
+              )}
             </div>
             <div style={{ position: 'relative' }}>
               <textarea
@@ -129,15 +146,16 @@ const Contact = ({ heading, leadText }) => {
                   errors.message ? ' contact-content__input_error' : ''
                 }`}
                 placeholder='Your message'
-                onChange={setField.bind(this, 'message')}
+                onChange={(e) => setField('message', e.target.value)}
                 value={formData.message}
+                style={{ marginTop: 30 }}
               />
               {errors.message && (
                 <p className='error-message'>Please fill out the field</p>
               )}
             </div>
             <UiButton type='submit' withBorder className='contact-content__btn'>
-              Submit
+              Send
             </UiButton>
           </form>
         </div>
