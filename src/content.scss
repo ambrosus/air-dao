@@ -514,19 +514,16 @@
   margin-top: 20px;
   position: relative;
   cursor: pointer;
+  height: 20px;
 
   &-select {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
+    padding: 18px 0;
     position: absolute;
     width: 416px;
     // height: 155px;
 
     right: 0;
     top: 20px;
-    padding: 18px 0;
 
     font-weight: 400;
     font-size: 14px;
@@ -541,7 +538,14 @@
     box-shadow: 4px 8px 8px rgba(53, 104, 221, 0.23);
     border-radius: 16px;
 
-    & > li:hover {
+    & > ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    & > ul > li:hover {
       color: #3568dd;
     }
   }
@@ -862,7 +866,7 @@ select {
 }
 
 .partners-mobile-list-item {
-  display: flex!important;
+  display: flex !important;
   flex-wrap: wrap;
 
   & > a {
@@ -873,15 +877,17 @@ select {
   }
 }
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
   width: 33px;
   height: 33px;
-  border-left: 2px solid #1D1D1D;
-  border-top: 2px solid #1D1D1D;
+  border-left: 2px solid #1d1d1d;
+  border-top: 2px solid #1d1d1d;
   background: transparent;
   top: 90px;
 
-  &:before, &:after {
+  &:before,
+  &:after {
     content: '';
   }
 }
@@ -906,7 +912,7 @@ select {
   height: 12px;
   content: '';
   border-radius: 50%;
-  background: #A2B2D8;
+  background: #a2b2d8;
 }
 
 .partners {
