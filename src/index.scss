@@ -15,8 +15,6 @@ body {
 }
 
 .background {
-  object-fit: cover;
-  width: 90%;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -24,7 +22,7 @@ body {
   z-index: -1;
 
   @include devices(mobile) {
-    left: 40%;
+    left: 30%;
   }
 }
 
