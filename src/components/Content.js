@@ -157,9 +157,9 @@ const Content = () => {
           <p>
             <PrismicText field={data.validator_lead_text} />
           </p>
-          <UiButton withBorder className="validator-right__btn">
+          <UiButton className="validator-right__btn">
             <a href={data.validator_button_link.url} target={data.validator_button_link.target}>
-              {data.validator_button_text}
+              {data.validator_button_text} →
             </a>
           </UiButton>
         </div>
@@ -230,11 +230,18 @@ const Content = () => {
           <p>
             <PrismicText field={data.community_lead_text} />
           </p>
-          {data.community_links.map(item => (
-            <a href={item.link.url} target={item.link.target} className="community__link">
-              {item.name} →
-            </a>
-          ))}
+          <div className="community__link-wrapper">
+            {data.community_links.map(item => (
+              <a
+                href={item.link.url}
+                target={item.link.target}
+                className="community__link"
+                key={item.name}
+              >
+                {item.name} →
+              </a>
+            ))}
+          </div>
         </div>
       </section>
       <Contact heading={data.contact_heading} leadText={data.contact_lead_text} />

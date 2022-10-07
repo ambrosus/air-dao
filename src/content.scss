@@ -17,6 +17,10 @@
         margin-right: 20px;
       }
     }
+
+    h3 {
+      font-size: 32px!important;
+    }
   }
 
   a {
@@ -39,7 +43,7 @@
   padding: 40px 24px;
 
   @include media(1140px) {
-    max-width: 387px;
+    max-width: 407px;
   }
 
   @include devices(mobile) {
@@ -49,6 +53,7 @@
 
 .about-us__logo-symbol {
   margin-bottom: 45px;
+
   @include devices(mobile) {
     display: none;
   }
@@ -68,7 +73,7 @@
 
 .about-us__subtitle {
   font-family: Mersad, sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 140%;
   font-size: 48px;
   margin: 24px 0;
@@ -88,6 +93,11 @@
     margin-bottom: 40px;
     width: 100%;
   }
+}
+
+.about-us__btn {
+  font-size: 16px;
+  color: #0E0E0E;
 }
 
 .about-us__btn:nth-of-type(1) {
@@ -177,6 +187,7 @@
 
   h3 {
     width: 50%;
+    font-size: 40px;
 
     @include devices(mobile) {
       width: auto;
@@ -200,6 +211,7 @@
 }
 
 .earn__list-item {
+  height: fit-content;
   width: 40%;
   font-size: 20px;
   position: relative;
@@ -283,6 +295,7 @@
 
   h3 {
     margin-bottom: 16px;
+    font-size: 40px;
 
     @include devices(mobile) {
       display: none;
@@ -309,11 +322,16 @@
 .community__link {
   margin-top: 13px;
   display: block;
-  width: fit-content;
+  width: 40%;
 
   @include devices(mobile) {
     margin-bottom: 24px;
   }
+}
+
+.community__link-wrapper {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .ambrosus {
@@ -356,6 +374,7 @@
 
   h3 {
     margin-bottom: 24px;
+    font-size: 40px;
   }
 
   h3,
@@ -696,7 +715,7 @@ select {
   box-sizing: border-box;
   background: linear-gradient(135deg, #1d1d1d 0%, #0e0e0e 100%);
   border-radius: 24px;
-  padding: 24px 42px 44px 24px;
+  padding: 24px 10px 44px 24px;
 
   @include devices(mobile) {
     max-width: none;
@@ -704,6 +723,7 @@ select {
 
   h3 {
     line-height: 35px;
+    padding-right: 30px;
   }
 
   img {
@@ -720,14 +740,17 @@ select {
 
 .binance__cex {
   text-align: right;
+  margin-right: 25px;
 }
 
 .binance__text {
   margin: 16px 0 36px;
+  padding-right: 30px;
 }
 
 .binance__btn {
   border-color: white;
+  font-size: 16px;
 
   a {
     color: white;
@@ -862,6 +885,7 @@ select {
 .partners-title {
   text-align: center;
   margin-bottom: 48px;
+  font-size: 40px;
 }
 
 .partners-mobile-list-item {
