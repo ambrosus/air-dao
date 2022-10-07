@@ -9,8 +9,6 @@ import { useRef } from 'react';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
 
 const Contact = ({ heading, leadText }) => {
-  const baseUrl = process.env.REACT_APP_ZAPPIER_HOOK;
-
   const [status, setStatus] = useState(false);
   const [isDropDawn, setIsDropDawn] = useState(false);
 
@@ -55,10 +53,13 @@ const Contact = ({ heading, leadText }) => {
 
     if (isError) return;
 
-    const res = await fetch(baseUrl, {
-      method: 'POST',
-      body: JSON.stringify(formData),
-    }).then((res) => res.status);
+    const res = await fetch(
+      'https://hooks.zapier.com/hooks/catch/11186117/bdbj4w9',
+      {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      }
+    ).then((res) => res.status);
 
     if (res < 400) {
       setFormData({
