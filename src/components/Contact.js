@@ -17,6 +17,13 @@ const Contact = ({ heading, leadText }) => {
   const menuRef = useRef(null);
   useOnClickOutside(menuRef, () => setIsDropDawn(false));
 
+  const contactCategory = [
+    'Tech support',
+    'Business development',
+    'Marketing and Press',
+    'Other',
+  ];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -134,22 +141,23 @@ const Contact = ({ heading, leadText }) => {
               >
                 <span>{`Category: ${formData.category}`}</span>
                 <span>
-                  {isDropDawn ? <SmallArrowDown /> : <SmallArrowUp />}
+                  {isDropDawn ? <SmallArrowUp /> : <SmallArrowDown />}
                 </span>
               </div>
               {isDropDawn && (
                 <div className='contact-content__topic-select'>
-                  <ul
-                    onClick={(e) => {
-                      setField('category', e.target.innerText);
-                      setIsDropDawn(false);
-                    }}
-                    ref={menuRef}
-                  >
-                    <li>Tech support</li>
-                    <li>Business development</li>
-                    <li>Marketing and Press</li>
-                    <li>Other</li>
+                  <ul ref={menuRef}>
+                    {contactCategory.map((item) => (
+                      <li
+                        key={item}
+                        onClick={() => {
+                          setField('category', item);
+                          setIsDropDawn(false);
+                        }}
+                      >
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
