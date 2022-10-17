@@ -146,8 +146,8 @@ const Contact = ({ heading, leadText }) => {
                 </span>
               </div>
               {isDropDawn && (
-                <div className='contact-content__topic-select'>
-                  <ul ref={menuRef}>
+                <div className='contact-content__topic-select' ref={menuRef}>
+                  <ul>
                     {contactCategory.map((item) => (
                       <li
                         key={item}
