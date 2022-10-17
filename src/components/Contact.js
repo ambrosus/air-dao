@@ -130,15 +130,17 @@ const Contact = ({ heading, leadText }) => {
                 <p className='error-message'>Please fill out the field</p>
               )}
             </div>
-            <div className='contact-content__topic'>
+            <div className='contact-content__topic' ref={menuRef}>
               <div
                 style={{
                   display: 'flex',
-
+                  cursor: 'pointer',
                   flexGrow: 1,
                   justifyContent: 'space-between',
                 }}
-                onClick={() => setIsDropDawn((prev) => !prev)}
+                onClick={() => {
+                  setIsDropDawn((prev) => !prev);
+                }}
               >
                 <span>{`Category: ${formData.category}`}</span>
                 <span>
@@ -146,7 +148,7 @@ const Contact = ({ heading, leadText }) => {
                 </span>
               </div>
               {isDropDawn && (
-                <div className='contact-content__topic-select' ref={menuRef}>
+                <div className='contact-content__topic-select'>
                   <ul>
                     {contactCategory.map((item) => (
                       <li
