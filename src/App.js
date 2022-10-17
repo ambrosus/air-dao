@@ -19,7 +19,7 @@ function App() {
     isLoaded && (
       <>
         <div className='page-wrapper'>
-          <img className='background' alt='background' />
+          <img className='background' src={bg} alt='background' />
           <Menu address={address} login={loginMetamask} logout={logout} />
           <div className='white-overlay' />
           <div className='container'>
