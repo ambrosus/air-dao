@@ -2,7 +2,7 @@ import { utils } from 'ethers';
 import networks from './networks.json';
 
 const changeChainId = async (provider, chainId) => {
-  const selectedNetwork = networks[chainId]
+  const selectedNetwork = networks[chainId];
   const hexChainId = utils.hexValue(+chainId);
 
   try {

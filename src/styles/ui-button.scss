@@ -1,6 +1,7 @@
 .ui-button {
   font-weight: 500;
   padding: 10px 20px;
+  font-size: 16px;
 
   a {
     white-space: nowrap;
@@ -27,7 +28,7 @@
     border-color: $dark-blue;
     color: $dark-blue;
   }
-  
+
   &:active, &:focus {
     border-color: $dark-blue;
     color: $dark-blue;

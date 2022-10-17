@@ -1,16 +1,14 @@
 import UiButton from './UiButton';
 import contact from '../assets/contact.png';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import thumb from '../assets/thumb.svg';
 import { PrismicText } from '@prismicio/react';
 import SmallArrowUp from '../assets/images/Arrows/SmallArrowUp';
 import SmallArrowDown from '../assets/images/Arrows/SmallArrowDown';
-import { useRef } from 'react';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
+import PropTypes from 'prop-types';
 
 const Contact = ({ heading, leadText }) => {
-  const baseUrl = process.env.REACT_APP_ZAPPIER_HOOK;
-
   const [status, setStatus] = useState(false);
   const [isDropDawn, setIsDropDawn] = useState(false);
 
@@ -62,10 +60,13 @@ const Contact = ({ heading, leadText }) => {
 
     if (isError) return;
 
-    const res = await fetch(baseUrl, {
-      method: 'POST',
-      body: JSON.stringify(formData),
-    }).then((res) => res.status);
+    const res = await fetch(
+      'https://hooks.zapier.com/hooks/catch/11186117/bdbj4w9',
+      {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      }
+    ).then((res) => res.status);
 
     if (res < 400) {
       setFormData({
@@ -188,6 +189,11 @@ const Contact = ({ heading, leadText }) => {
       </div>
     </section>
   );
+};
+
+Contact.propTypes = {
+  heading: PropTypes.string,
+  leadText: PropTypes.string,
 };
 
 export default Contact;
