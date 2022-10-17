@@ -1,10 +1,9 @@
-import Content from './components/Content';
-import Footer from './components/Footer';
-import bg from './assets/background.png';
-import Menu from 'airdao-menu/build';
 import { useWeb3React } from '@web3-react/core';
 import useAutoLogin from './hooks/useAutoLogin';
 import useAuthorization from './hooks/useAuthorization';
+import Layout from './components/Layout';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
 
 function App() {
   const isLoaded = useAutoLogin();
@@ -13,17 +12,9 @@ function App() {
 
   return (
     isLoaded && (
-      <>
-        <div className='page-wrapper'>
-          <img className='background' src={bg} alt='background' />
-          <Menu address={address} login={loginMetamask} logout={logout} />
-          <div className='white-overlay' />
-          <div className='container'>
-            <Content />
-          </div>
-        </div>
-        <Footer />
-      </>
+      <Layout {...{ address, logout, login: loginMetamask }}>
+        <RouterProvider router={router} />
+      </Layout>
     )
   );
 }
