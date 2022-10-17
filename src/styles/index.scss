@@ -1,10 +1,10 @@
-@import 'src/variables';
+@import 'variables';
 @import 'normalize';
 @import 'fonts';
-@import 'src/mixins';
-@import 'src/ui-button';
-@import 'src/content';
-@import 'src/footer';
+@import 'mixins';
+@import 'ui-button';
+@import 'content';
+@import 'footer';
 
 body {
   position: relative;
@@ -16,7 +16,7 @@ body {
 
 .background {
   height: 100%;
-  background-image: url('./assets/background.png');
+  background-image: url('../assets/background.png');
   position: fixed;
   top: 0;
   right: 0;
@@ -88,7 +88,7 @@ nav a {
   width: 100%;
 
   &:after {
-    content: url('./assets/error.svg');
+    content: url('../assets/error.svg');
     position: absolute;
     width: 22px;
     height: 22px;
@@ -123,9 +123,9 @@ textarea {
   top: 0;
   height: 80vh;
   background: linear-gradient(
-    180deg,
-    #ffffff 38.42%,
-    rgba(255, 255, 255, 0.47) 84.05%,
-    rgba(255, 255, 255, 0) 100%
+                  180deg,
+                  #ffffff 38.42%,
+                  rgba(255, 255, 255, 0.47) 84.05%,
+                  rgba(255, 255, 255, 0) 100%
   );
 }

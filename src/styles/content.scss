@@ -19,7 +19,7 @@
     }
 
     h3 {
-      font-size: 32px!important;
+      font-size: 32px !important;
     }
   }
 
@@ -514,9 +514,11 @@
     color: #bdbdbd;
     font-family: Inter, sans-serif;
   }
+
   &_error::placeholder {
     color: #e07777;
   }
+
   &:hover {
     border-color: $dark-blue;
 
@@ -524,6 +526,7 @@
       color: #0e0e0e;
     }
   }
+
   &:active {
     border-color: #0e0e0e;
 
@@ -584,6 +587,7 @@
     }
   }
 }
+
 select {
 }
 
@@ -815,7 +819,7 @@ select {
 }
 
 .firepot-img {
-  background-image: url('./assets/firepot.svg');
+  background-image: url('../assets/firepot.svg');
 }
 
 .swap-btn {

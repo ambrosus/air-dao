@@ -12,7 +12,7 @@ const SmallArrowDown = () => {
       <path
         d='M1 0.969971L7 6.96997L13 0.969971'
         stroke='#1D1D1D'
-        stroke-width='1.5'
+        strokeWidth='1.5'
       />
     </svg>
   );

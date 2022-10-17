@@ -1,12 +1,12 @@
 import UiButton from './UiButton';
 import contact from '../assets/contact.png';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import thumb from '../assets/thumb.svg';
 import { PrismicText } from '@prismicio/react';
 import SmallArrowUp from '../assets/images/Arrows/SmallArrowUp';
 import SmallArrowDown from '../assets/images/Arrows/SmallArrowDown';
-import { useRef } from 'react';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
+import PropTypes from 'prop-types';
 
 const Contact = ({ heading, leadText }) => {
   const [status, setStatus] = useState(false);
@@ -189,6 +189,11 @@ const Contact = ({ heading, leadText }) => {
       </div>
     </section>
   );
+};
+
+Contact.propTypes = {
+  heading: PropTypes.string,
+  leadText: PropTypes.string,
 };
 
 export default Contact;
