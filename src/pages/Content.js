@@ -1,4 +1,4 @@
-import UiButton from './UiButton';
+import UiButton from '../components/UiButton';
 import check from '../assets/check.svg';
 import community from '../assets/community.svg';
 import highlight from '../assets/highlight.png';
@@ -10,11 +10,12 @@ import swap from '../assets/swap.png';
 import firepot from '../assets/firepot.svg';
 import roadmap from '../assets/roadmap.svg';
 import logoSymbol from '../assets/logo-symbol.svg';
-import Contact from './Contact';
+import Contact from '../components/Contact';
 import { usePrismicPageData } from '../hooks/usePrismicPageData';
 import { PrismicText } from '@prismicio/react';
 import Slider from 'react-slick';
 import { useMemo } from 'react';
+import bg from '../assets/background.png';
 
 const groupArr = (data, n) => {
   const group = [];
@@ -41,11 +42,11 @@ const Content = () => {
     } else return [];
   }, [data]);
 
-  console.log(data);
-
   return (
     data && (
-      <div className='content'>
+      <div className='content container'>
+        <img className='background' src={bg} alt='background' />
+        <div className='white-overlay' />
         <div id='about' className='about-us'>
           <img
             src={logoSymbol}
