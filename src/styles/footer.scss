@@ -1,6 +1,10 @@
 .footer {
   background: rgb(227, 231, 249);
   width: 100%;
+
+  &_binance {
+    background: rgb(238, 203, 95);
+  }
 }
 
 .footer__link {

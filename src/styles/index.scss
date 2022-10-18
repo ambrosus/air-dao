@@ -5,6 +5,7 @@
 @import 'ui-button';
 @import 'content';
 @import 'footer';
+@import 'binance.scss';
 
 body {
   position: relative;
@@ -127,4 +128,5 @@ textarea {
                   rgba(255, 255, 255, 0.47) 84.05%,
                   rgba(255, 255, 255, 0) 100%
   );
+  z-index: -1;
 }
