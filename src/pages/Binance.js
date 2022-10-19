@@ -44,16 +44,32 @@ const Binance = () => {
                 <PrismicText field={data['staking-link-label']} />
               </a>
             </div>
-            <div className="binance-referral">
-              <h3 className="binance-referral__title">
-                <PrismicText field={data['referral-title']} />
-              </h3>
-              <p className="binance-referral__text">
-                <PrismicText field={data['referral-text']} />
-              </p>
-              <a href={data['referral-link'].url}>
-                <PrismicText field={data['referral-link-label']} />
-              </a>
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="binance-referral flip-card-front">
+                  <h3 className="binance-referral__title">
+                    <PrismicText field={data['referral-title']} />
+                  </h3>
+                  <p className="binance-referral__text">
+                    <PrismicText field={data['referral-text']} />
+                  </p>
+                  <a href={data['referral-link'].url}>
+                    <PrismicText field={data['referral-link-label']} />
+                  </a>
+                </div>
+                <div className="flip-card-back binance-earn">
+                  <p className="binance-earn__title">
+                    Earn up to $1200 in AMB tokens with the Binance referral program!
+                  </p>
+                  <p>
+                    Join the Binance Lite Referral Program to receive 100 USDT
+                    cashback vouchers and earn up to $1200 in AMB gift cards!
+                  </p>
+                  <a href="/" className="binance-earn__link">
+                    Start Referring Today →
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
