@@ -5,6 +5,7 @@ import { PrismicProvider } from '@prismicio/react';
 import { client } from './prismic';
 import { Web3ReactProvider } from '@web3-react/core';
 import { providers } from 'ethers';
+import { BrowserRouter } from "react-router-dom";
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -16,10 +17,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <PrismicProvider {...{ client }}>
-      <Web3ReactProvider getLibrary={getLibrary}>
-        <App />
-      </Web3ReactProvider>
-    </PrismicProvider>
+    <BrowserRouter>
+      <PrismicProvider {...{ client }}>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <App />
+        </Web3ReactProvider>
+      </PrismicProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
