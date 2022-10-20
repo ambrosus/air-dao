@@ -1,4 +1,4 @@
-import UiButton from './UiButton';
+import UiButton from '../components/UiButton';
 import check from '../assets/check.svg';
 import community from '../assets/community.svg';
 import highlight from '../assets/highlight.png';
@@ -10,7 +10,7 @@ import swap from '../assets/swap.png';
 import firepot from '../assets/firepot.svg';
 import roadmap from '../assets/roadmap.svg';
 import logoSymbol from '../assets/logo-symbol.svg';
-import Contact from './Contact';
+import Contact from '../components/Contact';
 import { usePrismicPageData } from '../hooks/usePrismicPageData';
 import { PrismicText } from '@prismicio/react';
 import Slider from 'react-slick';
@@ -40,8 +40,6 @@ const Content = () => {
       return groupArr(data.partners_link, 6);
     } else return [];
   }, [data]);
-
-  console.log(data);
 
   return (
     data && (
