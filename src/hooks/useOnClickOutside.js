@@ -7,13 +7,16 @@ export const useOnClickOutside = (ref, handler) => {
       if (!current || current.contains(event.target)) {
         return;
       }
-      setTimeout(() => handler(event), 50);
+      handler()
     };
 
     document.addEventListener('mousedown', listener);
+    document.addEventListener("touchstart", listener);
 
     return () => {
       document.removeEventListener('mousedown', listener);
+      document.removeEventListener("touchstart", listener);
+
     };
   }, [ref, handler]);
 };

@@ -5,7 +5,8 @@
 @import 'ui-button';
 @import 'content';
 @import 'footer';
-@import "team";
+@import 'binance';
+@import 'team';
 
 body {
   position: relative;
@@ -17,7 +18,6 @@ body {
 
 .background {
   height: 100%;
-  background-image: url('../assets/background.png');
   position: fixed;
   top: 0;
   right: 0;
@@ -122,11 +122,54 @@ textarea {
   width: 100%;
   position: absolute;
   top: 0;
-  height: 80vh;
+  height: 15vh;
   background: linear-gradient(
-                  180deg,
-                  #ffffff 38.42%,
-                  rgba(255, 255, 255, 0.47) 84.05%,
-                  rgba(255, 255, 255, 0) 100%
+    180deg,
+    #ffffff 38.42%,
+    rgba(255, 255, 255, 0.47) 84.05%,
+    rgba(255, 255, 255, 0) 100%
   );
+  // @include devices(mobile) {
+  //   height: 15vh;
+  // }
+  z-index: -1;
+}
+
+.flip-card {
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+
+  @include media(620px) {
+    transform: none;
+  }
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }

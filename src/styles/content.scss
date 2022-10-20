@@ -18,7 +18,7 @@
       }
     }
 
-    h3 {
+    h3:not(.binance-title) {
       font-size: 32px !important;
     }
   }
@@ -104,7 +104,7 @@
 
 .about-us__btn {
   font-size: 16px;
-  color: #0E0E0E;
+  color: #0e0e0e;
 }
 
 .about-us__btn:nth-of-type(1) {
@@ -116,7 +116,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
 
-  @include devices(mobile) {
+  @include media(620px) {
     display: block;
     padding: 0 30px;
 
@@ -547,7 +547,6 @@
   justify-content: space-between;
   margin-top: 20px;
   position: relative;
-  cursor: pointer;
   height: 20px;
 
   &-select {
@@ -564,7 +563,6 @@
 
     color: #000000;
     z-index: 1000;
-    cursor: pointer;
 
     background: #ffffff;
     border: 1px solid #a2b2d8;
@@ -580,6 +578,7 @@
     }
     & > ul > li {
       width: fit-content;
+      cursor: pointer;
     }
 
     & > ul > li:hover {
@@ -896,6 +895,11 @@ select {
 .partners-list__item {
   margin-right: 38px;
   margin-bottom: 30px;
+
+  @include media(410px) {
+    width: 70px;
+    height: 70px;
+  }
 
   &:hover {
     opacity: 80%;
