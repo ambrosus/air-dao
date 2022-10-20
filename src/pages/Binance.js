@@ -61,7 +61,7 @@ const Binance = () => {
                   <p className="binance-earn__title">
                     Earn up to $1200 in AMB tokens with the Binance referral program!
                   </p>
-                  <p>
+                  <p className="binance-earn__text">
                     Join the Binance Lite Referral Program to receive 100 USDT
                     cashback vouchers and earn up to $1200 in AMB gift cards!
                   </p>

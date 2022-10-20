@@ -5,6 +5,10 @@
   .container {
     overflow: visible;
   }
+
+  a {
+    font-size: 20px;
+  }
 }
 
 .binance-title {
@@ -71,7 +75,7 @@
 
 .binance-staking__text {
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   font-family: Mersad, sans-serif;
 }
@@ -91,14 +95,15 @@
 
 .binance-referral__title {
   font-weight: 400;
-  margin: 50px 0;
+  margin: 50px 0 30px;
+  font-size: 40px;
 }
 
 .binance-referral__text {
   font-family: Mersad, sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  max-width: 170px;
+  font-size: 24px;
+  max-width: 210px;
   margin-bottom: 40px;
 }
 
@@ -131,10 +136,14 @@
 .binance-earn__title {
   font-family: Mersad, sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 16px;
 }
 
 .binance-earn__link {
   margin-top: auto;
+}
+
+.binance-earn__text {
+  font-size: 20px;
 }
