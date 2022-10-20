@@ -121,13 +121,16 @@ textarea {
   width: 100%;
   position: absolute;
   top: 0;
-  height: 80vh;
+  height: 15vh;
   background: linear-gradient(
     180deg,
     #ffffff 38.42%,
     rgba(255, 255, 255, 0.47) 84.05%,
     rgba(255, 255, 255, 0) 100%
   );
+  // @include devices(mobile) {
+  //   height: 15vh;
+  // }
   z-index: -1;
 }
 
@@ -150,7 +153,8 @@ textarea {
 }
 
 /* Position the front and back side */
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
