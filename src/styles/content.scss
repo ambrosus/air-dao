@@ -896,6 +896,11 @@ select {
   margin-right: 38px;
   margin-bottom: 30px;
 
+  @include media(410px) {
+    width: 70px;
+    height: 70px;
+  }
+
   &:hover {
     opacity: 80%;
   }
