@@ -151,7 +151,7 @@ textarea {
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 
-  @include devices(mobile) {
+  @include media(620px) {
     transform: none;
   }
 }

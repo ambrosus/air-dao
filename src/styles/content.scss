@@ -116,7 +116,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
 
-  @include devices(mobile) {
+  @include media(620px) {
     display: block;
     padding: 0 30px;
 

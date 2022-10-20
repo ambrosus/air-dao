@@ -98,7 +98,7 @@
   display: flex;
   flex-direction: column;
 
-  @include devices(mobile) {
+  @include media(620px) {
     position: relative!important;
   }
 }
@@ -147,8 +147,7 @@
   display: flex;
   flex-direction: column;
 
-
-  @include devices(mobile) {
+  @include media(620px) {
     display: none;
   }
 }
