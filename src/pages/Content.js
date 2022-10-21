@@ -44,7 +44,7 @@ const Content = () => {
 
   return (
     data && (
-      <div className="container">
+      <div className='container main-page'>
         <div className='content'>
           <img className='background' src={bg} alt='background' />
           <div className='white-overlay' />
@@ -140,9 +140,9 @@ const Content = () => {
             <div className='earn__list'>
               {data.stake_checkmark_list.map((item, i) => (
                 <span className='earn__list-item' key={`earn-list-item-${i}`}>
-                <img src={check} alt='check' />
-                <span>{item.checkmark_text}</span>
-              </span>
+                  <img src={check} alt='check' />
+                  <span>{item.checkmark_text}</span>
+                </span>
               ))}
             </div>
             <UiButton withBorder className='about-us__btn'>
@@ -297,7 +297,10 @@ const Content = () => {
                     target={el.partners_link_href.target}
                     key={`partner-link-${i}`}
                   >
-                    <img src={el.partners_logo.url} alt={el.partners_logo.alt} />
+                    <img
+                      src={el.partners_logo.url}
+                      alt={el.partners_logo.alt}
+                    />
                   </a>
                 ))}
               </div>
