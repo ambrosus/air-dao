@@ -2,6 +2,18 @@
   padding-top: 106px;
   padding-left: 320px;
   white-space: break-spaces;
+  max-width: 792px;
+  margin-left: auto;
+
+  @include media(1140px) {
+    max-width: 688px;
+    padding-left: unset;
+  }
+
+  @include devices(mobile) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .team-page__heading {
@@ -12,6 +24,10 @@
   line-height: 95%;
   color: #0E0E0E;
   margin-bottom: 24px;
+
+  @include devices(mobile) {
+    font-size: 40px;
+  }
 }
 
 .team-page__lead {
@@ -26,11 +42,19 @@
 
 .team-page__members {
   display: grid;
-  grid-template-columns: repeat(4, 192px);
+  grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 24px;
   grid-row-gap: 39px;
-
   margin-bottom: 107px;
+
+  @include media(1140px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include devices(mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 }
 
 .team-page__member {
@@ -69,6 +93,11 @@
   font-size: 16px;
   line-height: 140%;
   color: #0E0E0E;
+
+  @include devices(mobile) {
+    font-size: 16px !important;
+  }
+
 }
 
 .team-page__member-position {
@@ -88,6 +117,10 @@
   line-height: 37px;
   color: #212121;
   margin-bottom: 116px;
+
+  @include devices(mobile) {
+    white-space: nowrap;
+  }
 
   a {
     color: #457EFF;
