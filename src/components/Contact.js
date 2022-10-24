@@ -142,7 +142,9 @@ const Contact = ({ heading, leadText }) => {
                   setIsDropDawn((prev) => !prev);
                 }}
               >
-                <span>{`Category: ${formData.category}`}</span>
+                <span className='contract-content__form-heading'>
+                  {formData.category}
+                </span>
                 <span>
                   {isDropDawn ? <SmallArrowUp /> : <SmallArrowDown />}
                 </span>
