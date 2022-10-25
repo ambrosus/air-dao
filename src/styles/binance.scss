@@ -7,7 +7,7 @@
   }
 
   a {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -34,20 +34,28 @@
   margin-top: 64px;
   border-radius: 24px;
   margin-bottom: 48px;
+
+  @include devices(mobile) {
+    text-align: left;
+
+    img {
+      margin: 0 auto;
+      display: block;
+    }
+  }
 }
 
 .red-packet__title {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 400;
   margin: 24px auto;
   max-width: 410px;
+
 }
 
 .red-packet__text {
-  font-size: 20px;
   font-weight: 300;
   margin: 0 auto 42px;
-  max-width: 400px;
 }
 
 .binance-staking {
@@ -64,10 +72,10 @@
 }
 
 .binance-staking__apy {
-  color: #FF736A;
+  color: #FF4747;
   font-weight: 200;
-  font-size: 64px;
-  margin: 24px 0 30px;
+  font-size: 58px;
+  margin: 24px 0 5px;
   font-family: Mersad, sans-serif;
   line-height: 110%;
   max-width: 50%;
@@ -79,14 +87,13 @@
 
 .binance-staking__text {
   color: white;
-  font-size: 24px;
-  font-weight: 700;
-  font-family: Mersad, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .binance-staking__link {
   display: block;
-  margin-top: 40px;
+  margin-top: 70px;
   color: white;
 }
 
@@ -101,12 +108,16 @@
   @include media(620px) {
     position: relative!important;
   }
+
+  a {
+    margin-top: 70px;
+  }
 }
 
 .binance-referral__title {
   font-weight: 400;
-  margin: 50px 0 30px;
-  font-size: 40px;
+  margin: 50px 0 65px;
+  font-size: 32px;
 
   @include media(1024px) {
     font-size: 32px;
@@ -114,12 +125,8 @@
 }
 
 .binance-referral__text {
-  font-family: Mersad, sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  max-width: 210px;
-  margin-bottom: 40px;
-  margin-top: auto;
+  font-weight: 500;
+  margin-bottom: auto;
 }
 
 .binance-page__bg {
@@ -153,16 +160,10 @@
 }
 
 .binance-earn__title {
-  font-family: Mersad, sans-serif;
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: 500;
   margin-bottom: 16px;
 }
 
 .binance-earn__link {
   margin-top: auto;
-}
-
-.binance-earn__text {
-  font-size: 20px;
 }

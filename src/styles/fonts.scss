@@ -1,5 +1,11 @@
 @font-face {
   font-family: "Mersad";
+  src: url("../assets/fonts/Mersad ExtraLight.otf");
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mersad";
   src: url("../assets/fonts/Mersad Regular.eot");
   src: url("../assets/fonts/Mersad Regular.woff") format("woff"),
   url("../assets/fonts/Mersad Regular.otf") format("opentype");
