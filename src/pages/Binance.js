@@ -58,6 +58,9 @@ const Binance = () => {
                   </a>
                 </div>
                 <div className="flip-card-back binance-earn">
+                  <h3 className="binance-referral__title binance-referral__title__mobile">
+                    <PrismicText field={data['referral-title']} />
+                  </h3>
                   <p className="binance-earn__title">
                     Earn up to $1200 in AMB tokens with the Binance referral program!
                   </p>

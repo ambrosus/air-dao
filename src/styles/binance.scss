@@ -107,7 +107,7 @@
   pointer-events: none;
 
   @include media(620px) {
-    position: relative!important;
+    display: none;
   }
 
   a {
@@ -160,7 +160,8 @@
   flex-direction: column;
 
   @include media(620px) {
-    display: none;
+    position: relative!important;
+    padding-top: 30px;
   }
 }
 
@@ -171,4 +172,17 @@
 
 .binance-earn__link {
   margin-top: auto;
+
+  @include media(620px) {
+    margin-top: 40px;
+  }
+}
+
+.binance-referral__title__mobile {
+  display: none;
+
+  @include media(620px) {
+    display: block;
+    margin-bottom: 15px;
+  }
 }
