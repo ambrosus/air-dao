@@ -25,7 +25,7 @@ const Contact = ({ heading, leadText }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    category: 'Tech support',
+    category: null,
     message: '',
     page: window.location.href,
   });
@@ -143,7 +143,7 @@ const Contact = ({ heading, leadText }) => {
                 }}
               >
                 <span className='contract-content__form-heading'>
-                  {formData.category}
+                  {!formData.category ? 'Category' : formData.category}
                 </span>
                 <span>
                   {isDropDawn ? <SmallArrowUp /> : <SmallArrowDown />}
