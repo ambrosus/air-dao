@@ -68,8 +68,8 @@ const Binance = () => {
                     Join the Binance Lite Referral Program to receive 100 USDT
                     cashback vouchers and earn up to $1200 in AMB gift cards!
                   </p>
-                  <a href="/" className="binance-earn__link">
-                    Start Referring Today →
+                  <a href={data['referral-link'].url} className="binance-earn__link">
+                    <PrismicText field={data['referral-link-label']} />
                   </a>
                 </div>
               </div>
