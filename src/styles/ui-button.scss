@@ -7,7 +7,8 @@
     white-space: nowrap;
   }
 
-  a:focus, a:active {
+  a:focus,
+  a:active {
     text-decoration: none;
   }
 
@@ -29,9 +30,10 @@
     color: $dark-blue;
   }
 
-  &:active, &:focus {
-    border-color: $dark-blue;
-    color: $dark-blue;
+  &:active,
+  &:focus {
+    border-color: white;
+    color: white;
     background: rgba(53, 104, 221, 0.15);
   }
 

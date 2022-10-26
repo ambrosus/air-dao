@@ -98,9 +98,7 @@ nav a {
   }
 }
 
-a:hover,
-a:focus,
-a:active {
+a:hover {
   color: $dark-blue;
 }
 
@@ -155,7 +153,7 @@ textarea {
 }
 .flip-card-front {
   z-index: 1;
-  transition: .3s;
+  transition: 0.3s;
 }
 /* Style the back side */
 .flip-card-back {
