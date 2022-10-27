@@ -32,8 +32,8 @@
 
   &:active,
   &:focus {
-    border-color: white;
-    color: white;
+    border-color: $dark-blue;
+    color: $dark-blue;
     background: rgba(53, 104, 221, 0.15);
   }
 
