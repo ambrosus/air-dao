@@ -3069,10 +3069,10 @@ agent-base@6:
   dependencies:
     debug "4"
 
-airdao-menu@^2.2.8:
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.8.tgz#256c368868a74f1548b36ec8d1b0d669b0cb60e9"
-  integrity sha512-bCVEowkqBLDm2dwLnoEmwSHun+Fj5nRCOwrX8nD7wYs36+6JGrvSCQO6FhoNS4/qhHeivyzYFzfRHhjrsTh39Q==
+airdao-menu@^2.2.10:
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.10.tgz#8774bd00f692cc141c900ffa72d79963310bee00"
+  integrity sha512-votZ4YPmiJl5TM55eao4nmycI1FL+GbGRBINjSgR30v0V/8S0XpAMUA+mVs+YZztKI4oCmrd74OBPZA6qPFPDA==
 
 ajv-formats@^2.1.1:
   version "2.1.1"
