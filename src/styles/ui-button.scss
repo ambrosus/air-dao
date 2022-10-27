@@ -1,6 +1,5 @@
 .ui-button {
   font-weight: 500;
-  padding: 10px 20px;
   font-size: 16px;
 
   a {
@@ -24,6 +23,11 @@
 .ui-button_border {
   border: 2px solid $black;
   border-radius: 24px;
+
+  a {
+    padding: 10px 20px;
+    display: inline-block;
+  }
 
   &:hover {
     border-color: $dark-blue;
