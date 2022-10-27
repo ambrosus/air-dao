@@ -399,6 +399,13 @@
 .ambrosus-content__btn {
   border-color: white;
   margin-right: 20px;
+  &-url {
+    &:active,
+    &:focus {
+      border-color: white;
+      color: white;
+    }
+  }
 }
 
 .ambrosus-content__img {

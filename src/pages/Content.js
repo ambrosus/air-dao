@@ -242,6 +242,7 @@ const Content = () => {
                   <a
                     href={data.ambrosus_button_link.url}
                     target={data.ambrosus_button_link.target}
+                    className='ambrosus-content__btn-url'
                   >
                     {data.ambrosus_button_text}
                   </a>

@@ -98,7 +98,9 @@ nav a {
   }
 }
 
-a:hover {
+a:hover,
+a:focus,
+a:active {
   color: $dark-blue;
 }
 
