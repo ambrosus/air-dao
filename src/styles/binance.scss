@@ -1,0 +1,189 @@
+.binance-page {
+  background-color: #F4CA45;
+  position: relative;
+
+  .container {
+    overflow: visible;
+  }
+
+  a {
+    font-size: 16px;
+  }
+}
+
+.binance-title {
+  font-size: 52px;
+  font-weight: 600;
+  margin-top: 112px;
+  margin-bottom: 24px;
+
+  @include devices(mobile) {
+    font-size: 36px!important;
+  }
+}
+
+.binance-subtitle {
+  max-width: 690px;
+  font-size: 20px;
+}
+
+.red-packet {
+  background: linear-gradient(135deg, #E1EBFF 0%, #CBD5E9 100%);
+  padding: 40px 24px;
+  text-align: center;
+  margin-top: 64px;
+  border-radius: 24px;
+  margin-bottom: 48px;
+
+  @include devices(mobile) {
+    text-align: left;
+
+    img {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+.red-packet__title {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 24px auto;
+  max-width: 410px;
+
+}
+
+.red-packet__text {
+  font-weight: 300;
+  margin: 0 auto 42px;
+}
+
+.binance-staking {
+  background: linear-gradient(135deg, #1D1D1D 0%, #0E0E0E 100%);
+  border-radius: 24px;
+  padding: 30px 24px 50px;
+}
+
+.binance-staking__ends {
+  color: #E1E8FA;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.binance-staking__apy {
+  color: #FF4747;
+  font-weight: 200;
+  font-size: 58px;
+  margin: 24px 0 5px;
+  font-family: Mersad, sans-serif;
+  line-height: 110%;
+  max-width: 50%;
+
+  @include media(1024px) {
+    font-size: 40px;
+  }
+}
+
+.binance-staking__text {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.binance-staking__link {
+  display: block;
+  margin-top: 70px;
+  color: white;
+  pointer-events: none;
+}
+
+.binance-referral {
+  background: #fff;
+  padding: 84px 24px 50px;
+  border-radius: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+
+  @include media(620px) {
+    display: none;
+  }
+
+  a {
+    margin-top: 70px;
+  }
+}
+
+.binance-referral__title {
+  font-weight: 400;
+  font-size: 32px;
+  margin-bottom: 60px;
+
+  @include media(1024px) {
+    font-size: 32px;
+  }
+}
+
+.binance-referral__text {
+  font-weight: 500;
+  margin-bottom: auto;
+}
+
+.binance-page__bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.content-binance {
+  @include media(1050px) {
+    margin: 0 auto;
+  }
+
+  @include devices(mobile) {
+    padding: 20px;
+
+    .content__semi-wrapper {
+      padding: 0;
+    }
+  }
+}
+
+.binance-earn {
+  padding: 84px 24px 50px;
+  border-radius: 24px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #CFD9ED 0%, #FFFFFF 100%);
+  display: flex;
+  flex-direction: column;
+
+  @include media(620px) {
+    position: relative!important;
+    padding-top: 30px;
+  }
+}
+
+.binance-earn__title {
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.binance-earn__link {
+  margin-top: auto;
+
+  @include media(620px) {
+    margin-top: 40px;
+  }
+}
+
+.binance-referral__title__mobile {
+  display: none;
+
+  @include media(620px) {
+    display: block;
+    margin-bottom: 15px;
+  }
+}

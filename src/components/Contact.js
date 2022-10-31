@@ -1,12 +1,12 @@
 import UiButton from './UiButton';
 import contact from '../assets/contact.png';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import thumb from '../assets/thumb.svg';
 import { PrismicText } from '@prismicio/react';
 import SmallArrowUp from '../assets/images/Arrows/SmallArrowUp';
 import SmallArrowDown from '../assets/images/Arrows/SmallArrowDown';
-import { useRef } from 'react';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
+import PropTypes from 'prop-types';
 
 const Contact = ({ heading, leadText }) => {
   const [status, setStatus] = useState(false);
@@ -15,10 +15,17 @@ const Contact = ({ heading, leadText }) => {
   const menuRef = useRef(null);
   useOnClickOutside(menuRef, () => setIsDropDawn(false));
 
+  const contactCategory = [
+    'Tech support',
+    'Business development',
+    'Marketing and Press',
+    'Other',
+  ];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    category: 'Tech support',
+    category: null,
     message: '',
     page: window.location.href,
   });
@@ -123,34 +130,39 @@ const Contact = ({ heading, leadText }) => {
                 <p className='error-message'>Please fill out the field</p>
               )}
             </div>
-            <div className='contact-content__topic'>
+            <div className='contact-content__topic' ref={menuRef}>
               <div
                 style={{
                   display: 'flex',
-
+                  cursor: 'pointer',
                   flexGrow: 1,
                   justifyContent: 'space-between',
                 }}
-                onClick={() => setIsDropDawn((prev) => !prev)}
+                onClick={() => {
+                  setIsDropDawn((prev) => !prev);
+                }}
               >
-                <span>{`Category: ${formData.category}`}</span>
+                <span className='contract-content__form-heading'>
+                  {!formData.category ? 'Category' : formData.category}
+                </span>
                 <span>
-                  {isDropDawn ? <SmallArrowDown /> : <SmallArrowUp />}
+                  {isDropDawn ? <SmallArrowUp /> : <SmallArrowDown />}
                 </span>
               </div>
               {isDropDawn && (
                 <div className='contact-content__topic-select'>
-                  <ul
-                    onClick={(e) => {
-                      setField('category', e.target.innerText);
-                      setIsDropDawn(false);
-                    }}
-                    ref={menuRef}
-                  >
-                    <li>Tech support</li>
-                    <li>Business development</li>
-                    <li>Marketing and Press</li>
-                    <li>Other</li>
+                  <ul>
+                    {contactCategory.map((item) => (
+                      <li
+                        key={item}
+                        onClick={() => {
+                          setField('category', item);
+                          setIsDropDawn(false);
+                        }}
+                      >
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
@@ -181,6 +193,11 @@ const Contact = ({ heading, leadText }) => {
       </div>
     </section>
   );
+};
+
+Contact.propTypes = {
+  heading: PropTypes.string,
+  leadText: PropTypes.string,
 };
 
 export default Contact;

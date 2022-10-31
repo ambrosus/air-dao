@@ -1,7 +1,5 @@
 import { useWeb3React } from '@web3-react/core';
-import {
-  ConfiguredInjectedConnector,
-} from '../utils/web3ReactConnectors';
+import { ConfiguredInjectedConnector } from '../utils/web3ReactConnectors';
 
 const useAuthorization = () => {
   const { activate, deactivate } = useWeb3React();
@@ -17,7 +15,7 @@ const useAuthorization = () => {
         .open(
           `https://metamask.app.link/dapp/${
             window.location.hostname + window.location.pathname
-          }`,
+          }`
         )
         .focus();
     }

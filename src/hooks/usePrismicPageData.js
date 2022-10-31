@@ -1,7 +1,7 @@
-import {useSinglePrismicDocument} from "@prismicio/react";
+import { useSinglePrismicDocument } from '@prismicio/react';
 
 export const usePrismicPageData = (type) => {
-	const [document] = useSinglePrismicDocument(type);
+  const [document] = useSinglePrismicDocument(type);
 
-	return document ? document.data : undefined
-}
+  return document ? document.data : undefined;
+};

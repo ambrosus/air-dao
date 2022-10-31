@@ -1,10 +1,12 @@
-@import "src/variables";
-@import "normalize";
-@import "fonts";
-@import "src/mixins";
-@import "src/ui-button";
-@import "src/content";
-@import "src/footer";
+@import 'variables';
+@import 'normalize';
+@import 'fonts';
+@import 'mixins';
+@import 'ui-button';
+@import 'content';
+@import 'footer';
+@import 'binance';
+@import 'team';
 
 body {
   position: relative;
@@ -15,23 +17,29 @@ body {
 }
 
 .background {
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   right: 0;
   z-index: -1;
+  width: 60%;
 
   @include devices(mobile) {
     left: 30%;
+    width: inherit;
   }
 }
 
-p, span, button, a {
+p,
+span,
+button,
+a {
   font-family: Inter, sans-serif;
   font-weight: 300;
   line-height: 140%;
-  color: #1D1D1D;
+  color: #0e0e0e;
 }
+
 textarea {
   font-family: sans-serif;
 }
@@ -42,7 +50,7 @@ h3 {
   font-size: 32px;
 
   @include devices(mobile) {
-    font-size: 32px!important;
+    font-size: 32px !important;
   }
 }
 
@@ -68,7 +76,7 @@ h3 {
   }
 }
 
-nav a{
+nav a {
   font-family: Mersad, sans-serif;
 }
 
@@ -76,12 +84,12 @@ nav a{
   font-size: 11px;
   text-align: left;
   margin-top: 3px;
-  color: #E07777;
+  color: #e07777;
   position: absolute;
   width: 100%;
 
   &:after {
-    content: url("./assets/error.svg");
+    content: url('../assets/error.svg');
     position: absolute;
     width: 22px;
     height: 22px;
@@ -90,15 +98,19 @@ nav a{
   }
 }
 
-a:hover, a:focus, a:active {
+a:hover,
+a:focus,
+a:active {
   color: $dark-blue;
 }
 
-a:focus, a:active {
+a:focus,
+a:active {
   text-decoration: underline;
 }
 
-input, textarea {
+input,
+textarea {
   outline: none;
 
   &:focus {
@@ -110,6 +122,44 @@ input, textarea {
   width: 100%;
   position: absolute;
   top: 0;
-  height: 80vh;
-  background: linear-gradient(180deg, #FFFFFF 38.42%, rgba(255, 255, 255, 0.47) 84.05%, rgba(255, 255, 255, 0) 100%);;
+  height: 15vh;
+  background: linear-gradient(
+    180deg,
+    #ffffff 38.42%,
+    rgba(255, 255, 255, 0.47) 84.05%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  // @include devices(mobile) {
+  //   height: 15vh;
+  // }
+  z-index: -1;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-front {
+  opacity: 0;
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.flip-card-front {
+  z-index: 1;
+  transition: 0.3s;
+}
+/* Style the back side */
+.flip-card-back {
+  z-index: 0;
+  background-color: dodgerblue;
+  color: white;
 }

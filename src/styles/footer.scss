@@ -1,6 +1,10 @@
 .footer {
   background: rgb(227, 231, 249);
   width: 100%;
+
+  &_binance {
+    background: rgb(238, 203, 95);
+  }
 }
 
 .footer__link {
@@ -16,11 +20,11 @@
   height: 150px;
 
   @media only screen and (max-width: 1050px) {
-    padding-left: 20px!important;
+    padding-left: 20px !important;
   }
 
   @include devices(mobile) {
-    padding: 0 23px!important;
+    padding: 0 23px !important;
   }
 }
 
