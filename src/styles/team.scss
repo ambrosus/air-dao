@@ -10,9 +10,16 @@
     padding-left: unset;
   }
 
+  & br {
+    @include devices(mobile) {
+      display: none;
+    }
+  }
+
   @include devices(mobile) {
     padding-left: 16px;
     padding-right: 16px;
+    white-space: initial;
   }
 }
 
@@ -69,6 +76,7 @@
   overflow: hidden;
   background: white;
   padding-bottom: 20px;
+  white-space: break-spaces;
 }
 
 .team-page__member-photo-container {
@@ -117,10 +125,6 @@
   line-height: 37px;
   color: #212121;
   margin-bottom: 116px;
-
-  @include devices(mobile) {
-    white-space: nowrap;
-  }
 
   a {
     color: #457EFF;
