@@ -12,10 +12,10 @@ const router = createBrowserRouter([
     path: '/binance',
     element: <Binance />,
   },
-  // {
-  //   path: '/team',
-  //   element: <Team />,
-  // },
+  {
+    path: '/team',
+    element: <Team />,
+  },
 ]);
 
 export default router;
