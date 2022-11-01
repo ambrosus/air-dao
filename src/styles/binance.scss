@@ -2,6 +2,12 @@
   background-color: #F4CA45;
   position: relative;
 
+  white-space: break-spaces;
+
+  @include devices(mobile) {
+    white-space: initial;
+  }
+
   .container {
     overflow: visible;
   }
@@ -9,6 +15,11 @@
   a {
     font-size: 16px;
   }
+
+  @include devices(mobile) {
+    white-space: initial;
+  }
+
 }
 
 .binance-title {
