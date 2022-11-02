@@ -1,0 +1,127 @@
+.mexc-page {
+  background: #DBFDED;
+
+  // screen height - footer height
+  min-height: calc(100vh - 150px);
+  position: relative;
+
+  & br {
+    @include devices(mobile) {
+      display: none;
+    }
+  }
+}
+
+.mexc-page .content {
+  padding-top: 112px;
+  overflow: visible;
+
+  @include devices(mobile) {
+    padding: 128px 16px 0;
+  }
+}
+
+.mexc-page .container {
+  overflow: visible;
+}
+
+.mexc-page__heading {
+  font-family: 'Mersad', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 60px;
+  color: #0E0E0E;
+
+  margin-bottom: 24px;
+}
+
+.mexc-page__lead {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 140%;
+  color: #1D1D1D;
+
+  margin-bottom: 78px;
+}
+
+.mexc-page__card-wrapper {
+  position: relative;
+  width: 400px;
+  @include devices(mobile) {
+    width: 100%;
+  }
+}
+
+.mexc-page__background {
+  position: absolute;
+  width: 1506px;
+  height: 760px;
+  left: -505px;
+  top: -115px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.mexc-page__card {
+  background: linear-gradient(177.46deg, #FFFFFF 0%, #FFFFFF 95.75%);
+  border-radius: 24px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 24px 40px;
+  position: relative;
+
+  box-sizing: border-box;
+}
+
+.mexc-page__note {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #1D1D1D;
+
+  width: 100%;
+  text-align: right;
+  margin-bottom: 34px;
+}
+
+.mexc-page__logo {
+  width: 83px;
+  height: 57px;
+
+  margin-bottom: 34px;
+}
+
+.mexc-page__card-heading {
+  font-family: 'Mersad', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 110%;
+  color: #1D1D1D;
+  margin-bottom: 16px;
+}
+
+.mexc-page__card-lead {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1D1D1D;
+
+  margin-bottom: 34px;
+}
+
+.mexc-page__button {
+  padding: 12px 24px;
+}
