@@ -2,7 +2,7 @@
   background: #DBFDED;
 
   // screen height - footer height
-  height: calc(100vh - 150px);
+  min-height: calc(100vh - 150px);
   position: relative;
 
   & br {
