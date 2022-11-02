@@ -7,6 +7,7 @@
 @import 'footer';
 @import 'binance';
 @import 'team';
+@import 'mexc';
 
 body {
   position: relative;
@@ -14,6 +15,10 @@ body {
 
 .page-wrapper {
   margin: 0 auto;
+}
+
+#root {
+  overflow: hidden;
 }
 
 .background {
