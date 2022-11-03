@@ -4,14 +4,13 @@
   white-space: break-spaces;
   max-width: 792px;
   margin-left: auto;
+  position: relative;
 
   @include media(1140px) {
     max-width: 688px;
     padding-left: unset;
-  }
 
-  & br {
-    @include devices(mobile) {
+    &::before {
       display: none;
     }
   }
@@ -21,6 +20,38 @@
     padding-right: 16px;
     white-space: initial;
   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 696px;
+    height: 444px;
+    left: 320px;
+    top: -6px;
+    z-index: 1;
+    background: radial-gradient(68.95% 152.29% at 38% 22.68%, #FFFFFF 25.29%, rgba(255, 255, 255, 0.47) 78.49%, rgba(255, 255, 255, 0) 100%)
+  }
+
+  & br {
+    @include devices(mobile) {
+      display: none;
+    }
+  }
+
+
+}
+
+.team-page .background {
+  right: -15%;
+
+  @include media(1140px) {
+    display: none;
+  }
+}
+
+.team-page > * {
+  z-index: 5;
+  position: relative;
 }
 
 .team-page__heading {
@@ -54,6 +85,8 @@
   grid-row-gap: 39px;
   margin-bottom: 107px;
 
+  position: relative;
+
   @include media(1140px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -77,6 +110,20 @@
   background: white;
   padding-bottom: 20px;
   white-space: break-spaces;
+}
+
+.team-page__member_hidden {
+  @include devices(mobile) {
+    // 3 height + 3 row-gap + variable offset
+    height: calc((280px * 3) + (39px * 3) + 180px);
+    overflow: hidden;
+  }
+}
+
+.team-page__member_hidden .team-page__member:nth-of-type(n + 7) > * {
+  @include devices(mobile) {
+    display: none;
+  }
 }
 
 .team-page__member-photo-container {
@@ -115,6 +162,29 @@
   font-size: 14px;
   line-height: 140%;
   color: #0E0E0E;
+}
+
+.team-page__members-button-overlay {
+  display: none;
+}
+
+.team-page__member_hidden .team-page__members-button-overlay {
+  @include devices(mobile) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(0, white 50%, rgba(255, 255, 255, 0) 100%);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+
+.team-page__show-members-button {
+  padding: 12px 24px;
 }
 
 .team-page__linkedin-lead {
