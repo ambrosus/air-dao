@@ -183,7 +183,7 @@ const Contact = ({ heading, leadText }) => {
               )}
             </div>
             <UiButton type='submit' withBorder className='contact-content__btn'>
-              Send
+              Submit
             </UiButton>
           </form>
         </div>

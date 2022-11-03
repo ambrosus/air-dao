@@ -1,9 +1,10 @@
 const Footer = () => {
   return (
     <footer
-      className={`footer ${
-        window.location.pathname.includes('binance') ? 'footer_binance' : ''
-      }`}
+      className={`footer 
+      ${window.location.pathname.includes('binance') ? 'footer_binance' : ''}
+      ${window.location.pathname.includes('mexc') ? 'footer_mexc' : ''}
+      `}
     >
       <div className='container footer__wrapper'>
         <div className='footer__left'>
