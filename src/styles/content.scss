@@ -986,3 +986,38 @@ select {
     margin-top: 110px;
   }
 }
+
+.cex {
+  background: linear-gradient(135deg, #1D1D1D 0%, #0E0E0E 100%);
+  border-radius: 24px;
+  padding: 56px 46px;
+}
+
+.cex__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 550px;
+
+  @include media(570px) {
+    justify-content: flex-start;
+    padding-left: 16px;
+  }
+
+  a {
+    color: white;
+
+    @include media(570px) {
+      width: 50%;
+
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+
+.cex__title {
+  color: white;
+  margin-bottom: 36px;
+}

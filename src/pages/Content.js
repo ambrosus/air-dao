@@ -41,7 +41,7 @@ const Content = () => {
       return groupArr(data.partners_link, 6);
     } else return [];
   }, [data]);
-
+  console.log(data);
   return (
     data && (
       <div className='container main-page'>
@@ -128,6 +128,18 @@ const Content = () => {
                   {data.firepot_button_text}
                 </a>
               </UiButton>
+            </div>
+          </section>
+          <section className="cex">
+            <h3 className="cex__title">
+              <PrismicText field={data.cex_heading} />
+            </h3>
+            <div className="cex__list">
+              {data.cex_links.map((link) => (
+                <a key={link.cex_link_url.url} href={link.cex_link_url.url}>
+                  <PrismicText field={link.cex_link_text} />
+                </a>
+              ))}
             </div>
           </section>
           <section id='staking' className='earn'>
