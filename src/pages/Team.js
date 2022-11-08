@@ -3,9 +3,13 @@ import { PrismicText, PrismicRichText } from '@prismicio/react';
 import { ReactComponent as LinkedInIcon } from '../assets/linkedin-icon.svg';
 import { ReactComponent as TwitterIcon } from '../assets/twitter.svg';
 import bg from '../assets/background.png';
+import { useState } from 'react';
+import UiButton from '../components/UiButton';
 
 const Team = () => {
   const data = usePrismicPageData('team');
+  const [isHidden, setIsHidden] = useState(true);
+
   return (
     data && (
       <div className='container'>
@@ -18,7 +22,11 @@ const Team = () => {
             <PrismicText field={data.lead_text} />
           </p>
 
-          <div className='team-page__members'>
+          <div
+            className={`team-page__members ${
+              isHidden ? 'team-page__member_hidden' : 'hui'
+            }`}
+          >
             {data.team_members.map((member, i) => (
               <div className='team-page__member' key={`team-member-${i}`}>
                 <div className='team-page__member-photo-container'>
@@ -52,6 +60,15 @@ const Team = () => {
                 </div>
               </div>
             ))}
+            <div className='team-page__members-button-overlay'>
+              <UiButton
+                withBorder
+                className='team-page__show-members-button'
+                onClick={() => setIsHidden(false)}
+              >
+                Expand Team List
+              </UiButton>
+            </div>
           </div>
 
           <PrismicRichText
