@@ -839,8 +839,14 @@ select {
 }
 
 .swap-btn {
+  margin-right: 16px;
+
   @include media(1140px) {
     display: block;
+  }
+
+  @include devices(mobile) {
+    margin-right: 0;
   }
 }
 

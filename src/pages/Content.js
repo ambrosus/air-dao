@@ -128,6 +128,11 @@ const Content = () => {
                   {data.firepot_button_text}
                 </a>
               </UiButton>
+              <UiButton withBorder>
+                <a href={data.dex_link_url.url}>
+                  <PrismicText field={data.dex_link_text} />
+                </a>
+              </UiButton>
             </div>
           </section>
           <section className="cex">
