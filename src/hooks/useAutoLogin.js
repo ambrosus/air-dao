@@ -11,17 +11,21 @@ const useAutoLogin = () => {
   const [isLoaded, setLoading] = useState(false);
 
   useEffect(() => {
-    const { ethereum } = window;
-    // eslint-disable-next-line no-underscore-dangle
-    const isUnlocked =
-      ethereum && ethereum._metamask && ethereum._metamask.isUnlocked();
-    const lastAuthorizedWallet = localStorage.getItem('wallet');
+    (async () => {
+      const { ethereum } = window;
+      // eslint-disable-next-line no-underscore-dangle
+      const isUnlocked = await (ethereum &&
+        ethereum._metamask &&
+        ethereum._metamask.isUnlocked());
 
-    if (lastAuthorizedWallet === 'metamask' && isUnlocked) {
-      activate(ConfiguredInjectedConnector).then(() => setLoading(true));
-    } else {
-      setLoading(true);
-    }
+      const lastAuthorizedWallet = localStorage.getItem('wallet');
+
+      if (lastAuthorizedWallet === 'metamask' && isUnlocked) {
+        activate(ConfiguredInjectedConnector).then(() => setLoading(true));
+      } else {
+        setLoading(true);
+      }
+    })();
   }, []);
 
   useEffect(() => {
