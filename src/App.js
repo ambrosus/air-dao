@@ -1,18 +1,20 @@
 import { useWeb3React } from '@web3-react/core';
-import useAutoLogin from './hooks/useAutoLogin';
-import useAuthorization from './hooks/useAuthorization';
 import Layout from './components/Layout';
 import { RouterProvider } from 'react-router-dom';
 import router from './router';
+import {
+  useAuthorization,
+  useAutoLogin,
+} from 'airdao-components-and-tools/hooks';
 
 function App() {
-  const isLoaded = useAutoLogin();
-  const { account: address } = useWeb3React();
-  const { loginMetamask, logout } = useAuthorization();
+  const web3React = useWeb3React();
+  const isLoaded = useAutoLogin(web3React);
+  const { loginMetamask, logout } = useAuthorization(web3React);
 
   return (
     isLoaded && (
-      <Layout {...{ address, logout, login: loginMetamask }}>
+      <Layout {...{ address: web3React.account, logout, login: loginMetamask }}>
         <RouterProvider router={router} />
       </Layout>
     )
