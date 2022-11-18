@@ -3073,10 +3073,10 @@ agent-base@6:
   version "0.0.0"
   resolved "https://github.com/ambrosus/airdao-components-and-tools#e3df97c8972295e3d863e8683085c7053d6e8f32"
 
-airdao-menu@^2.2.14:
-  version "2.2.14"
-  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.14.tgz#5854ee45599eab49587d9a27a0bfc9f1b4bbed0f"
-  integrity sha512-ftHQt/4PyIXxtD4Tmkqk9I+CjqvJORVhrqKeoNo/xZkP5rQ2j9hfLD0tbV+BPQu4hMd9D4idK5Jm4XZ1hEd61Q==
+airdao-menu@^2.2.15:
+  version "2.2.15"
+  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.15.tgz#b3d7eb752a62dfd9622ab47c2c5731d6fe7b541a"
+  integrity sha512-fMZ3lhAlsnhpXW/XAeEOHaQboxx4HJ5Z6YqUj3MRUGKx9Yy5J4WSVvkBvmDLD+CaPQKK5LpRu8WQtXGHCqYYpA==
 
 ajv-formats@^2.1.1:
   version "2.1.1"
