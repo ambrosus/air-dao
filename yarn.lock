@@ -3069,6 +3069,10 @@ agent-base@6:
   dependencies:
     debug "4"
 
+"airdao-components-and-tools@https://github.com/ambrosus/airdao-components-and-tools":
+  version "0.0.0"
+  resolved "https://github.com/ambrosus/airdao-components-and-tools#e3df97c8972295e3d863e8683085c7053d6e8f32"
+
 airdao-menu@^2.2.13:
   version "2.2.13"
   resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.13.tgz#f45094b91253544c2ce1f9cbf6f67bcf29400224"
