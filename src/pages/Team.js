@@ -35,20 +35,24 @@ const Team = () => {
                   {member.position}
                 </h4>
                 <div className='team-page__socials-container'>
-                  <a
-                    href={member?.linkedin_link.url}
-                    target={member?.linkedin_link.target}
-                    className='team-page__social-link'
-                  >
-                    <LinkedInIcon className='team-page__social-icon' />
-                  </a>
-                  <a
-                    href={member?.twitter_link.url}
-                    target={member?.twitter_link.target}
-                    className='team-page__social-link'
-                  >
-                    <TwitterIcon className='team-page__social-icon' />
-                  </a>
+                  {member?.linkedin_link.url && (
+                    <a
+                      href={member?.linkedin_link.url}
+                      target={member?.linkedin_link.target}
+                      className='team-page__social-link'
+                    >
+                      <LinkedInIcon className='team-page__social-icon' />
+                    </a>
+                  )}
+                  {member?.twitter_link.url && (
+                    <a
+                      href={member?.twitter_link.url}
+                      target={member?.twitter_link.target}
+                      className='team-page__social-link'
+                    >
+                      <TwitterIcon className='team-page__social-icon' />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
