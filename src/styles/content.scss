@@ -245,7 +245,7 @@
   display: flex;
   align-items: center;
 
-  @include devices(mobile) {
+  @include media(605px) {
     margin-top: 25px;
   }
 }
@@ -253,7 +253,7 @@
 .community-mobile {
   display: none;
 
-  @include devices(mobile) {
+  @include media(605px) {
     display: block;
     text-align: center;
     padding: 0 20px;
@@ -265,7 +265,7 @@
 }
 
 .community__img {
-  @include devices(mobile) {
+  @include media(605px) {
     width: 45%;
   }
 }
@@ -285,13 +285,13 @@
     button:last-child {
       margin-top: 15px;
 
-      @include devices(mobile) {
+      @include media(605px) {
         margin-top: 0;
       }
     }
   }
 
-  @include devices(mobile) {
+  @include media(605px) {
     padding: 40px 24px 10px;
 
     &_low {
@@ -304,7 +304,7 @@
     margin-bottom: 16px;
     font-size: 40px;
 
-    @include devices(mobile) {
+    @include media(605px) {
       display: none;
     }
   }
@@ -312,7 +312,7 @@
   p {
     margin-bottom: 25px;
 
-    @include devices(mobile) {
+    @include media(605px) {
       display: none;
     }
   }
@@ -331,7 +331,7 @@
   display: block;
   width: 40%;
 
-  @include devices(mobile) {
+  @include media(605px) {
     margin-bottom: 24px;
   }
 }
@@ -366,7 +366,7 @@
   position: relative;
   background: linear-gradient(135deg, #1d1d1d 0%, #0e0e0e 100%);
 
-  @include devices(mobile) {
+  @include media(605px) {
     flex-direction: column;
     align-items: center;
     margin-left: 20px;
@@ -378,7 +378,7 @@
     margin-bottom: 115px;
     font-size: 20px;
 
-    @include devices(mobile) {
+    @include media(605px) {
       margin-bottom: 30px;
     }
   }
@@ -411,7 +411,7 @@
 .ambrosus-content__img {
   margin-right: 50px;
 
-  @include devices(mobile) {
+  @include media(605px) {
     margin-right: 0;
     margin-bottom: 20px;
   }
@@ -597,8 +597,9 @@
 
 .contract-content__form-heading {
   color: rgba(14, 14, 14, 0.5);
-  font-size: 16px;
-  font-family: 'Inter, sans-serif';
+  font-size: 13px;
+  font-weight: 400;
+  font-family: Inter, sans-serif;
   &:hover {
     color: rgba(14, 14, 14);
   }
@@ -800,7 +801,7 @@ select {
 .community--swap {
   box-sizing: border-box;
 
-  @include devices(mobile) {
+  @include media(605px) {
     h3,
     p {
       display: block;
@@ -828,7 +829,7 @@ select {
 .firepot-logo {
   display: none;
 
-  @include devices(mobile) {
+  @include media(605px) {
     display: block !important;
     margin-bottom: 30px;
   }
@@ -839,8 +840,14 @@ select {
 }
 
 .swap-btn {
+  margin-right: 16px;
+
   @include media(1140px) {
     display: block;
+  }
+
+  @include media(605px) {
+    margin-right: 0;
   }
 }
 

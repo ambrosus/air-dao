@@ -3069,10 +3069,14 @@ agent-base@6:
   dependencies:
     debug "4"
 
-airdao-menu@^2.2.11:
-  version "2.2.11"
-  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.11.tgz#47a2f0b10f30318f08403d78f673c24a5b90cb35"
-  integrity sha512-xLZjWgxHS8RBXsg/J7+P7b1vt2sggwojWVIg9SktzcJCwBLdXTdexVEB4vWTDVcWNNaOWkKizdRtTCch2uaUxw==
+"airdao-components-and-tools@https://github.com/ambrosus/airdao-components-and-tools":
+  version "0.0.0"
+  resolved "https://github.com/ambrosus/airdao-components-and-tools#e3df97c8972295e3d863e8683085c7053d6e8f32"
+
+airdao-menu@^2.2.14:
+  version "2.2.14"
+  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.14.tgz#5854ee45599eab49587d9a27a0bfc9f1b4bbed0f"
+  integrity sha512-ftHQt/4PyIXxtD4Tmkqk9I+CjqvJORVhrqKeoNo/xZkP5rQ2j9hfLD0tbV+BPQu4hMd9D4idK5Jm4XZ1hEd61Q==
 
 ajv-formats@^2.1.1:
   version "2.1.1"
