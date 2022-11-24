@@ -25,7 +25,7 @@ const Binance = () => {
             <p className="red-packet__text">
               <PrismicText field={data['packet-text']} />
             </p>
-            <a href={data['packet-link'].url}>
+            <a rel="nofollow" href={data['packet-link'].url}>
               <PrismicText field={data['packet-link-label']} />
             </a>
           </div>
@@ -53,7 +53,7 @@ const Binance = () => {
                   <p className="binance-referral__text">
                     <PrismicText field={data['referral-text']} />
                   </p>
-                  <a href={data['referral-link'].url}>
+                  <a rel="nofollow" href={data['referral-link'].url}>
                     <PrismicText field={data['referral-link-label']} />
                   </a>
                 </div>
@@ -68,7 +68,7 @@ const Binance = () => {
                     Join the Binance Lite Referral Program to receive 100 USDT
                     cashback vouchers and earn up to $1200 in AMB gift cards!
                   </p>
-                  <a href={data['referral-link'].url} className="binance-earn__link">
+                  <a rel="nofollow" href={data['referral-link'].url} className="binance-earn__link">
                     <PrismicText field={data['referral-link-label']} />
                   </a>
                 </div>
