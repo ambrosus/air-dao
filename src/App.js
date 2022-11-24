@@ -11,6 +11,7 @@ function App() {
   const web3React = useWeb3React();
   const isLoaded = useAutoLogin(web3React);
   const { loginMetamask, logout } = useAuthorization(web3React);
+
   return (
     isLoaded && (
       <Layout {...{ address: web3React.account, logout, login: loginMetamask }}>
