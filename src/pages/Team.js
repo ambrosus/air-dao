@@ -45,6 +45,7 @@ const Team = () => {
                 <div className='team-page__socials-container'>
                   {member?.linkedin_link.url && (
                     <a
+                      rel="nofollow"
                       href={member?.linkedin_link.url}
                       target={member?.linkedin_link.target}
                       className='team-page__social-link'
