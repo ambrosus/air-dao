@@ -1,0 +1,41 @@
+.not-found-bg {
+  background: #EDF3FF;
+  height: 100vh;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found__num {
+  font-size: 368px;
+  font-family: Mersad, sans-serif;
+  font-weight: 700;
+  color: white;
+  margin-top: 10vh;
+  line-height: 100%;
+
+  @include media(1150px) {
+    font-size: 317px;
+    margin-top: 70px;
+  }
+
+  @include media(740px) {
+    margin-top: 150px;
+    font-size: 150px;
+  }
+}
+
+.not-found__title {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.not-found__text {
+  max-width: 385px;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 30px;
+}
