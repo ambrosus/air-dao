@@ -223,14 +223,30 @@
   background: transparent;
   border-radius: 8px;
   transition: .2s;
+
+
   &:not(&_twitter) svg path {
     fill: #A2B2D8;
   }
 
-  &_twitter {
-    svg path {
-      stroke: #A2B2D8;
-    }
+  &:not(&_twitter):hover svg path {
+    fill: #828ac8;
+  }
+
+  &:not(&_twitter):active svg path {
+    fill: #464B71;
+  }
+
+  &_twitter svg path {
+    stroke: #A2B2D8;
+  }
+
+  &_twitter:hover svg path {
+    stroke: #828ac8;
+  }
+
+  &_twitter:active svg path {
+    stroke: #464B71;
   }
 }
 
