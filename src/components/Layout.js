@@ -1,12 +1,12 @@
-import Menu from 'airdao-menu';
+import { Menu } from 'airdao-components-and-tools/components';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
 
-const Layout = ({ children, address, login, logout }) => {
+const Layout = ({ children, web3ReactInstance }) => {
   return (
     <>
       <div className='page-wrapper'>
-        <Menu {...{ address, login, logout }} />
+        <Menu {...{ web3ReactInstance }} />
         {children}
       </div>
       <Footer />
@@ -16,9 +16,7 @@ const Layout = ({ children, address, login, logout }) => {
 
 Layout.propTypes = {
   children: PropTypes.node,
-  address: PropTypes.string,
-  login: PropTypes.func,
-  logout: PropTypes.func,
+  web3ReactInstance: PropTypes.object,
 };
 
 export default Layout;
