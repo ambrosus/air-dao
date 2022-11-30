@@ -3077,10 +3077,10 @@ agent-base@6:
     "@web3-react/walletconnect-connector" "^6.2.13"
     buffer "^6.0.3"
 
-airdao-menu@^2.2.17:
-  version "2.2.17"
-  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.17.tgz#95b1abde45bfde6c93722d957f14813131922af1"
-  integrity sha512-V5kpxSE31FLnmH2/K2xNWgquL24mm50NJlXIKxFb2SEnH+KHGX9V4DMWkgJwfZDQ7hC8UQ8lrl3TpYIueOUnHg==
+airdao-menu@^2.2.18:
+  version "2.2.18"
+  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.18.tgz#e2fccf1f49329a868b5ac30725f19cc4e19ac67f"
+  integrity sha512-frdv8/So16bijTAwS8a1btbVmkmvM9GM7TssgjmZHT5FE0AGzEyvrmT5wUwm7tGViRvUKT3utkFDE1adRsszcA==
 
 ajv-formats@^2.1.1:
   version "2.1.1"
