@@ -57,7 +57,7 @@ const Team = () => {
                     <a
                       href={member?.twitter_link.url}
                       target={member?.twitter_link.target}
-                      className='team-page__social-link'
+                      className='team-page__social-link team-page__social-link_twitter'
                     >
                       <TwitterIcon className='team-page__social-icon' />
                     </a>

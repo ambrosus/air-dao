@@ -100,16 +100,23 @@
 .team-page__member {
   width: auto;
   height: 280px;
-  border: 1px solid #3568DD;
   border-radius: 16px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   text-align: center;
   overflow: hidden;
-  background: white;
+  background: linear-gradient(0deg, rgba(164, 187, 240, 0.15), rgba(164, 187, 240, 0.15)),
+  linear-gradient(0deg, #FFFFFF, #FFFFFF);
   padding-bottom: 20px;
   white-space: break-spaces;
+
+  &:hover {
+
+    .team-page__social-link {
+      background: white;
+    }
+  }
 }
 
 .team-page__member_hidden {
@@ -203,16 +210,44 @@
 
 .team-page__socials-container {
   margin-top: auto;
-
   display: flex;
   flex-flow: row nowrap;
   align-content: center;
-  grid-column-gap: 4px;
+  grid-column-gap: 8px;
 }
 
 .team-page__social-link {
   height: 24px;
   width: 24px;
+  padding: 4px;
+  background: transparent;
+  border-radius: 8px;
+  transition: .2s;
+
+
+  &:not(&_twitter) svg path {
+    fill: #A2B2D8;
+  }
+
+  &:not(&_twitter):hover svg path {
+    fill: #828ac8;
+  }
+
+  &:not(&_twitter):active svg path {
+    fill: #464B71;
+  }
+
+  &_twitter svg path {
+    stroke: #A2B2D8;
+  }
+
+  &_twitter:hover svg path {
+    stroke: #828ac8;
+  }
+
+  &_twitter:active svg path {
+    stroke: #464B71;
+  }
 }
 
 .team-page__social-icon {
