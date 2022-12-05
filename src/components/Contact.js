@@ -89,7 +89,7 @@ const Contact = ({ heading, leadText }) => {
           <img src={thumb} alt='thumb up' />
           <h3>Message sent</h3>
           <p>Thank you, we will get back to you</p>
-          <UiButton withBorder onClick={closeSuccess}>
+          <UiButton withBorder onClick={closeSuccess} className="contact__btn-again">
             Send one more message
           </UiButton>
         </div>
