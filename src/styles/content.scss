@@ -509,7 +509,7 @@
   position: relative;
 
   &_error {
-    border-color: #e07777;
+    border-color: $red;
   }
 
   &_third {
@@ -523,7 +523,7 @@
   }
 
   &_error::placeholder {
-    color: #e07777;
+    color: $red;
   }
 
   &:hover {
@@ -1027,4 +1027,8 @@ select {
 .cex__title {
   color: white;
   margin-bottom: 36px;
+}
+
+.contact__btn-again {
+  padding: 10px 15px;
 }
