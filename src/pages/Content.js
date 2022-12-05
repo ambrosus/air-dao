@@ -41,7 +41,7 @@ const Content = () => {
       return groupArr(data.partners_link, 6);
     } else return [];
   }, [data]);
-  console.log(data);
+
   return (
     data && (
       <div className='container main-page'>
@@ -91,7 +91,6 @@ const Content = () => {
               </UiButton>
               <UiButton className='binance__btn binance__btn-second'>
                 <a
-                  rel="=nofollow"
                   href={data.binance_ref_link.url}
                   target={data.binance_ref_link.target}
                 >
@@ -312,7 +311,7 @@ const Content = () => {
               <div className='partners-list'>
                 {data.partners_link.map((el, i) => (
                   <a
-                    rel="nofollow"
+                    rel={el.partners_link_href.url.includes('airdao.io') ? '' : 'nofollow'}
                     className='partners-list__item'
                     href={el.partners_link_href.url}
                     target={el.partners_link_href.target}
@@ -334,7 +333,7 @@ const Content = () => {
                   >
                     {el.map((item, j) => (
                       <a
-                        rel="nofollow"
+                        rel={item.partners_link_href.url.includes('airdao.io') ? '' : 'nofollow'}
                         className='partners-list__item'
                         href={item.partners_link_href.url}
                         target={item.partners_link_href.target}
