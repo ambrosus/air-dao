@@ -10,15 +10,15 @@ const router = createBrowserRouter([
     element: <Content />,
   },
   {
-    path: '/binance',
+    path: '/binance/',
     element: <Binance />,
   },
   {
-    path: '/team',
+    path: '/team/',
     element: <Team />,
   },
   {
-    path: '/mexc',
+    path: '/mexc/',
     element: <MEXC />,
   },
 ]);
