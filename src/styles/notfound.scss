@@ -1,6 +1,10 @@
 .not-found-bg {
   background: #EDF3FF;
-  height: 100vh;
+  min-height: 100vh;
+
+  .container {
+    padding-bottom: 80px;
+  }
 }
 
 .not-found {
