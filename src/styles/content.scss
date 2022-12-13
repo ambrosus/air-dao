@@ -109,6 +109,10 @@
 
 .about-us__btn:nth-of-type(1) {
   margin-right: 20px;
+
+  @include media(490px) {
+    margin-bottom: 20px;
+  }
 }
 
 .content__semi-wrapper {
@@ -448,6 +452,10 @@
 
   @include devices(mobile) {
     margin-top: 30px;
+  }
+
+  @include media(620px) {
+    margin-top: 16px;
   }
 }
 
@@ -848,6 +856,7 @@ select {
 
   @include media(605px) {
     margin-right: 0;
+    margin-bottom: 30px;
   }
 }
 
