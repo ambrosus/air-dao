@@ -1,10 +1,13 @@
 import { ReactComponent as MexcLogo } from '../assets/mexc.svg';
-// import { ReactComponent as Background } from '../assets/mexc-background.svg';
 import MexcBackground from '../assets/mexc-background.png';
 import UiButton from '../components/UiButton';
+import { Helmet } from 'react-helmet';
 
 const MEXC = () => (
   <section className='mexc-page'>
+    <Helmet>
+      <link rel="canonical" href="https://airdao.io/mexc/" />
+    </Helmet>
     <div className='container'>
       <div className='content'>
         <h1 className='mexc-page__heading'>MEXC Global & AirDAO</h1>
