@@ -40,7 +40,7 @@ const Binance = () => {
               <p className="binance-staking__text">
                 <PrismicText field={data['staking-text']} />
               </p>
-              <a rel="canonical" href={data['staking-link'].url} className="binance-staking__link">
+              <a href={data['staking-link'].url} className="binance-staking__link">
                 <PrismicText field={data['staking-link-label']} />
               </a>
             </div>

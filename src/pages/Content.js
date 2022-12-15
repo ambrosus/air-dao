@@ -66,7 +66,7 @@ const Content = () => {
                 className='about-us__btn'
                 key={`ui-button-${i}`}
               >
-                <a rel="canonical" href={item.link.url}>{item.link_name}</a>
+                <a href={item.link.url}>{item.link_name}</a>
               </UiButton>
             ))}
           </div>
@@ -91,7 +91,6 @@ const Content = () => {
               </UiButton>
               <UiButton className='binance__btn binance__btn-second'>
                 <a
-                  rel="canonical"
                   href={data.binance_ref_link.url}
                   target={data.binance_ref_link.target}
                 >
@@ -108,7 +107,7 @@ const Content = () => {
                 <PrismicText field={data.bridge_lead_text} />
               </p>
               <UiButton withBorder className='bridge__btn'>
-                <a rel="canonical" href={data.bridge_button_link.url}>
+                <a href={data.bridge_button_link.url}>
                   {data.bridge_button_text}
                 </a>
               </UiButton>
@@ -126,7 +125,7 @@ const Content = () => {
                 <PrismicText field={data.firepot_lead_text} />
               </p>
               <UiButton withBorder className='swap-btn'>
-                <a rel="canonical" href={data.firepot_button_link.url}>
+                <a href={data.firepot_button_link.url}>
                   {data.firepot_button_text}
                 </a>
               </UiButton>
@@ -160,7 +159,7 @@ const Content = () => {
               ))}
             </div>
             <UiButton withBorder className='about-us__btn'>
-              <a rel="canonical" href={data.stake_button_link.url}>{data.stake_button_text}</a>
+              <a href={data.stake_button_link.url}>{data.stake_button_text}</a>
             </UiButton>
             <UiButton>
               <a
@@ -312,7 +311,7 @@ const Content = () => {
               <div className='partners-list'>
                 {data.partners_link.map((el, i) => (
                   <a
-                    rel={el.partners_link_href.url.includes('airdao.io') ? 'canonical' : 'nofollow'}
+                    rel={el.partners_link_href.url.includes('airdao.io') ? '' : 'nofollow'}
                     className='partners-list__item'
                     href={el.partners_link_href.url}
                     target={el.partners_link_href.target}
@@ -334,7 +333,7 @@ const Content = () => {
                   >
                     {el.map((item, j) => (
                       <a
-                        rel={item.partners_link_href.url.includes('airdao.io') ? 'canonical' : 'nofollow'}
+                        rel={item.partners_link_href.url.includes('airdao.io') ? '' : 'nofollow'}
                         className='partners-list__item'
                         href={item.partners_link_href.url}
                         target={item.partners_link_href.target}
