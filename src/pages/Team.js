@@ -55,6 +55,7 @@ const Team = () => {
                   )}
                   {member?.twitter_link.url && (
                     <a
+                      rel="nofollow"
                       href={member?.twitter_link.url}
                       target={member?.twitter_link.target}
                       className='team-page__social-link team-page__social-link_twitter'

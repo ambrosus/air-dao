@@ -28,7 +28,7 @@ const MEXC = () => (
               Trade AMB on MEXC, Asia’s biggest <br />
               crypto exchange
             </p>
-            <a href='https://www.mexc.com/exchange/AMB_USDT'>
+            <a rel="nofollow" href='https://www.mexc.com/exchange/AMB_USDT'>
               <UiButton withBorder className='mexc-page__button'>
                 Buy AMB
               </UiButton>

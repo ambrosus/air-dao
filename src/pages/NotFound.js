@@ -22,7 +22,7 @@ const NotFound = () => {
             moved, deleted, or possibly never existed
           </p>
           <UiButton withBorder>
-            <NavLink to="/">Back to Home</NavLink>
+            <NavLink rel="canonical" to="/">Back to Home</NavLink>
           </UiButton>
         </div>
       </div>
