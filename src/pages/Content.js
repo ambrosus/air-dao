@@ -16,6 +16,7 @@ import { PrismicText } from '@prismicio/react';
 import Slider from 'react-slick';
 import { useMemo } from 'react';
 import bg from '../assets/background.png';
+import {Helmet} from "react-helmet";
 
 const groupArr = (data, n) => {
   const group = [];
@@ -45,6 +46,9 @@ const Content = () => {
   return (
     data && (
       <div className='container main-page'>
+        <Helmet>
+          <link rel="canonical" href="https://airdao.io/" />
+        </Helmet>
         <div className='content'>
           <img className='background' src={bg} alt='background' />
           <div className='white-overlay' />

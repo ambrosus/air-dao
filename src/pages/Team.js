@@ -5,6 +5,7 @@ import { ReactComponent as TwitterIcon } from '../assets/twitter.svg';
 import bg from '../assets/background.png';
 import { useState } from 'react';
 import UiButton from '../components/UiButton';
+import {Helmet} from "react-helmet";
 
 const Team = () => {
   const data = usePrismicPageData('team');
@@ -13,6 +14,9 @@ const Team = () => {
   return (
     data && (
       <div className='container'>
+        <Helmet>
+          <link rel="canonical" href="https://airdao.io/team/" />
+        </Helmet>
         <section className='team-page'>
           <img className='background' src={bg} alt='background' />
           <h1 className='team-page__heading'>

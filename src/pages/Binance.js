@@ -2,12 +2,16 @@ import redPocket from '../assets/red-pocket.svg';
 import bg from '../assets/binance-bg.svg';
 import {usePrismicPageData} from '../hooks/usePrismicPageData';
 import { PrismicText } from '@prismicio/react';
+import {Helmet} from "react-helmet";
 
 const Binance = () => {
   const data = usePrismicPageData('binance');
 
   return data && (
     <div className="binance-page">
+      <Helmet>
+        <link rel="canonical" href="https://airdao.io/binance/" />
+      </Helmet>
       <img src={bg} alt="bg" className="binance-page__bg"/>
       <div className="container">
         <div className="content content-binance">
