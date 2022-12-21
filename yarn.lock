@@ -3070,17 +3070,13 @@ agent-base@6:
     debug "4"
 
 "airdao-components-and-tools@https://github.com/ambrosus/airdao-components-and-tools":
-  version "0.0.1"
-  resolved "https://github.com/ambrosus/airdao-components-and-tools#c1144952b9bca30b1791734562edfff45f6ecca9"
-  dependencies:
-    "@web3-react/injected-connector" "^6.0.7"
-    "@web3-react/walletconnect-connector" "^6.2.13"
-    buffer "^6.0.3"
+  version "0.0.0"
+  resolved "https://github.com/ambrosus/airdao-components-and-tools#e3df97c8972295e3d863e8683085c7053d6e8f32"
 
-airdao-menu@^2.2.18:
-  version "2.2.18"
-  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.18.tgz#e2fccf1f49329a868b5ac30725f19cc4e19ac67f"
-  integrity sha512-frdv8/So16bijTAwS8a1btbVmkmvM9GM7TssgjmZHT5FE0AGzEyvrmT5wUwm7tGViRvUKT3utkFDE1adRsszcA==
+airdao-menu@^2.2.19:
+  version "2.2.19"
+  resolved "https://registry.yarnpkg.com/airdao-menu/-/airdao-menu-2.2.19.tgz#7bafb1c953acd7b7091d59e5d7334a920e975e21"
+  integrity sha512-/0u2z6A3/+/50Z0Jz3a4OgSsi0TW4uX6MZ+MEJMcNe4RAf6Jw79TJeo+KmfRDBejrWQB9ZuN0uLyTNl20EC/xQ==
 
 ajv-formats@^2.1.1:
   version "2.1.1"
@@ -3631,14 +3627,6 @@ buffer@^5.4.3:
   dependencies:
     base64-js "^1.3.1"
     ieee754 "^1.1.13"
-
-buffer@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/buffer/-/buffer-6.0.3.tgz#2ace578459cc8fbe2a70aaa8f52ee63b6a74c6c6"
-  integrity sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==
-  dependencies:
-    base64-js "^1.3.1"
-    ieee754 "^1.2.1"
 
 builtin-modules@^3.1.0:
   version "3.3.0"
@@ -5736,7 +5724,7 @@ identity-obj-proxy@^3.0.0:
   dependencies:
     harmony-reflect "^1.4.6"
 
-ieee754@^1.1.13, ieee754@^1.2.1:
+ieee754@^1.1.13:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
