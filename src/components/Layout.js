@@ -6,7 +6,9 @@ const Layout = ({ children, web3ReactInstance }) => {
   return (
     <>
       <div className='page-wrapper'>
-        <Menu {...{ web3ReactInstance }} />
+        <div className='menu-wrapper'>
+          <Menu {...{ web3ReactInstance }} />
+        </div>
         {children}
       </div>
       <Footer />

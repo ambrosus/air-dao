@@ -180,3 +180,9 @@ a {
   user-select: none;           /* Non-prefixed version, currently
                                   not supported by any browser */
 }
+
+.menu-wrapper {
+  max-width: 1408px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
