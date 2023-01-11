@@ -47,7 +47,7 @@ const Content = () => {
     data && (
       <div className='container main-page'>
         <Helmet>
-          <link rel="canonical" href="https://airdao.io/" />
+          <link rel="canonical" href="https://airdao.io" />
         </Helmet>
         <div className='content'>
           <img className='background' src={bg} alt='background' />
