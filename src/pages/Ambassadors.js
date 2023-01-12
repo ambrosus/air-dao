@@ -21,7 +21,7 @@ const Ambassadors = () => {
             <PrismicText field={data.ambassadors_text_2} />
           </p>
           <UiButton withBorder className="ambassadors__btn">
-            <a href={data.ambassador_link} target="_blank" rel="nofollow noreferrer">
+            <a href={data.ambassador_link.url} target="_blank" rel="nofollow noreferrer">
               <PrismicText field={data.ambassador_link_text} />
             </a>
           </UiButton>
