@@ -5,9 +5,11 @@
 
   @include media(1140px) {
     max-width: 688px;
+    padding-top: 60px;
   }
 
   @include devices(mobile) {
+    padding-top: 0;
     height: auto;
     padding-left: 0;
 
