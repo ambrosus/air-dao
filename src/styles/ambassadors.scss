@@ -1,0 +1,43 @@
+.ambassadors {
+  min-height: calc(100vh - 150px);
+  background: linear-gradient(0deg, rgba(207, 217, 239, 0.2), rgba(207, 217, 239, 0.2)), #FFFFFF;
+
+  @include media(1050px) {
+    padding-top: 150px;
+  }
+
+  @include media(481px) {
+    padding: 128px 16px 0;
+  }
+}
+
+.ambassadors__img {
+  margin-bottom: 48px;
+  max-width: 100%;
+}
+
+.ambassadors__title {
+  font-size: 52px;
+  font-weight: 600;
+  font-family: Mersad, sans-serif;
+  margin-bottom: 35px;
+
+  @include media(481px) {
+    font-size: 36px;
+  }
+}
+
+.ambassadors__text {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #1d1d1d;
+}
+
+.ambassadors__btn {
+  margin-top: 20px;
+
+  a {
+    color: #1d1d1d;
+  }
+}

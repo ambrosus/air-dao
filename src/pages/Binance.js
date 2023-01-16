@@ -1,8 +1,8 @@
 import redPocket from '../assets/red-pocket.svg';
 import bg from '../assets/binance-bg.svg';
-import {usePrismicPageData} from '../hooks/usePrismicPageData';
+import { usePrismicPageData } from '../hooks/usePrismicPageData';
 import { PrismicText } from '@prismicio/react';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const Binance = () => {
   const data = usePrismicPageData('binance');
