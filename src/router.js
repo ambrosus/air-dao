@@ -4,7 +4,7 @@ import Team from './pages/Team';
 import Binance from './pages/Binance';
 import MEXC from './pages/MEXC';
 import NotFound from './pages/NotFound';
-import Ambassadors from "./pages/Ambassadors";
+import Ambassadors from './pages/Ambassadors';
 
 const router = createBrowserRouter([
   {
