@@ -10,13 +10,14 @@ import swap from '../assets/swap.png';
 import firepot from '../assets/firepot.svg';
 import roadmap from '../assets/roadmap.svg';
 import logoSymbol from '../assets/logo-symbol.svg';
+import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import Contact from '../components/Contact';
 import { usePrismicPageData } from '../hooks/usePrismicPageData';
 import { PrismicText } from '@prismicio/react';
 import Slider from 'react-slick';
 import { useMemo } from 'react';
 import bg from '../assets/background.png';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const groupArr = (data, n) => {
   const group = [];
@@ -47,11 +48,27 @@ const Content = () => {
     data && (
       <div className='container main-page'>
         <Helmet>
-          <link rel="canonical" href="https://airdao.io" />
+          <link rel='canonical' href='https://airdao.io' />
         </Helmet>
         <div className='content'>
           <img className='background' src={bg} alt='background' />
           <div className='white-overlay' />
+          <div className='we-are-hiring'>
+            <p className='we-are-hiring__lead'>
+              Check out our openings here at AirDAO{' '}
+              <br className='desktop-only' />
+              and join our global, remote team.
+            </p>
+            <a
+              className='we-are-hiring__button'
+              target='_blank'
+              rel='noreferrer'
+              href='https://airdao.academy/careers'
+            >
+              Open Positions
+              <Arrow />
+            </a>
+          </div>
           <div id='about' className='about-us'>
             <img
               src={logoSymbol}
@@ -86,7 +103,7 @@ const Content = () => {
               </p>
               <UiButton withBorder className='binance__btn binance__btn-first'>
                 <a
-                  rel="nofollow"
+                  rel='nofollow'
                   href={data.binance_button_link.url}
                   target={data.binance_button_link.target}
                 >
@@ -135,13 +152,17 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-          <section className="cex">
-            <h3 className="cex__title">
+          <section className='cex'>
+            <h3 className='cex__title'>
               <PrismicText field={data.cex_heading} />
             </h3>
-            <div className="cex__list">
+            <div className='cex__list'>
               {data.cex_links.map((link) => (
-                <a rel="nofollow" key={link.cex_link_url.url} href={link.cex_link_url.url}>
+                <a
+                  rel='nofollow'
+                  key={link.cex_link_url.url}
+                  href={link.cex_link_url.url}
+                >
                   <PrismicText field={link.cex_link_text} />
                 </a>
               ))}
@@ -167,7 +188,7 @@ const Content = () => {
             </UiButton>
             <UiButton>
               <a
-                rel="nofollow"
+                rel='nofollow'
                 href={data.stake_manual_link.url}
                 target={data.stake_manual_link.target}
               >
@@ -197,7 +218,7 @@ const Content = () => {
               </p>
               <UiButton className='validator-right__btn'>
                 <a
-                  rel="nofollow"
+                  rel='nofollow'
                   href={data.validator_button_link.url}
                   target={data.validator_button_link.target}
                 >
@@ -217,7 +238,7 @@ const Content = () => {
               </p>
               <UiButton withBorder>
                 <a
-                  rel="nofollow"
+                  rel='nofollow'
                   href={data.roadmap_button_link.url}
                   target={data.roadmap_button_link.target}
                 >
@@ -235,7 +256,7 @@ const Content = () => {
               </p>
               <UiButton className='ambassador__btn'>
                 <a
-                  rel="nofollow"
+                  rel='nofollow'
                   href={data.ambassador_button_link.url}
                   target={data.ambassador_button_link.target}
                 >
@@ -261,7 +282,7 @@ const Content = () => {
                 </p>
                 <UiButton withBorder className='ambrosus-content__btn'>
                   <a
-                    rel="nofollow"
+                    rel='nofollow'
                     href={data.ambrosus_button_link.url}
                     target={data.ambrosus_button_link.target}
                     className='ambrosus-content__btn-url'
@@ -315,7 +336,11 @@ const Content = () => {
               <div className='partners-list'>
                 {data.partners_link.map((el, i) => (
                   <a
-                    rel={el.partners_link_href.url.includes('airdao.io') ? '' : 'nofollow'}
+                    rel={
+                      el.partners_link_href.url.includes('airdao.io')
+                        ? ''
+                        : 'nofollow'
+                    }
                     className='partners-list__item'
                     href={el.partners_link_href.url}
                     target={el.partners_link_href.target}
@@ -337,7 +362,11 @@ const Content = () => {
                   >
                     {el.map((item, j) => (
                       <a
-                        rel={item.partners_link_href.url.includes('airdao.io') ? '' : 'nofollow'}
+                        rel={
+                          item.partners_link_href.url.includes('airdao.io')
+                            ? ''
+                            : 'nofollow'
+                        }
                         className='partners-list__item'
                         href={item.partners_link_href.url}
                         target={item.partners_link_href.target}

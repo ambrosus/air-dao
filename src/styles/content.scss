@@ -5,7 +5,7 @@
 
   @include media(1140px) {
     max-width: 688px;
-    padding-top: 60px;
+    padding-top: 115px;
   }
 
   @include devices(mobile) {
@@ -42,7 +42,7 @@
 .about-us {
   max-width: 100%;
   border-radius: 24px;
-  padding: 40px 24px;
+  padding: 95px 24px 40px;
   background: radial-gradient(
     68.95% 152.29% at 38% 22.68%,
     #ffffff 25.29%,
@@ -56,6 +56,7 @@
 
   @include devices(mobile) {
     max-width: none;
+    padding: 40px 24px;
   }
 }
 
@@ -89,7 +90,7 @@
 
   @include devices(mobile) {
     font-size: 40px;
-    margin-top: 110px;
+    //margin-top: 110px;
   }
 }
 
@@ -1042,4 +1043,58 @@ select {
 
 .contact__btn-again {
   padding: 10px 15px;
+}
+
+.we-are-hiring {
+  background: #EDF3FF;
+  border-radius: 8px;
+  padding: 18px 24px;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1D1D1D;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  column-gap: 16px;
+
+  @include devices(mobile) {
+    margin: 120px 16px 0;
+
+    flex-flow: column nowrap;
+    row-gap: 16px;
+    align-items: flex-start;
+  }
+
+}
+
+.we-are-hiring__button {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0 6px 6px;
+  cursor: pointer;
+
+  @include devices(mobile) {
+    padding: 8px 8px 8px 0;
+  }
+}
+
+.desktop-only {
+  @media screen and (max-width: 575px) {
+    display: none;
+  }
+}
+
+.main-page .white-overlay {
+  @include devices(mobile) {
+    height: 40vh;
+  }
 }
