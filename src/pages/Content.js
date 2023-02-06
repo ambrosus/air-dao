@@ -1,8 +1,6 @@
 import UiButton from '../components/UiButton';
 import check from '../assets/check.svg';
-import community from '../assets/community.svg';
 import highlight from '../assets/highlight.png';
-import amb from '../assets/amb-l1.svg';
 import ambassador from '../assets/ambassador.svg';
 import bridge from '../assets/bridge.svg';
 import binance from '../assets/binance.svg';
@@ -11,6 +9,7 @@ import firepot from '../assets/firepot.svg';
 import roadmap from '../assets/roadmap.svg';
 import logoSymbol from '../assets/logo-symbol.svg';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
+import { ReactComponent as LogoInverted } from '../assets/logo-inverted.svg';
 import Contact from '../components/Contact';
 import { usePrismicPageData } from '../hooks/usePrismicPageData';
 import { PrismicText } from '@prismicio/react';
@@ -134,12 +133,13 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-          <section id='community' className='community community--swap'>
-            <img className='community__img' src={swap} alt='community' />
-            <div className='community__content community__content--swap'>
-              <span className='firepot-dex'>DEX</span>
+
+          <section id='firepot' className='firepot firepot--swap'>
+            <img className='firepot__img' src={swap} alt='firepot' />
+            <div className='firepot__content firepot__content--swap'>
+              <span className='firepot__dex'>DEX</span>
               <img src={firepot} alt='firepot' className='firepot-logo' />
-              <h3 className='swap-title'>
+              <h3 className='firepot__title'>
                 <PrismicText field={data.firepot_heading} />
               </h3>
               <p>
@@ -152,6 +152,7 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
+
           <section className='cex'>
             <h3 className='cex__title'>
               <PrismicText field={data.cex_heading} />
@@ -227,7 +228,7 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-          <section id='bridge' className='content__semi-wrapper ambrosus'>
+          <section id='bridge' className='content__semi-wrapper about-network'>
             <div className='timeline'>
               <img className='timeline__img' src={roadmap} alt='roadmap' />
               <h3 className='timeline__title-main'>
@@ -265,14 +266,14 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-          <section id='network' className='ambrosus'>
+          <section id='network' className='about-network'>
             <img
-              className='ambrosus__highlight'
+              className='about-network__highlight'
               src={highlight}
               alt='highlight'
             />
-            <div className='ambrosus-content'>
-              <img className='ambrosus-content__img' src={amb} alt='ambrosus' />
+            <div className='about-network__content'>
+              <LogoInverted />
               <div>
                 <h3>
                   <PrismicText field={data.ambrosus_heading} />
@@ -280,50 +281,31 @@ const Content = () => {
                 <p>
                   <PrismicText field={data.ambrosus_lead_text} />
                 </p>
-                <UiButton withBorder className='ambrosus-content__btn'>
-                  <a
-                    rel='nofollow'
-                    href={data.ambrosus_button_link.url}
-                    target={data.ambrosus_button_link.target}
-                    className='ambrosus-content__btn-url'
-                  >
-                    {data.ambrosus_button_text}
-                  </a>
-                </UiButton>
               </div>
             </div>
           </section>
-          <div className='community-mobile'>
-            <h3>
+
+          <section id='community' className='community'>
+            <h3 className='community__heading'>
               <PrismicText field={data.community_heading} />
             </h3>
-            <p>
+            <p className='community__lead'>
               <PrismicText field={data.community_lead_text} />
             </p>
-          </div>
-          <section id='community' className='community'>
-            <img className='community__img' src={community} alt='community' />
-            <div className='community__content community__content_low'>
-              <h3>
-                <PrismicText field={data.community_heading} />
-              </h3>
-              <p>
-                <PrismicText field={data.community_lead_text} />
-              </p>
-              <div className='community__link-wrapper'>
-                {data.community_links.map((item) => (
-                  <a
-                    href={item.link.url}
-                    target={item.link.target}
-                    className='community__link'
-                    key={item.name}
-                  >
-                    {item.name} →
-                  </a>
-                ))}
-              </div>
+            <div className='community__link-wrapper'>
+              {data.community_links.map((item) => (
+                <a
+                  href={item.link.url}
+                  target={item.link.target}
+                  className='community__link'
+                  key={item.name}
+                >
+                  {item.name} →
+                </a>
+              ))}
             </div>
           </section>
+
           <Contact
             heading={data.contact_heading}
             leadText={data.contact_lead_text}
