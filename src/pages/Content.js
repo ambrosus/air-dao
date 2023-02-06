@@ -145,9 +145,14 @@ const Content = () => {
               <p>
                 <PrismicText field={data.firepot_lead_text} />
               </p>
-              <UiButton withBorder className='swap-btn'>
+              <UiButton withBorder className='firepot__btn'>
+                <a href={data.dex_link_url.url}>
+                  <PrismicText field={data.dex_link_text} />
+                </a>
+              </UiButton>
+              <UiButton className='swap-btn'>
                 <a href={data.firepot_button_link.url}>
-                  {data.firepot_button_text}
+                  {data.firepot_button_text}&nbsp;→
                 </a>
               </UiButton>
             </div>

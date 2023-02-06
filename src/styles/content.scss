@@ -229,6 +229,10 @@
   }
 }
 
+.firepot__btn {
+  margin-right: 40px;
+}
+
 .firepot__img {
   @include media(605px) {
     width: 45%;
