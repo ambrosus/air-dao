@@ -233,7 +233,7 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-          <section id='bridge' className='content__semi-wrapper about-network'>
+          <section className='content__semi-wrapper'>
             <div className='timeline'>
               <img className='timeline__img' src={roadmap} alt='roadmap' />
               <h3 className='timeline__title-main'>
