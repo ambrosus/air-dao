@@ -8,7 +8,6 @@ import swap from '../assets/swap.png';
 import firepot from '../assets/firepot.svg';
 import roadmap from '../assets/roadmap.svg';
 import logoSymbol from '../assets/logo-symbol.svg';
-import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import { ReactComponent as LogoInverted } from '../assets/logo-inverted.svg';
 import Contact from '../components/Contact';
 import { usePrismicPageData } from '../hooks/usePrismicPageData';
@@ -58,15 +57,16 @@ const Content = () => {
               <br className='desktop-only' />
               and join our global, remote team.
             </p>
-            <a
-              className='we-are-hiring__button'
-              target='_blank'
-              rel='noreferrer'
-              href='https://airdao.academy/careers'
-            >
-              Open Positions
-              <Arrow />
-            </a>
+            <UiButton>
+              <a
+                className='we-are-hiring__button'
+                target='_blank'
+                rel='noreferrer'
+                href='https://airdao.academy/careers'
+              >
+                Open Positions →
+              </a>
+            </UiButton>
           </div>
           <div id='about' className='about-us'>
             <img
