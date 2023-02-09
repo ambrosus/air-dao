@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const UiButton = ({
-  onClick,
+  onClick = () => {},
   children,
   withBorder,
   className = '',
@@ -9,7 +9,10 @@ const UiButton = ({
 }) => {
   return (
     <button
-      onClick={onClick}
+      onClick={(e) => {
+        onClick();
+        e.target.blur();
+      }}
       className={`${className} ui-button${
         withBorder ? ' ui-button_border' : ''
       }`}
