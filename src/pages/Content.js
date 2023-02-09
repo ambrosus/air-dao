@@ -299,14 +299,11 @@ const Content = () => {
             </p>
             <div className='community__link-wrapper'>
               {data.community_links.map((item) => (
-                <a
-                  href={item.link.url}
-                  target={item.link.target}
-                  className='community__link'
-                  key={item.name}
-                >
-                  {item.name} →
-                </a>
+                <UiButton className='community__link' key={item.name}>
+                  <a href={item.link.url} target={item.link.target}>
+                    {item.name} →
+                  </a>
+                </UiButton>
               ))}
             </div>
           </section>
