@@ -1,8 +1,6 @@
 import UiButton from '../components/UiButton';
 import check from '../assets/check.svg';
-import community from '../assets/community.svg';
 import highlight from '../assets/highlight.png';
-import amb from '../assets/amb-l1.svg';
 import ambassador from '../assets/ambassador.svg';
 import bridge from '../assets/bridge.svg';
 import binance from '../assets/binance.svg';
@@ -10,13 +8,14 @@ import swap from '../assets/swap.png';
 import firepot from '../assets/firepot.svg';
 import roadmap from '../assets/roadmap.svg';
 import logoSymbol from '../assets/logo-symbol.svg';
+import { ReactComponent as LogoInverted } from '../assets/logo-inverted.svg';
 import Contact from '../components/Contact';
 import { usePrismicPageData } from '../hooks/usePrismicPageData';
 import { PrismicText } from '@prismicio/react';
 import Slider from 'react-slick';
 import { useMemo } from 'react';
 import bg from '../assets/background.png';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const groupArr = (data, n) => {
   const group = [];
@@ -47,11 +46,28 @@ const Content = () => {
     data && (
       <div className='container main-page'>
         <Helmet>
-          <link rel="canonical" href="https://airdao.io" />
+          <link rel='canonical' href='https://airdao.io' />
         </Helmet>
         <div className='content'>
           <img className='background' src={bg} alt='background' />
           <div className='white-overlay' />
+          <div className='we-are-hiring'>
+            <p className='we-are-hiring__lead'>
+              Check out our openings here at AirDAO{' '}
+              <br className='desktop-only' />
+              and join our global, remote team.
+            </p>
+            <UiButton>
+              <a
+                className='we-are-hiring__button'
+                target='_blank'
+                rel='noreferrer'
+                href='https://airdao.academy/careers'
+              >
+                Open Positions →
+              </a>
+            </UiButton>
+          </div>
           <div id='about' className='about-us'>
             <img
               src={logoSymbol}
@@ -86,7 +102,7 @@ const Content = () => {
               </p>
               <UiButton withBorder className='binance__btn binance__btn-first'>
                 <a
-                  rel="nofollow"
+                  rel='nofollow'
                   href={data.binance_button_link.url}
                   target={data.binance_button_link.target}
                 >
@@ -117,31 +133,42 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-          <section id='community' className='community community--swap'>
-            <img className='community__img' src={swap} alt='community' />
-            <div className='community__content community__content--swap'>
-              <span className='firepot-dex'>DEX</span>
+
+          <section id='firepot' className='firepot firepot--swap'>
+            <img className='firepot__img' src={swap} alt='firepot' />
+            <div className='firepot__content firepot__content--swap'>
+              <span className='firepot__dex'>DEX</span>
               <img src={firepot} alt='firepot' className='firepot-logo' />
-              <h3 className='swap-title'>
+              <h3 className='firepot__title'>
                 <PrismicText field={data.firepot_heading} />
               </h3>
               <p>
                 <PrismicText field={data.firepot_lead_text} />
               </p>
-              <UiButton withBorder className='swap-btn'>
+              <UiButton withBorder className='firepot__btn'>
+                <a href={data.dex_link_url.url}>
+                  <PrismicText field={data.dex_link_text} />
+                </a>
+              </UiButton>
+              <UiButton className='swap-btn'>
                 <a href={data.firepot_button_link.url}>
-                  {data.firepot_button_text}
+                  {data.firepot_button_text}&nbsp;→
                 </a>
               </UiButton>
             </div>
           </section>
-          <section className="cex">
-            <h3 className="cex__title">
+
+          <section className='cex'>
+            <h3 className='cex__title'>
               <PrismicText field={data.cex_heading} />
             </h3>
-            <div className="cex__list">
+            <div className='cex__list'>
               {data.cex_links.map((link) => (
-                <a rel="nofollow" key={link.cex_link_url.url} href={link.cex_link_url.url}>
+                <a
+                  rel='nofollow'
+                  key={link.cex_link_url.url}
+                  href={link.cex_link_url.url}
+                >
                   <PrismicText field={link.cex_link_text} />
                 </a>
               ))}
@@ -167,7 +194,7 @@ const Content = () => {
             </UiButton>
             <UiButton>
               <a
-                rel="nofollow"
+                rel='nofollow'
                 href={data.stake_manual_link.url}
                 target={data.stake_manual_link.target}
               >
@@ -197,7 +224,7 @@ const Content = () => {
               </p>
               <UiButton className='validator-right__btn'>
                 <a
-                  rel="nofollow"
+                  rel='nofollow'
                   href={data.validator_button_link.url}
                   target={data.validator_button_link.target}
                 >
@@ -206,7 +233,7 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-          <section id='bridge' className='content__semi-wrapper ambrosus'>
+          <section className='content__semi-wrapper'>
             <div className='timeline'>
               <img className='timeline__img' src={roadmap} alt='roadmap' />
               <h3 className='timeline__title-main'>
@@ -217,7 +244,7 @@ const Content = () => {
               </p>
               <UiButton withBorder>
                 <a
-                  rel="nofollow"
+                  rel='nofollow'
                   href={data.roadmap_button_link.url}
                   target={data.roadmap_button_link.target}
                 >
@@ -235,7 +262,7 @@ const Content = () => {
               </p>
               <UiButton className='ambassador__btn'>
                 <a
-                  rel="nofollow"
+                  rel='nofollow'
                   href={data.ambassador_button_link.url}
                   target={data.ambassador_button_link.target}
                 >
@@ -244,14 +271,14 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-          <section id='network' className='ambrosus'>
+          <section id='network' className='about-network'>
             <img
-              className='ambrosus__highlight'
+              className='about-network__highlight'
               src={highlight}
               alt='highlight'
             />
-            <div className='ambrosus-content'>
-              <img className='ambrosus-content__img' src={amb} alt='ambrosus' />
+            <div className='about-network__content'>
+              <LogoInverted />
               <div>
                 <h3>
                   <PrismicText field={data.ambrosus_heading} />
@@ -259,50 +286,28 @@ const Content = () => {
                 <p>
                   <PrismicText field={data.ambrosus_lead_text} />
                 </p>
-                <UiButton withBorder className='ambrosus-content__btn'>
-                  <a
-                    rel="nofollow"
-                    href={data.ambrosus_button_link.url}
-                    target={data.ambrosus_button_link.target}
-                    className='ambrosus-content__btn-url'
-                  >
-                    {data.ambrosus_button_text}
-                  </a>
-                </UiButton>
               </div>
             </div>
           </section>
-          <div className='community-mobile'>
-            <h3>
+
+          <section id='community' className='community'>
+            <h3 className='community__heading'>
               <PrismicText field={data.community_heading} />
             </h3>
-            <p>
+            <p className='community__lead'>
               <PrismicText field={data.community_lead_text} />
             </p>
-          </div>
-          <section id='community' className='community'>
-            <img className='community__img' src={community} alt='community' />
-            <div className='community__content community__content_low'>
-              <h3>
-                <PrismicText field={data.community_heading} />
-              </h3>
-              <p>
-                <PrismicText field={data.community_lead_text} />
-              </p>
-              <div className='community__link-wrapper'>
-                {data.community_links.map((item) => (
-                  <a
-                    href={item.link.url}
-                    target={item.link.target}
-                    className='community__link'
-                    key={item.name}
-                  >
+            <div className='community__link-wrapper'>
+              {data.community_links.map((item) => (
+                <UiButton className='community__link' key={item.name}>
+                  <a href={item.link.url} target={item.link.target}>
                     {item.name} →
                   </a>
-                ))}
-              </div>
+                </UiButton>
+              ))}
             </div>
           </section>
+
           <Contact
             heading={data.contact_heading}
             leadText={data.contact_lead_text}
@@ -315,7 +320,11 @@ const Content = () => {
               <div className='partners-list'>
                 {data.partners_link.map((el, i) => (
                   <a
-                    rel={el.partners_link_href.url.includes('airdao.io') ? '' : 'nofollow'}
+                    rel={
+                      el.partners_link_href.url.includes('airdao.io')
+                        ? ''
+                        : 'nofollow'
+                    }
                     className='partners-list__item'
                     href={el.partners_link_href.url}
                     target={el.partners_link_href.target}
@@ -337,7 +346,11 @@ const Content = () => {
                   >
                     {el.map((item, j) => (
                       <a
-                        rel={item.partners_link_href.url.includes('airdao.io') ? '' : 'nofollow'}
+                        rel={
+                          item.partners_link_href.url.includes('airdao.io')
+                            ? ''
+                            : 'nofollow'
+                        }
                         className='partners-list__item'
                         href={item.partners_link_href.url}
                         target={item.partners_link_href.target}

@@ -10,6 +10,7 @@
 @import 'mexc';
 @import 'notfound';
 @import 'ambassadors';
+
 body {
   position: relative;
 }
@@ -135,11 +136,9 @@ textarea {
     rgba(255, 255, 255, 0.47) 84.05%,
     rgba(255, 255, 255, 0) 100%
   );
-  // @include devices(mobile) {
-  //   height: 15vh;
-  // }
   z-index: -1;
 }
+
 
 .flip-card-inner {
   position: relative;

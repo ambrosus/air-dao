@@ -33,6 +33,10 @@
   a {
     padding: 10px 20px;
     display: inline-block;
+
+    &:focus {
+      color: inherit;
+    }
   }
 
   &:hover {
