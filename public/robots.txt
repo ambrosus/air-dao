@@ -1,3 +1,13 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: */addresses/*
+Disallow: */tx/*
+Disallow: */apollo/*
+Disallow: */atlas/*
+Disallow: */blocks/*
+Allow: */addresses/$
+Allow: */tx/$
+Allow: */apollo/$
+Allow: */atlas/$
+Allow: */blocks/$
+
+Sitemap: https://airdao.io/sitemap.xml
