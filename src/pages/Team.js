@@ -16,6 +16,11 @@ const Team = () => {
       <div className='container'>
         <Helmet>
           <link rel="canonical" href="https://airdao.io/team/" />
+          <title>AirDAO Team</title>
+          <meta
+            name='description'
+            content='Meet our team. Follow us on LinkedIn for job opportunities and updates'
+          />
         </Helmet>
         <section className='team-page'>
           <img className='background' src={bg} alt='background' />

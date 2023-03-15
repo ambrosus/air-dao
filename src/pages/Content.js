@@ -47,6 +47,11 @@ const Content = () => {
       <div className='container main-page'>
         <Helmet>
           <link rel='canonical' href='https://airdao.io' />
+          <title>AirDAO | The World`s First Fully Integrated L1</title>
+          <meta
+            name='description'
+            content='AirDAO is a revolutionary decentralized web app that houses an ecosystem of handy dApps under a single browser tab.'
+          />
         </Helmet>
         <div className='content'>
           <img className='background' src={bg} alt='background' />

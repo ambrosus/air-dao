@@ -7,6 +7,11 @@ const MEXC = () => (
   <section className='mexc-page'>
     <Helmet>
       <link rel="canonical" href="https://airdao.io/mexc/" />
+      <title>MEXC Global & AirDAO</title>
+      <meta
+        name='description'
+        content='Discover AirDAO on MEXC global — with a USDT pair, Airdrops, and more! Trade AMB on MEXC, Asia’s biggest crypto exchange'
+      />
     </Helmet>
     <div className='container'>
       <div className='content'>

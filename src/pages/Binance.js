@@ -11,6 +11,11 @@ const Binance = () => {
     <div className="binance-page">
       <Helmet>
         <link rel="canonical" href="https://airdao.io/binance/" />
+        <title>Binance & AirDAO Promotion</title>
+        <meta
+          name='description'
+          content='Join the special promotions from AirDAO and Binance. From AMB tokens for new Binance customers to referral programs to an exclusive staking program'
+        />
       </Helmet>
       <img src={bg} alt="bg" className="binance-page__bg"/>
       <div className="container">
