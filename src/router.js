@@ -5,6 +5,7 @@ import Binance from './pages/Binance';
 import MEXC from './pages/MEXC';
 import NotFound from './pages/NotFound';
 import Ambassadors from './pages/Ambassadors';
+import Claim from './pages/Claim';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: 'ambassadors',
     element: <Ambassadors />,
+  },
+  {
+    path: '/claim/',
+    element: <Claim />,
   },
   {
     path: '*',

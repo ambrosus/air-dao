@@ -1,0 +1,69 @@
+.claim-page {
+  background: #D8E2F6;
+  min-height: 100vh;
+}
+
+.claim-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.claim-block {
+  max-width: 420px;
+  padding: 32px 24px;
+  background: #FFFFFF;
+  border-radius: 32px;
+  margin-right: 42px;
+}
+
+.claim-block__day {
+  padding: 0 12px;
+  display: block;
+  width: fit-content;
+  background: #EDF3FF;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 48px;
+  line-height: 24px;
+}
+
+.claim-block__title {
+  font-family: Mersad, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #3568DD;
+  padding-bottom: 8px;
+}
+
+.claim-block__text {
+  line-height: 28px;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.claim-block__subtitle {
+  padding-top: 8px;
+  color: #A2B2D8;
+}
+
+.claim-block__connect {
+  background: rgba(69, 126, 255, 0.07);
+  border: 1.5px solid #3568DD;
+  border-radius: 24px;
+  padding: 12px 26px;
+  font-weight: 500;
+  color: #457EFF;
+  margin-top: 48px;
+}
+
+.claim-steps__item {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  font-family: Inter, sans-serif;
+
+  img {
+    margin-right: 8px;
+  }
+}
