@@ -16,15 +16,34 @@
   margin-right: 42px;
 }
 
+.claim-block__heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+  font-size: 12px;
+  height: 27px;
+}
+
+.claim-block__claimed-text {
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.claim-block__claimed {
+  padding: 5px 12px;
+  background: #16C784;
+  border-radius: 16px;
+  color: white;
+  font-weight: 700;
+}
+
 .claim-block__day {
   padding: 0 12px;
   display: block;
   width: fit-content;
   background: #EDF3FF;
   border-radius: 16px;
-  font-size: 12px;
   font-weight: 700;
-  margin-bottom: 48px;
   line-height: 24px;
 }
 
@@ -37,6 +56,7 @@
 }
 
 .claim-block__text {
+  width: 85%;
   line-height: 28px;
   font-weight: 300;
   font-size: 20px;
@@ -49,12 +69,13 @@
 
 .claim-block__connect {
   background: rgba(69, 126, 255, 0.07);
-  border: 1.5px solid #3568DD;
+  border: 2px solid #3568DD;
   border-radius: 24px;
   padding: 12px 26px;
   font-weight: 500;
   color: #457EFF;
   margin-top: 48px;
+  font-size: 16px;
 }
 
 .claim-steps__item {
@@ -63,7 +84,16 @@
   align-items: center;
   font-family: Inter, sans-serif;
 
+  &_disabled {
+    color: #A2B2D8;
+  }
+
   img {
     margin-right: 8px;
   }
+}
+
+.claim-block__btn {
+  padding: 12px 24px;
+  margin-top: 48px;
 }
