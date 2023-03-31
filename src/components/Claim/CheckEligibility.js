@@ -2,12 +2,7 @@ import UiButton from '../UiButton';
 import PropTypes from 'prop-types';
 
 const CheckEligibility = ({ handleEligibility }) => (
-  <div className='claim-block'>
-    <div className='claim-block__heading'>
-      <span className='claim-block__day'>Day 1</span>
-      <span className='claim-block__claimed-text'>Total AirBonds claimed:</span>
-      <span className='claim-block__claimed'>500</span>
-    </div>
+  <>
     <h2 className='claim-block__title'>AirBonds Airdrop</h2>
     <p className='claim-block__text'>
       Discover how many AirBonds you can claim in reward for your activity on
@@ -23,7 +18,7 @@ const CheckEligibility = ({ handleEligibility }) => (
     >
       Check Eligibility
     </UiButton>
-  </div>
+  </>
 );
 
 CheckEligibility.propTypes = {
