@@ -6,9 +6,11 @@ const UiButton = ({
   withBorder,
   className = '',
   type = 'button',
+  id,
 }) => {
   return (
     <button
+      id={id}
       onClick={(e) => {
         onClick();
         e.target.blur();
@@ -29,6 +31,7 @@ UiButton.propTypes = {
   withBorder: PropTypes.bool,
   className: PropTypes.string,
   type: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default UiButton;

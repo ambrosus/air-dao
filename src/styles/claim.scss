@@ -1,0 +1,135 @@
+.claim-page {
+  background: #D8E2F6;
+  min-height: 100vh;
+}
+
+.claim-wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 860px;
+
+  @include media(877px) {
+    flex-direction: column;
+  }
+}
+
+.claim-block {
+  box-sizing: border-box;
+  max-width: 420px;
+  padding: 32px 24px;
+  background: #FFFFFF;
+  border-radius: 32px;
+  margin-right: 42px;
+
+  @include media(877px) {
+    margin-right: 0;
+  }
+
+  @include media(481px) {
+    margin-top: 115px;
+  }
+
+  @include media(430px) {
+    margin-top: 45px;
+    padding-top: 37px;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.claim-block__heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+  font-size: 12px;
+  height: 27px;
+}
+
+.claim-block__claimed-text {
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.claim-block__claimed {
+  padding: 5px 12px;
+  background: #16C784;
+  border-radius: 16px;
+  color: white;
+  font-weight: 700;
+}
+
+.claim-block__day {
+  padding: 0 12px;
+  display: block;
+  width: fit-content;
+  background: #EDF3FF;
+  border-radius: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.claim-block__title {
+  font-family: Mersad, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #3568DD;
+  padding-bottom: 8px;
+}
+
+.claim-block__text {
+  width: 85%;
+  line-height: 28px;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.claim-block__subtitle {
+  padding-top: 8px;
+  color: #A2B2D8;
+}
+
+.claim-block__connect {
+  background: rgba(69, 126, 255, 0.07);
+  border: 2px solid #3568DD;
+  border-radius: 24px;
+  padding: 12px 26px;
+  font-weight: 500;
+  color: #457EFF;
+  margin-top: 48px;
+  font-size: 16px;
+
+  @include media(430px) {
+    width: 100%;
+  }
+}
+
+.claim-steps {
+  @include media(877px) {
+    margin-top: 72px;
+  }
+}
+
+.claim-steps__item {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  font-family: Inter, sans-serif;
+
+  &_disabled {
+    color: #A2B2D8;
+  }
+
+  img {
+    margin-right: 8px;
+  }
+}
+
+.claim-block__btn {
+  padding: 12px 24px;
+  margin-top: 48px;
+  margin-bottom: 0;
+
+  @include media(430px) {
+    width: 100%;
+  }
+}

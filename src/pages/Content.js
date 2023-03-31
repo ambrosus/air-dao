@@ -47,6 +47,11 @@ const Content = () => {
       <div className='container main-page'>
         <Helmet>
           <link rel='canonical' href='https://airdao.io' />
+          <title>AirDAO | The World`s First Fully Integrated L1</title>
+          <meta
+            name='description'
+            content='AirDAO is a revolutionary decentralized web app that houses an ecosystem of handy dApps under a single browser tab.'
+          />
         </Helmet>
         <div className='content'>
           <img className='background' src={bg} alt='background' />
@@ -82,6 +87,7 @@ const Content = () => {
             </p>
             {data.links.map((item, i) => (
               <UiButton
+                id={`about-${i}`}
                 withBorder
                 className='about-us__btn'
                 key={`ui-button-${i}`}
@@ -100,7 +106,11 @@ const Content = () => {
               <p className='binance__text'>
                 <PrismicText field={data.binance_lead_text} />
               </p>
-              <UiButton withBorder className='binance__btn binance__btn-first'>
+              <UiButton
+                id='binance-btn'
+                withBorder
+                className='binance__btn binance__btn-first'
+              >
                 <a
                   rel='nofollow'
                   href={data.binance_button_link.url}
@@ -126,7 +136,7 @@ const Content = () => {
               <p>
                 <PrismicText field={data.bridge_lead_text} />
               </p>
-              <UiButton withBorder className='bridge__btn'>
+              <UiButton id='bridge-btn' withBorder className='bridge__btn'>
                 <a href={data.bridge_button_link.url}>
                   {data.bridge_button_text}
                 </a>
@@ -150,7 +160,7 @@ const Content = () => {
                   <PrismicText field={data.dex_link_text} />
                 </a>
               </UiButton>
-              <UiButton className='swap-btn'>
+              <UiButton id='swap-btn' className='swap-btn'>
                 <a href={data.firepot_button_link.url}>
                   {data.firepot_button_text}&nbsp;→
                 </a>
@@ -189,10 +199,10 @@ const Content = () => {
                 </span>
               ))}
             </div>
-            <UiButton withBorder className='about-us__btn'>
+            <UiButton id='start-earning' withBorder className='about-us__btn'>
               <a href={data.stake_button_link.url}>{data.stake_button_text}</a>
             </UiButton>
-            <UiButton>
+            <UiButton id='how-it-works'>
               <a
                 rel='nofollow'
                 href={data.stake_manual_link.url}
@@ -222,7 +232,7 @@ const Content = () => {
               <p>
                 <PrismicText field={data.validator_lead_text} />
               </p>
-              <UiButton className='validator-right__btn'>
+              <UiButton id='validator-btn' className='validator-right__btn'>
                 <a
                   rel='nofollow'
                   href={data.validator_button_link.url}
@@ -242,7 +252,7 @@ const Content = () => {
               <p className='timeline__text'>
                 <PrismicText field={data.roadmap_lead_text} />
               </p>
-              <UiButton withBorder>
+              <UiButton id='roadmap-btn' withBorder>
                 <a
                   rel='nofollow'
                   href={data.roadmap_button_link.url}
@@ -260,7 +270,7 @@ const Content = () => {
               <p>
                 <PrismicText field={data.ambassador_lead_text} />
               </p>
-              <UiButton className='ambassador__btn'>
+              <UiButton id='ambassador-btn' className='ambassador__btn'>
                 <a
                   rel='nofollow'
                   href={data.ambassador_button_link.url}

@@ -21,7 +21,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/bridge/exchange/</loc>
+        <loc>https://airdao.io/bridge/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -62,7 +62,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://airdao.io/explorer/addresses/</loc>
+        <loc>https://airdao.io/explorer/address/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
