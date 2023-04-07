@@ -6,6 +6,7 @@ import MEXC from './pages/MEXC';
 import NotFound from './pages/NotFound';
 import Ambassadors from './pages/Ambassadors';
 import Claim from './pages/Claim';
+import BondExchange from './pages/BondExchange';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: '/claim/',
     element: <Claim />,
+  },
+  {
+    path: '/bond-exchange/',
+    element: <BondExchange />,
   },
   {
     path: '*',
