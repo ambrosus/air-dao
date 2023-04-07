@@ -1,0 +1,119 @@
+.bond-exchange {
+  background: #D8E2F6;
+  min-height: 100vh;
+}
+
+.bond-exchange__content {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 16px;
+  max-width: 1200px;
+  padding-top: 64px;
+  margin: 0 auto 0 500px;
+}
+
+.bond-exchange__input-block {
+  max-width: 447px;
+  display: flex;
+  flex-flow: column nowrap;
+  background: #FFFFFF;
+  box-shadow: 0 8px 32px rgba(105, 142, 226, 0.11);
+  border-radius: 24px;
+  padding: 48px 34px 32px;
+}
+
+.bond-exchange__heading {
+  font-family: 'Mersad', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 37px;
+  /* identical to box height */
+  color: #3568DD;
+  margin-bottom: 8px;
+}
+
+.bond-exchange__lead {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  color: #1D1D1D;
+
+  margin-bottom: 12px;
+}
+
+.bond-exchange__lead-link {
+  color: #3568DD;
+}
+
+.bond-exchange__input-container {
+  border: 2px solid #F7F9FF;
+  border-radius: 16px;
+  height: 86px;
+  width: 100%;
+}
+
+.bond-exchange__divider {
+  border-bottom: 2px solid #F7F9FF;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  position: relative;
+}
+
+.bond-exchange__divider-button {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  width: 66px;
+  height: 36px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 0px 6px rgba(105, 142, 226, 0.23);
+  border-radius: 16px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.bond-exchange__arrow {
+  height: 24px;
+  transform: rotate(90deg);
+}
+
+.bond-exchange__currency-input_last {
+  margin-bottom: 12px;
+}
+
+.bond-exchange__price-row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  padding: 0 16px;
+}
+
+.bond-exchange__price-name {
+  color: #A2B2D8;
+}
+
+.bond-exchange__price-value {
+  color: #1D1D1D;
+}
+
+.bond-exchange__swap-button {
+  height: 48px;
+}
