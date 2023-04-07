@@ -1,0 +1,138 @@
+.currency-input {
+  width: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "top-left top-right"
+    "bottom-left bottom-right";
+  grid-row-gap: 5px;
+  border-radius: 16px;
+  border: 1px solid #edf3ff;
+  box-sizing: border-box;
+  @include devices(mobile) {
+    grid-template-columns: minmax(auto, 50%) minmax(auto, 25%) minmax(auto, 25%);
+  }
+}
+
+.currency-input_receive {
+  pointer-events: none;
+}
+
+.currency-input_invalid {
+  color: #ff4747;
+  animation: shake 0.2s ease-in-out 0s 2;
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+.currency-input__label {
+  grid-area: top-left;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  color: #A2B2D8;
+}
+
+.currency-input__balance {
+  grid-area: top-right;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+  color: #A2B2D8;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.currency-input__input {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  color: #1D1D1D;
+
+  border: none;
+  background: transparent;
+
+  grid-area: bottom-left;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+.currency-input_invalid .currency-input__input {
+  color: #ff4747;
+}
+
+.currency-input_too-long .currency-input__input {
+  @media screen and (max-width: 428px) {
+    font-size: 1.25rem;
+  }
+}
+
+.currency-input__coin-button {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 171%;
+  color: #000000;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 16px;
+  margin-left: auto;
+  width: fit-content;
+
+  grid-area: bottom-right;
+
+  background: #F7F9FF;
+  border-radius: 8px;
+}
+
+.currency-input__currency-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  background: white;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.04);
+
+  margin-right: 0.375rem;
+  flex-shrink: 0;
+}
