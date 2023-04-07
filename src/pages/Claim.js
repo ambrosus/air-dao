@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import question from '../assets/question.svg';
 import check from '../assets/claim-check.svg';
 import cross from '../assets/claim-cross.svg';
@@ -10,8 +10,9 @@ import ClaimReward from '../components/Claim/ClaimReward';
 import SuccessClaim from '../components/Claim/SuccessClaim';
 import NotToday from '../components/Claim/NotToday';
 import { usePrismicPageData } from '../hooks/usePrismicPageData';
+import { providers } from 'ethers';
 
-function getTimeRemaining(futureDate) {
+const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
   const currentTime = new Date().getTime();
   let timeRemaining = Math.floor((futureTime - currentTime) / 1000);
@@ -29,6 +30,8 @@ function getTimeRemaining(futureDate) {
   }${minutes} minutes`;
 };
 
+const contractAddress = '0xBDc316826B77d198Eec93BC813F2796e7f26c2b3';
+
 const Claim = () => {
   const data = usePrismicPageData('claim');
   const web3ReactInstance = useWeb3React();
@@ -41,18 +44,47 @@ const Claim = () => {
   const [showNotTodayPage, setShowNotTodayPage] = useState(false);
   const [totalClaimed, setTotalClaimed] = useState(0);
 
-  const handleEligibility = () => {
-    const mockData = {
-      swap: { amount: 0, claimed: false },
-      bridge: { amount: 1000, claimed: false },
-      staking: { amount: 0, claimed: false },
-    };
+  useEffect(() => {
+    if (account && data) {
+      checkPrevEligibility();
+    }
+  }, [account, data]);
 
-    setEligibility(mockData);
-
-    const isAbleToClaim = Object.values(mockData).find(
-      (el) => el.amount && !el.claimed
+  const checkPrevEligibility = async () => {
+    const response = await fetch(
+      `http://135.181.152.255/previous?address=${account}`
     );
+    const jsonData = await response.json();
+    const activeEligibility = data['claim-item'].filter(
+      (el) => el['is-claim-active']
+    );
+
+    setEligibility(jsonData);
+
+    if (Object.keys(jsonData).length === activeEligibility.length) {
+      const isAbleToClaim = checkClaimAvailable(jsonData);
+
+      if (isAbleToClaim) {
+        setShowClaimPage(true);
+      } else {
+        const showNotToday = Object.values(jsonData).every(
+          (el) => el.claimed || !el.amount
+        );
+
+        setShowNotTodayPage(showNotToday);
+      }
+    }
+  };
+
+  const handleEligibility = async () => {
+    const response = await fetch(
+      `http://135.181.152.255/check?address=${account}`
+    );
+    const jsonData = await response.json();
+    console.log(jsonData);
+    setEligibility(jsonData);
+
+    const isAbleToClaim = checkClaimAvailable(jsonData);
 
     if (isAbleToClaim) {
       setShowClaimPage(true);
@@ -61,10 +93,25 @@ const Claim = () => {
     }
   };
 
+  const checkClaimAvailable = (eligibilityData) => {
+    return !!Object.values(eligibilityData).find(
+      (el) => el.amount && !el.claimed
+    );
+  };
+
   const claimRewards = () => {
-    setShowClaimPage(false);
-    setIsSuccessClaim(true);
-    setTotalClaimed(availableReward);
+    const provider = new providers.JsonRpcProvider();
+    const signer = provider.getSigner();
+
+    const callData = '';
+
+    signer
+      .sendTransaction({ to: contractAddress, data: callData })
+      .then(() => {
+        setIsSuccessClaim(true);
+        setTotalClaimed(availableReward);
+      })
+      .finally(() => setShowClaimPage(false));
   };
 
   const stepStatusImg = useMemo(() => {
