@@ -174,14 +174,6 @@ const BondExchange = () => {
           >
             Swap
           </UiButton>
-
-          <UiButton
-            withBorder
-            onClick={swap}
-            className='bond-exchange__swap-button'
-          >
-            Swap
-          </UiButton>
         </div>
       </div>
     </div>
