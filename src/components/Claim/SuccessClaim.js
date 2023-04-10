@@ -7,8 +7,14 @@ const SuccessClaim = () => (
     <p className='claim-block__subtitle'>
       AirBonds are vested AMB, rewarded to active community members.
     </p>
-    <UiButton withBorder className='claim-block__btn'>
-      Open Marketplace
+    <UiButton withBorder className='claim-block__btn claim-block__btn_marketplace'>
+      <a
+        href='https://staging-testnet.airdao.io/bond-exchange/'
+        target='_blank'
+        rel='noreferrer'
+      >
+        Open Marketplace
+      </a>
     </UiButton>
   </>
 );
