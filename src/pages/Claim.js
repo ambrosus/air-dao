@@ -55,6 +55,10 @@ const Claim = () => {
   }, [account, data]);
 
   const checkPrevEligibility = async () => {
+    setShowNotTodayPage(false);
+    setIsSuccessClaim(false);
+    setShowClaimPage(false);
+
     const response = await fetch(
       `${backendApi}${account}`
     );
