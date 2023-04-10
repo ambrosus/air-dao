@@ -8,8 +8,20 @@
   align-items: center;
   max-width: 860px;
 
+  @media only screen and (max-width: 1240px) and (min-width: 1051px)  {
+    margin-left: 340px;
+  }
+
+  @include media(1050px) {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
   @include media(877px) {
     flex-direction: column;
+    max-width: 420px;
+    margin: 0 auto;
+    align-items: flex-start;
   }
 }
 
@@ -105,7 +117,8 @@
 
 .claim-steps {
   @include media(877px) {
-    margin-top: 72px;
+    margin-top: 60px;
+    padding-left: 24px;
   }
 }
 
@@ -125,9 +138,12 @@
 }
 
 .claim-block__btn {
-  padding: 12px 24px;
   margin-top: 48px;
   margin-bottom: 0;
+
+  &:not(&_marketplace) {
+    padding: 12px 20px;
+  }
 
   @include media(430px) {
     width: 100%;
