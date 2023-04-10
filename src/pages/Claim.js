@@ -89,7 +89,6 @@ const Claim = () => {
         const showNotToday = Object.values(filteredItems).every(
           (el) => el.claimed || !el.amount
         );
-        console.log(filteredItems);
         setShowNotTodayPage(showNotToday);
       }
     }
@@ -97,7 +96,7 @@ const Claim = () => {
 
   const handleEligibility = async () => {
     const response = await fetch(
-      `${backendApi}${account}`
+      `${backendApi}${account}&check=true`
     );
     const jsonData = await response.json();
 
