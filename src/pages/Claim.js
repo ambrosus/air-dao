@@ -10,7 +10,6 @@ import CheckEligibility from '../components/Claim/CheckEligibility';
 import ClaimReward from '../components/Claim/ClaimReward';
 import SuccessClaim from '../components/Claim/SuccessClaim';
 import NotToday from '../components/Claim/NotToday';
-import { usePrismicPageData } from '../hooks/usePrismicPageData';
 import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 
 const getTimeRemaining = (futureDate) => {
@@ -26,20 +25,20 @@ const getTimeRemaining = (futureDate) => {
 
   const minutes = Math.floor(timeRemaining / 60);
 
-  return `${days} days ${hours < 10 ? '0' : ''}${hours} hours ${
+  return `${days ? days + ' days ' : ''} ${hours < 10 ? '0' : ''}${hours} hours ${
     minutes < 10 ? '0' : ''
   }${minutes} minutes`;
 };
 
 const contractAddress = '0x5aaC4B010822AE3cC1143FAB900700BE6Df9210e';
-const backendApi = 'https://airdrop-backend-api.ambrosus-test.io/check?address=';
+const backendApi = 'https://airdrop-backend-api.ambrosus-test.io/';
 
 const Claim = () => {
-  const data = usePrismicPageData('claim');
   const web3ReactInstance = useWeb3React();
   const { account } = web3ReactInstance;
   const { loginMetamask } = useAuthorization(web3ReactInstance);
 
+  const [data, setData] = useState(null);
   const [eligibility, setEligibility] = useState(null);
   const [showClaimPage, setShowClaimPage] = useState(false);
   const [isSuccessClaim, setIsSuccessClaim] = useState(false);
@@ -49,24 +48,32 @@ const Claim = () => {
   const [isClaimLoading, setIsClaimLoading] = useState(false);
 
   useEffect(() => {
+    getClaimCategories();
+  }, []);
+
+  useEffect(() => {
     if (account && data) {
       checkPrevEligibility();
     }
   }, [account, data]);
 
+  const getClaimCategories = async () => {
+    const response = await fetch(`${backendApi}categories`);
+    const categories = await response.json();
+    setData(categories);
+  };
+
   const checkPrevEligibility = async () => {
     setShowNotTodayPage(false);
     setIsSuccessClaim(false);
     setShowClaimPage(false);
+    setTotalClaimed(0);
 
-    const response = await fetch(
-      `${backendApi}${account}`
-    );
-
+    const response = await fetch(`${backendApi}check?address=${account}`);
     const jsonData = await response.json();
-    const activeEligibility = data['claim-item'].filter(
-      (el) => el['is-claim-active']
-    );
+
+    const activeEligibility = data.filter((el) => el.key);
+
     const filteredItems = {};
     let claimedAmount = 0
 
@@ -83,7 +90,7 @@ const Claim = () => {
     setEligibility(filteredItems);
     setCallData(jsonData.calldata);
 
-     const isCheckEligibilityAllowed = Object.values(jsonData.categories).find((el) => !el.cache);
+    const isCheckEligibilityAllowed = Object.values(jsonData.categories).find((el) => !el.cache);
 
     if (Object.keys(filteredItems).length === activeEligibility.length && !isCheckEligibilityAllowed) {
       const isAbleToClaim = checkClaimAvailable(filteredItems);
@@ -99,9 +106,7 @@ const Claim = () => {
   };
 
   const handleEligibility = async () => {
-    const response = await fetch(
-      `${backendApi}${account}&check=true`
-    );
+    const response = await fetch(`${backendApi}check?address=${account}&check=true`);
     const jsonData = await response.json();
 
     setEligibility(jsonData.categories);
@@ -172,18 +177,17 @@ const Claim = () => {
           isClaimLoading={isClaimLoading}
           availableReward={availableReward}
           claimRewards={claimRewards}
+          account={account}
         />
       );
     } else if (isSuccessClaim) {
       return <SuccessClaim />;
     } else if (showNotTodayPage) {
-      const nextClaim = data['claim-item'].find((el) => !el['is-claim-active']);
+      const nextClaim = data.find((el) => !el.key);
       if (!nextClaim) {
         return <CheckEligibility handleEligibility={handleEligibility} />;
       }
-      const nextClaimTimeRemaining = getTimeRemaining(
-        nextClaim['claim-open-time']
-      );
+      const nextClaimTimeRemaining = getTimeRemaining(nextClaim.timestamp);
 
       return <NotToday nextClaimTimeRemaining={nextClaimTimeRemaining} />;
     } else {
@@ -212,22 +216,16 @@ const Claim = () => {
             </div>
             <ul className='claim-steps '>
               {data &&
-                data['claim-item'].map((el) => (
+                data.map((el) => (
                   <li
-                    key={el['claim-open-time']}
-                    className={`claim-steps__item ${
-                      !el['is-claim-active'] ? 'claim-steps__item_disabled' : ''
-                    }`}
+                    key={el.timestamp}
+                    className={`claim-steps__item ${!el.key ? 'claim-steps__item_disabled' : ''}`}
                   >
                     <img
-                      src={stepStatusImg[el.value[0]?.text] || question}
+                      src={stepStatusImg[el.key] || question}
                       alt='question mark'
                     />
-                    {el['is-claim-active']
-                      ? el.label[0].text
-                      : `Will be opened in: ${getTimeRemaining(
-                        el['claim-open-time']
-                      )}`}
+                    {el.label || `Will be opened in: ${getTimeRemaining(el.timestamp)}`}
                   </li>
                 ))}
             </ul>
