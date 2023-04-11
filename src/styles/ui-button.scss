@@ -55,3 +55,9 @@
     margin-bottom: 10px;
   }
 }
+
+.ui-button_disabled {
+  border-color: #edf3ff;
+  color: #a2b2d8;
+  pointer-events: none;
+}
