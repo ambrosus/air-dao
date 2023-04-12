@@ -6,6 +6,7 @@ const UiButton = ({
   withBorder,
   className = '',
   type = 'button',
+  disabled = false,
   id,
 }) => {
   return (
@@ -15,10 +16,11 @@ const UiButton = ({
         onClick();
         e.target.blur();
       }}
-      className={`${className} ui-button${
-        withBorder ? ' ui-button_border' : ''
-      }`}
+      className={`${className} ui-button ${
+        withBorder ? 'ui-button_border' : ''
+      } ${disabled ? 'ui-button_disabled' : ''}`}
       type={type}
+      disabled={disabled}
     >
       {children}
     </button>
@@ -31,6 +33,7 @@ UiButton.propTypes = {
   withBorder: PropTypes.bool,
   className: PropTypes.string,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
   id: PropTypes.string,
 };
 
