@@ -89,6 +89,7 @@
 }
 
 .claim-block__text {
+  color: #1D1D1D;
   width: 85%;
   line-height: 28px;
   font-weight: 300;
@@ -97,12 +98,13 @@
 
 .claim-block__subtitle {
   padding-top: 8px;
+  font-weight: 400;
   color: #A2B2D8;
 }
 
 .claim-block__connect {
   background: rgba(69, 126, 255, 0.07);
-  border: 2px solid #3568DD;
+  border: 1.5px solid #3568DD;
   border-radius: 24px;
   padding: 12px 26px;
   font-weight: 500;

@@ -1,8 +1,8 @@
-/* eslint-disable */
-import {useEffect, useMemo, useState} from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import question from '../assets/question.svg';
 import check from '../assets/claim-check.svg';
 import cross from '../assets/claim-cross.svg';
+// import arrow from '../assets/arrow-left.svg';
 import { useWeb3React } from '@web3-react/core';
 import { useAuthorization } from 'airdao-components-and-tools/hooks';
 import ConnectWallet from '../components/Claim/ConnectWallet';
@@ -25,12 +25,11 @@ const getTimeRemaining = (futureDate) => {
 
   const minutes = Math.floor(timeRemaining / 60);
 
-  return `${days ? days + ' days ' : ''} ${hours < 10 ? '0' : ''}${hours} hours ${
-    minutes < 10 ? '0' : ''
-  }${minutes} minutes`;
+  return `${days ? days + ' days ' : ''} ${
+    hours < 10 ? '0' : ''
+  }${hours} hours ${minutes < 10 ? '0' : ''}${minutes} minutes`;
 };
 
-const contractAddress = '0x5aaC4B010822AE3cC1143FAB900700BE6Df9210e';
 const backendApi = 'https://airdrop-backend-api.ambrosus-test.io/';
 
 const Claim = () => {
@@ -46,6 +45,7 @@ const Claim = () => {
   const [totalClaimed, setTotalClaimed] = useState(0);
   const [callData, setCallData] = useState('');
   const [isClaimLoading, setIsClaimLoading] = useState(false);
+  const [contractAddress, setContractAddress] = useState('');
 
   useEffect(() => {
     getClaimCategories();
@@ -75,11 +75,11 @@ const Claim = () => {
     const activeEligibility = data.filter((el) => el.key);
 
     const filteredItems = {};
-    let claimedAmount = 0
+    let claimedAmount = 0;
 
     for (const key in jsonData.categories) {
       if (jsonData.categories[key].claimed) {
-        claimedAmount += jsonData.categories[key].amount
+        claimedAmount += jsonData.categories[key].amount;
       }
       if (jsonData.categories[key].claimed || jsonData.categories[key].cache) {
         filteredItems[key] = jsonData.categories[key];
@@ -89,10 +89,14 @@ const Claim = () => {
     setTotalClaimed(claimedAmount);
     setEligibility(filteredItems);
     setCallData(jsonData.calldata);
+    setContractAddress(jsonData.contractAddress);
 
     const isCheckEligibilityAllowed = Object.values(jsonData.categories).find((el) => !el.cache);
 
-    if (Object.keys(filteredItems).length === activeEligibility.length && !isCheckEligibilityAllowed) {
+    if (
+      Object.keys(filteredItems).length === activeEligibility.length &&
+      !isCheckEligibilityAllowed
+    ) {
       const isAbleToClaim = checkClaimAvailable(filteredItems);
       if (isAbleToClaim) {
         setShowClaimPage(true);
@@ -106,7 +110,9 @@ const Claim = () => {
   };
 
   const handleEligibility = async () => {
-    const response = await fetch(`${backendApi}check?address=${account}&check=true`);
+    const response = await fetch(
+      `${backendApi}check?address=${account}&check=true`
+    );
     const jsonData = await response.json();
 
     setEligibility(jsonData.categories);
@@ -130,19 +136,19 @@ const Claim = () => {
     const provider = new AmbErrorProviderWeb3(window.ethereum);
     const signer = provider.getSigner();
 
-    const tx = await signer
-      .sendTransaction({
-        to: contractAddress,
-        data: callData,
-      })
+    const tx = await signer.sendTransaction({
+      to: contractAddress,
+      data: callData,
+    });
 
     setIsClaimLoading(true);
 
-    provider.waitForTransaction(tx.hash)
+    provider
+      .waitForTransaction(tx.hash)
       .then(() => {
         setIsSuccessClaim(true);
         setTotalClaimed(availableReward);
-        setShowClaimPage(false)
+        setShowClaimPage(false);
       })
       .finally(() => setIsClaimLoading(false));
   };
@@ -193,7 +199,13 @@ const Claim = () => {
     } else {
       return <CheckEligibility handleEligibility={handleEligibility} />;
     }
-  }, [account, showClaimPage, isSuccessClaim, showNotTodayPage, isClaimLoading]);
+  }, [
+    account,
+    showClaimPage,
+    isSuccessClaim,
+    showNotTodayPage,
+    isClaimLoading,
+  ]);
 
   return (
     <div className='claim-page'>
@@ -205,9 +217,9 @@ const Claim = () => {
                 <span className='claim-block__day'>Day 1</span>
                 {!!totalClaimed && (
                   <>
-                  <span className='claim-block__claimed-text'>
-                    Total AirBonds claimed:
-                  </span>
+                    <span className='claim-block__claimed-text'>
+                      Total AirBonds claimed:
+                    </span>
                     <span className='claim-block__claimed'>{totalClaimed}</span>
                   </>
                 )}
@@ -219,19 +231,26 @@ const Claim = () => {
                 data.map((el) => (
                   <li
                     key={el.timestamp}
-                    className={`claim-steps__item ${!el.key ? 'claim-steps__item_disabled' : ''}`}
+                    className={`claim-steps__item ${
+                      !el.key ? 'claim-steps__item_disabled' : ''
+                    }`}
                   >
                     <img
                       src={stepStatusImg[el.key] || question}
                       alt='question mark'
                     />
-                    {el.label || `Will be opened in: ${getTimeRemaining(el.timestamp)}`}
+                    {el.label ||
+                      `Will be opened in: ${getTimeRemaining(el.timestamp)}`}
                   </li>
                 ))}
             </ul>
           </div>
         )}
       </div>
+      {/*<a href='/' className='claim-page__read'>*/}
+      {/*  Read Announcement*/}
+      {/*  <img src={arrow} alt='arrow' />*/}
+      {/*</a>*/}
     </div>
   );
 };
