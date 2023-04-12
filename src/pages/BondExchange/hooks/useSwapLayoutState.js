@@ -36,7 +36,10 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
       return;
     }
 
-    if (!airBondsToSell) {
+    const bnAirBondsToSell = ethers.utils.parseEther(airBondsToSell || '0');
+    const bnOne = ethers.utils.parseEther('1');
+
+    if (bnAirBondsToSell.lt(bnOne)) {
       setState(stateList.NO_VALUE);
       return;
     }

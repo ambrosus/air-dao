@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 import { createAirBondContract, createRouterContract } from '../contracts';
+import Decimal from 'decimal.js-light';
 
 const {
   REACT_APP_AIR_BOND_ADDRESS: airBondAddress,
@@ -18,8 +19,11 @@ export async function getAmountToReceive(amountToSell) {
   return amountToReceive;
 }
 
-export async function calculatePrice(amountToSell, amountToReceive) {
-  return amountToReceive.div(amountToSell);
+export function calculatePrice(amountToSell = '', amountToReceive = '') {
+  const decAmountToSell = new Decimal(amountToSell);
+  const decAmountToReceive = new Decimal(amountToReceive);
+  const decPrice = decAmountToReceive.div(decAmountToSell);
+  return decPrice.toFixed(18);
 }
 
 export async function swapTokens(amountToSell, signer) {

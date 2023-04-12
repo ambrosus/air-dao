@@ -8,6 +8,7 @@ export default function ActionButton({
   stateList,
   setIsPending,
   amount,
+  successCallback,
   ...props
 }) {
   const { swap, approve } = useSwapActions();
@@ -16,7 +17,10 @@ export default function ActionButton({
     setIsPending(true);
     swap(amount)
       .then((tx) => tx.wait())
-      .then(() => setIsPending(false))
+      .then(() => {
+        setIsPending(false);
+        successCallback();
+      })
       .catch(() => setIsPending(false));
   }
 
@@ -49,7 +53,7 @@ export default function ActionButton({
     },
     [stateList.PENDING]: {
       disabled: true,
-      children: <InlineLoader />,
+      children: <InlineLoader className='bond-exchange__button-loader' />,
     },
     [stateList.READY]: {
       disabled: false,
@@ -58,7 +62,14 @@ export default function ActionButton({
     },
   };
 
-  return <UiButton withBorder {...buttonProps[state]} {...props} />;
+  return (
+    <UiButton
+      className='bond-exchange__swap-button'
+      withBorder
+      {...buttonProps[state]}
+      {...props}
+    />
+  );
 }
 
 ActionButton.propTypes = {
@@ -66,4 +77,5 @@ ActionButton.propTypes = {
   stateList: PropTypes.object,
   setIsPending: PropTypes.func,
   amount: PropTypes.string,
+  successCallback: PropTypes.func,
 };

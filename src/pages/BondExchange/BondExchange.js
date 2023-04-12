@@ -59,7 +59,7 @@ const BondExchange = () => {
             setIsPending={setIsPending}
             stateList={stateList}
             amount={airBondsToSell}
-            className='bond-exchange__swap-button'
+            successCallback={() => setAirBondsToSell('')}
           />
         </div>
       </div>
