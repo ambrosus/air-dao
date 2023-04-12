@@ -15,6 +15,10 @@ import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
   const currentTime = new Date().getTime();
+
+  if (futureTime - currentTime < 0) {
+    return '00 minutes';
+  }
   let timeRemaining = Math.floor((futureTime - currentTime) / 1000);
 
   const days = Math.floor(timeRemaining / 86400);
@@ -94,7 +98,6 @@ const Claim = () => {
     const isCheckEligibilityAllowed = Object.values(jsonData.categories).find(
       (el) => !el.cache && !el.claimed
     );
-    console.log(isCheckEligibilityAllowed);
 
     if (
       Object.keys(filteredItems).length === activeEligibility.length &&
