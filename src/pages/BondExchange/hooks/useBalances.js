@@ -33,6 +33,7 @@ export default function useBalances() {
       setBalances({ ambBalance, airBondBalance });
     };
 
+    getBalances();
     library.on('block', getBalances);
     return () => library.off('block', getBalances);
   }, [account, library]);
