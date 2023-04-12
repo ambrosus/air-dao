@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import InlineLoader from '../InlineLoader';
 import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 import { ethers } from 'ethers';
+import { useState } from 'react';
 
 const ClaimRewards = ({
   claimRewards,
@@ -10,12 +11,17 @@ const ClaimRewards = ({
   isClaimLoading,
   account,
 }) => {
+  const [insufficient, setInsufficient] = useState(false);
+
   const handleClick = async () => {
+    setInsufficient(false);
     const provider = new AmbErrorProviderWeb3(window.ethereum);
     const balance = await provider.getBalance(account);
 
     if (ethers.utils.formatEther(balance) >= 1000) {
       claimRewards();
+    } else {
+      setInsufficient(true);
     }
   };
 
@@ -31,6 +37,7 @@ const ClaimRewards = ({
         Click the Claim Reward button to transfer your BOND tokens to your
         wallet.
       </p>
+      {insufficient && <span>insufficient balance</span>}
       {isClaimLoading ? (
         <InlineLoader />
       ) : (
