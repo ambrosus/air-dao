@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import question from '../assets/question.svg';
 import check from '../assets/claim-check.svg';
 import cross from '../assets/claim-cross.svg';
-// import arrow from '../assets/arrow-left.svg';
+import scroll from '../assets/claim-arrow.svg';
 import { useWeb3React } from '@web3-react/core';
 import { useAuthorization } from 'airdao-components-and-tools/hooks';
 import ConnectWallet from '../components/Claim/ConnectWallet';
@@ -11,6 +11,9 @@ import ClaimReward from '../components/Claim/ClaimReward';
 import SuccessClaim from '../components/Claim/SuccessClaim';
 import NotToday from '../components/Claim/NotToday';
 import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
+import OhNo from '../components/Claim/OhNo';
+import Awesome from '../components/Claim/Awesome';
+import Giveaway from "../components/Claim/Giveaway";
 
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
@@ -50,6 +53,7 @@ const Claim = () => {
   const [callData, setCallData] = useState('');
   const [isClaimLoading, setIsClaimLoading] = useState(false);
   const [contractAddress, setContractAddress] = useState('');
+  const [currentDay, setCurrentDay] = useState('');
 
   useEffect(() => {
     getClaimCategories();
@@ -64,6 +68,17 @@ const Claim = () => {
   const getClaimCategories = async () => {
     const response = await fetch(`${backendApi}categories`);
     const categories = await response.json();
+
+    let lastActiveIndex = 0;
+
+    categories.forEach((el, i) => {
+      if (el.key) {
+        lastActiveIndex = i;
+      }
+    });
+    setCurrentDay(
+      `${(lastActiveIndex + 1) * 2 - 1} - ${(lastActiveIndex + 1) * 2}`
+    );
     setData(categories);
   };
 
@@ -197,7 +212,9 @@ const Claim = () => {
     } else if (showNotTodayPage) {
       const nextClaim = data.find((el) => !el.key);
       if (!nextClaim) {
-        return <CheckEligibility handleEligibility={handleEligibility} />;
+        const isAnyClaimed = Object.values(eligibility).find((el) => el.claimed);
+
+        return isAnyClaimed ? <Awesome /> : <OhNo />;
       }
       const nextClaimTimeRemaining = getTimeRemaining(nextClaim.timestamp);
 
@@ -213,50 +230,61 @@ const Claim = () => {
     isClaimLoading,
   ]);
 
+  const scrollPage = () => {
+    window.scrollTo(0, document.body.scrollHeight);
+  };
+
   return (
     <div className='claim-page'>
       <div className='container'>
         {(eligibility || !account) && (
           <div className='claim-wrapper content'>
-            <div className='claim-block'>
-              <div className='claim-block__heading'>
-                <span className='claim-block__day'>Day 1</span>
-                {!!totalClaimed && (
-                  <>
-                    <span className='claim-block__claimed-text'>
-                      Total AirBonds claimed:
-                    </span>
-                    <span className='claim-block__claimed'>{totalClaimed}</span>
-                  </>
-                )}
+            <div className='claim-top-wrapper'>
+              <div className='claim-block'>
+                <div className='claim-block__heading'>
+                  <span className='claim-block__day'>Day {currentDay}</span>
+                  {!!totalClaimed && (
+                    <>
+                      <span className='claim-block__claimed-text'>
+                        Total AirBonds claimed:
+                      </span>
+                      <span className='claim-block__claimed'>{totalClaimed}</span>
+                    </>
+                  )}
+                </div>
+                {currentStepBlock}
               </div>
-              {currentStepBlock}
+              <ul className='claim-steps'>
+                <span className='claim-steps__title'>Airdrop Timeline</span>
+                {data &&
+                  data.map((el, i) => (
+                    <li
+                      key={el.timestamp}
+                      className={`claim-steps__item ${
+                        !el.key ? 'claim-steps__item_disabled' : ''
+                      }`}
+                    >
+                      <div className='claim-steps__item-status'>
+                        <img
+                          src={stepStatusImg[el.key] || question}
+                          alt='question mark'
+                        />
+                        Day {((i + 1) * 2) - 1} - {(i + 1) * 2}
+                      </div>
+
+                      {el.label ||
+                        `Will be opened in: ${getTimeRemaining(el.timestamp)}`}
+                    </li>
+                  ))}
+              </ul>
             </div>
-            <ul className='claim-steps '>
-              {data &&
-                data.map((el) => (
-                  <li
-                    key={el.timestamp}
-                    className={`claim-steps__item ${
-                      !el.key ? 'claim-steps__item_disabled' : ''
-                    }`}
-                  >
-                    <img
-                      src={stepStatusImg[el.key] || question}
-                      alt='question mark'
-                    />
-                    {el.label ||
-                      `Will be opened in: ${getTimeRemaining(el.timestamp)}`}
-                  </li>
-                ))}
-            </ul>
+            <button onClick={scrollPage} className='claim-scroll' type='button'>
+              <img src={scroll} alt='scroll button' />
+            </button>
+            <Giveaway />
           </div>
         )}
       </div>
-      {/*<a href='/' className='claim-page__read'>*/}
-      {/*  Read Announcement*/}
-      {/*  <img src={arrow} alt='arrow' />*/}
-      {/*</a>*/}
     </div>
   );
 };

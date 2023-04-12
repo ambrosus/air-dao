@@ -1,12 +1,10 @@
 .claim-page {
-  background: #D8E2F6;
+  background: linear-gradient(90deg, #C9D9FF 0%, #EDF3FF 100%);
   min-height: 100vh;
 }
 
 .claim-wrapper {
-  display: flex;
-  align-items: center;
-  max-width: 860px;
+  max-width: 940px;
 
   @media only screen and (max-width: 1240px) and (min-width: 1051px)  {
     margin-left: 340px;
@@ -23,6 +21,11 @@
     margin: 0 auto;
     align-items: flex-start;
   }
+}
+
+.claim-top-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .claim-block {
@@ -64,7 +67,7 @@
 
 .claim-block__claimed {
   padding: 5px 12px;
-  background: #16C784;
+  background: #159F80;
   border-radius: 16px;
   color: white;
   font-weight: 700;
@@ -86,6 +89,11 @@
   font-weight: 600;
   color: #3568DD;
   padding-bottom: 8px;
+}
+
+.claim-block__link {
+  margin-top: 60px;
+  display: inline-block;
 }
 
 .claim-block__text {
@@ -124,6 +132,15 @@
   }
 }
 
+.claim-steps__title {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  margin-bottom: 16px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
 .claim-steps__item {
   margin-bottom: 16px;
   display: flex;
@@ -131,11 +148,16 @@
   font-family: Inter, sans-serif;
 
   &_disabled {
-    color: #A2B2D8;
+    color: #457EFF;
+
+    .claim-steps__item-status {
+      color: #457EFF;
+      background: #EDF3FF;
+    }
   }
 
   img {
-    margin-right: 8px;
+    margin-right: 4px;
   }
 }
 
@@ -149,5 +171,92 @@
 
   @include media(430px) {
     width: 100%;
+  }
+}
+
+.claim-steps__item-status {
+  width: 97px;
+  height: 24px;
+  padding-left: 12px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #1D1D1D;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.claim-scroll {
+  margin: 16px 165px;
+  width: 97px;
+  height: 60px;
+  background: #EDF3FF;
+  border-radius: 32px;
+}
+
+.giveaway {
+  padding: 68px 67px 42px 24px;
+  border: 2px solid #A4BCF1;
+  border-radius: 32px;
+  margin-bottom: 61px;
+}
+
+.giveaway__title {
+  font-family: Mersad, sans-serif;
+  font-weight: 600;
+  font-size: 88px;
+  line-height: 98%;
+  color: #7DA3F9;
+}
+
+.giveaway__text {
+  margin-top: 16px;
+  margin-bottom: 28px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 140%;
+}
+
+.giveaway__dates {
+  display: flex;
+  margin-top: 100px;
+}
+
+.giveaway__dates-item {
+  display: flex;
+
+  &:first-child {
+    margin-right: 100px;
+  }
+}
+
+.giveaway__info {
+  width: 90px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  background: #EDF3FF;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 36px;
+}
+
+.giveaway__date {
+  margin-top: 7px;
+}
+
+.giveaway__date-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  img {
+    margin-right: 10px;
   }
 }
