@@ -1,5 +1,5 @@
-const InlineLoader = () => (
-  <div className='inline-loader'>
+const InlineLoader = (props) => (
+  <div className='inline-loader' {...props}>
     <div />
     <div />
     <div />
