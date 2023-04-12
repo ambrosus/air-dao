@@ -91,7 +91,10 @@ const Claim = () => {
     setCallData(jsonData.calldata);
     setContractAddress(jsonData.contractAddress);
 
-    const isCheckEligibilityAllowed = Object.values(jsonData.categories).find((el) => !el.cache);
+    const isCheckEligibilityAllowed = Object.values(jsonData.categories).find(
+      (el) => !el.cache && !el.claimed
+    );
+    console.log(isCheckEligibilityAllowed);
 
     if (
       Object.keys(filteredItems).length === activeEligibility.length &&
@@ -147,7 +150,7 @@ const Claim = () => {
       .waitForTransaction(tx.hash)
       .then(() => {
         setIsSuccessClaim(true);
-        setTotalClaimed(availableReward);
+        setTotalClaimed((state) => state + availableReward);
         setShowClaimPage(false);
       })
       .finally(() => setIsClaimLoading(false));
