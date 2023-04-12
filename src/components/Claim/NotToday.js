@@ -2,15 +2,16 @@ import PropTypes from 'prop-types';
 
 const NotToday = ({ nextClaimTimeRemaining }) => (
   <>
-    <h2 className='claim-block__title'>Not today</h2>
+    <h2 className='claim-block__title'>Oh No!</h2>
     <p className='claim-block__text'>
-      You don’t have eligibility to claim AirBonds. Don’t forget to check
-      another day. New claiming rules will be announced in
+      You&apos;re not eligible to claim AirBonds yet — new eligibility criteria
+      will be announced in
       <b> {nextClaimTimeRemaining}</b>.
     </p>
     <p className='claim-block__subtitle'>
-      AirBonds are vested AMB, rewarded to active community members.
+      Click the link below to learn more about our airdrop.
     </p>
+    <a href='/'>Learn more →</a>
   </>
 );
 

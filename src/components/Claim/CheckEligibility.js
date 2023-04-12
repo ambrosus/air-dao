@@ -5,11 +5,11 @@ const CheckEligibility = ({ handleEligibility }) => (
   <>
     <h2 className='claim-block__title'>AirBonds Airdrop</h2>
     <p className='claim-block__text'>
-      Discover how many AirBonds you can claim in reward for your activity on
-      AirDAO.
+      Users that have engaged with AirDAO are eligible for an AirBond airdrop.
     </p>
     <p className='claim-block__subtitle'>
-      AirBonds are vested AMB, rewarded to active community members.
+      Click the Check Eligibility button to discover how many BOND tokens you
+      can claim.
     </p>
     <UiButton
       onClick={handleEligibility}

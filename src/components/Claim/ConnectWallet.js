@@ -4,11 +4,12 @@ const ConnectWallet = ({ loginMetamask }) => (
   <>
     <h2 className='claim-block__title'>AirBonds Airdrop</h2>
     <p className='claim-block__text'>
-      Connect your wallet to discover how many AirBonds you can claim in reward
-      for your activity on AirDAO.
+      Connect your wallet and discover how many AirBonds you can claim for
+      participating in our ecosystem.
     </p>
     <p className='claim-block__subtitle'>
-      AirBonds are vested AMB, rewarded to active community members.
+      AirBonds are BOND tokens — AMB that is vested and tradable on our AirBond
+      Marketplace.
     </p>
     <button
       type='button'
