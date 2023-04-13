@@ -221,6 +221,11 @@
   height: 60px;
   background: #EDF3FF;
   border-radius: 32px;
+  transition: .2s ease;
+
+  &:hover {
+    opacity: 70%;
+  }
 
   @include media(675px) {
     margin: 8px auto 24px;
