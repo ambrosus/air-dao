@@ -54,13 +54,25 @@ const Claim = () => {
   const [isClaimLoading, setIsClaimLoading] = useState(false);
   const [contractAddress, setContractAddress] = useState('');
   const [currentDay, setCurrentDay] = useState('');
+  const [scrollUp, setScrollUp] = useState(false);
 
   useEffect(() => {
     getClaimCategories();
+
+    const handleScroll = () => {
+      setScrollUp(false);
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        setScrollUp(true);
+      }
+    };
+    document.addEventListener('scroll', handleScroll);
+    return () => document.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    if (account && data) {
+    if (!account) {
+      setInitState();
+    } else if (account && data) {
       checkPrevEligibility();
     }
   }, [account, data]);
@@ -82,11 +94,16 @@ const Claim = () => {
     setData(categories);
   };
 
-  const checkPrevEligibility = async () => {
+  const setInitState = () => {
     setShowNotTodayPage(false);
     setIsSuccessClaim(false);
     setShowClaimPage(false);
     setTotalClaimed(0);
+    setEligibility(null);
+  };
+
+  const checkPrevEligibility = async () => {
+    setInitState();
 
     const response = await fetch(`${backendApi}check?address=${account}`);
     const jsonData = await response.json();
@@ -231,7 +248,7 @@ const Claim = () => {
   ]);
 
   const scrollPage = () => {
-    window.scrollTo(0, document.body.scrollHeight);
+    window.scrollTo(0, scrollUp ? 0 : document.body.scrollHeight);
   };
 
   return (
@@ -279,7 +296,11 @@ const Claim = () => {
               </ul>
             </div>
             <button onClick={scrollPage} className='claim-scroll' type='button'>
-              <img src={scroll} alt='scroll button' />
+              <img
+                src={scroll}
+                alt='scroll button'
+                className={scrollUp ? 'claim-scroll__img-rotate' : ''}
+              />
             </button>
             <Giveaway />
           </div>

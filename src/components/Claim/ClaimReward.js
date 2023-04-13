@@ -37,13 +37,18 @@ const ClaimRewards = ({
         Click the Claim Reward button to transfer your BOND tokens to your
         wallet.
       </p>
-      {insufficient && <span>insufficient balance</span>}
       {isClaimLoading ? (
         <InlineLoader />
       ) : (
         <UiButton onClick={handleClick} withBorder className='claim-block__btn'>
           Claim Reward
         </UiButton>
+      )}
+      {insufficient && (
+        <p className='claim-block__warning'>
+          You must hold 1000 AMB in your wallet to be eligible to participate.
+          Your funds will remain untouched.
+        </p>
       )}
     </>
   );

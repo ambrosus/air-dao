@@ -6,7 +6,7 @@
 .claim-wrapper {
   max-width: 940px;
 
-  @media only screen and (max-width: 1240px) and (min-width: 1051px)  {
+  @media only screen and (max-width: 1372px) and (min-width: 1051px)  {
     margin-left: 340px;
   }
 
@@ -17,7 +17,6 @@
 
   @include media(877px) {
     flex-direction: column;
-    max-width: 420px;
     margin: 0 auto;
     align-items: flex-start;
   }
@@ -26,6 +25,14 @@
 .claim-top-wrapper {
   display: flex;
   align-items: center;
+
+  @include media(675px) {
+    flex-direction: column;
+  }
+
+  @include media(430px) {
+    align-items: flex-start;
+  }
 }
 
 .claim-block {
@@ -45,8 +52,9 @@
   }
 
   @include media(430px) {
-    margin-top: 45px;
-    padding-top: 37px;
+    margin-top: 0;
+    padding-top: 80px;
+    border-radius: 0 0 32px 32px;
     width: 100%;
     max-width: none;
   }
@@ -63,6 +71,7 @@
 .claim-block__claimed-text {
   margin-left: auto;
   margin-right: 8px;
+  font-weight: 400;
 }
 
 .claim-block__claimed {
@@ -127,8 +136,16 @@
 
 .claim-steps {
   @include media(877px) {
-    margin-top: 60px;
     padding-left: 24px;
+  }
+
+  @include media(675px) {
+    margin-top: 44px;
+    padding-left: 0;
+  }
+
+  @include media(430px) {
+    padding-left: 20px;
   }
 }
 
@@ -146,6 +163,15 @@
   display: flex;
   align-items: center;
   font-family: Inter, sans-serif;
+
+  @media (max-width: 1200px) and (min-width: 1051px), (max-width: 840px) and (min-width: 675px), (max-width: 420px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .claim-steps__item-status {
+      margin-bottom: 8px;
+    }
+  }
 
   &_disabled {
     color: #457EFF;
@@ -195,10 +221,15 @@
   height: 60px;
   background: #EDF3FF;
   border-radius: 32px;
+
+  @include media(675px) {
+    margin: 8px auto 24px;
+    display: block;
+  }
 }
 
 .giveaway {
-  padding: 68px 67px 42px 24px;
+  padding: 68px 24px 42px;
   border: 2px solid #A4BCF1;
   border-radius: 32px;
   margin-bottom: 61px;
@@ -210,6 +241,14 @@
   font-size: 88px;
   line-height: 98%;
   color: #7DA3F9;
+
+  @include media(1150px) {
+    font-size: 64px;
+  }
+
+  @include media(675px) {
+    font-size: 40px;
+  }
 }
 
 .giveaway__text {
@@ -218,18 +257,32 @@
   font-weight: 300;
   font-size: 20px;
   line-height: 140%;
+  max-width: 606px;
 }
 
 .giveaway__dates {
   display: flex;
   margin-top: 100px;
+
+  @include media(1150px) {
+    margin-top: 60px;
+  }
+
+  @include media(856px) {
+    flex-direction: column;
+  }
 }
 
 .giveaway__dates-item {
   display: flex;
+  width: 50%;
 
-  &:first-child {
-    margin-right: 100px;
+  @include media(856px) {
+    width: 100%;
+
+    &:first-child {
+      margin-bottom: 25px;
+    }
   }
 }
 
@@ -244,19 +297,46 @@
   align-items: center;
   justify-content: center;
   margin-right: 36px;
+
+  @include media(1150px) {
+    font-size: 12px;
+    width: 64px;
+    height: 24px;
+    margin-right: 25px;
+  }
 }
 
 .giveaway__date {
   margin-top: 7px;
+
+  @include media(1150px) {
+    margin-top: 0;
+  }
 }
 
 .giveaway__date-text {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 400;
+
+  @include media(1150px) {
+    font-size: 16px;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
   img {
     margin-right: 10px;
   }
+}
+
+.claim-block__warning {
+  color: #FFAC23;
+  margin-top: 8px;
+}
+
+.claim-scroll__img-rotate {
+  transform: rotate(180deg);
 }
