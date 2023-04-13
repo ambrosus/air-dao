@@ -11,7 +11,7 @@ const NotToday = ({ nextClaimTimeRemaining }) => (
     <p className='claim-block__subtitle'>
       Click the link below to learn more about our airdrop.
     </p>
-    <a href='/' style={{ marginTop: 20 }}>
+    <a href='/' className='claim-block__not-today'>
       Learn more →
     </a>
   </>
