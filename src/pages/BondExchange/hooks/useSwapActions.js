@@ -19,9 +19,9 @@ export default function useSwapActions() {
   const swap = useCallback(
     (amountToSell) => {
       const bnAmountToSell = ethers.utils.parseEther(amountToSell);
-      return swapTokens(bnAmountToSell, library.getSigner());
+      return swapTokens(bnAmountToSell, account, library.getSigner());
     },
-    [library]
+    [library, account]
   );
 
   const approve = useCallback(
