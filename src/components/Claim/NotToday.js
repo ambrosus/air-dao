@@ -5,7 +5,7 @@ const NotToday = ({ nextClaimTimeRemaining }) => (
     <h2 className='claim-block__title'>Oh No!</h2>
     <p className='claim-block__text'>
       You&apos;re not eligible to claim AirBonds yet — new eligibility criteria
-      will be announced in
+      will be announced in<br/>
       <b> {nextClaimTimeRemaining}</b>.
     </p>
     <p className='claim-block__subtitle'>
