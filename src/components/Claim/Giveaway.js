@@ -3,7 +3,7 @@ import clock from '../../assets/clock.svg';
 
 const Giveaway = () => (
   <div className='giveaway'>
-    <h2 className='giveaway__title'>5 000 000 AMB Giveaway!</h2>
+    <h2 className='giveaway__title'>5 000 000 BOND Giveaway!</h2>
     <p className='giveaway__text'>
       Complete a new task every two days to win an airdrop. You must hold 1000
       AMB in your wallet to be eligible to participate.
