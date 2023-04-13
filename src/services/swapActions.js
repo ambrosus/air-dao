@@ -1,4 +1,3 @@
-import { ethers } from 'ethers';
 import { createAirBondContract, createRouterContract } from '../contracts';
 import Decimal from 'decimal.js-light';
 
@@ -26,7 +25,7 @@ export function calculatePrice(amountToSell = '', amountToReceive = '') {
   return decPrice.toFixed(18);
 }
 
-export async function swapTokens(amountToSell, signer) {
+export async function swapTokens(amountToSell, receiver, signer) {
   const routerContract = await createRouterContract(signer);
   const amountToReceive = await getAmountToReceive(amountToSell);
   const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
@@ -34,7 +33,7 @@ export async function swapTokens(amountToSell, signer) {
     amountToSell,
     amountToReceive,
     [airBondAddress, sambAddress],
-    ethers.constants.AddressZero,
+    receiver,
     deadline
   );
 }
