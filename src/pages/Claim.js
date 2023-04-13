@@ -61,7 +61,10 @@ const Claim = () => {
 
     const handleScroll = () => {
       setScrollUp(false);
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      if (
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - 200
+      ) {
         setScrollUp(true);
       }
     };

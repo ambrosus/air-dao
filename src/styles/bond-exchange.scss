@@ -9,7 +9,12 @@
   row-gap: 16px;
   max-width: 1200px;
   padding-top: 64px;
-  margin: 0 auto 0 500px;
+  margin: 0 auto 0 350px;
+
+  @media (max-width: 1050px) {
+    margin: 60px auto 0;
+    width: fit-content;
+  }
 }
 
 .bond-exchange__input-block {
