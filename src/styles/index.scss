@@ -20,6 +20,10 @@
 @import 'claim';
 @import 'bond-exchange';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   position: relative;
 }
