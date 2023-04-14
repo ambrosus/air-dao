@@ -60,8 +60,6 @@ const Claim = () => {
   const [scrollUp, setScrollUp] = useState(false);
 
   useEffect(() => {
-    getClaimCategories();
-
     const handleScroll = () => {
       setScrollUp(false);
       if (
@@ -74,6 +72,10 @@ const Claim = () => {
     document.addEventListener('scroll', handleScroll);
     return () => document.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    getClaimCategories();
+  }, [account]);
 
   useEffect(() => {
     if (!account) {
