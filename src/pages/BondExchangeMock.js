@@ -42,7 +42,7 @@ export default function BondExchangeMock() {
             <div className='bond-exchange__price-row'>
               <div className='bond-exchange__price-name'>Price:</div>
               <div className='bond-exchange__price-value'>
-                0.8 AirBond per 1 AMB
+                1.2 AMB per 1 AirBond
               </div>
             </div>
             <UiButton
