@@ -27,6 +27,10 @@
     @include media(1050px) {
       padding-top: 115px;
     }
+
+    @include media(481px) {
+      padding-top: 0;
+    }
   }
 }
 
