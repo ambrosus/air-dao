@@ -14,7 +14,7 @@ export default function BondExchangeMock() {
             <h2 className='bond-exchange__heading'>Bond Marketplace</h2>
             <p className='bond-exchange__lead'>
               AirBonds were rewarded to active community members.{' '}
-              <Link to='/claim/' className='bond-exchange__lead-link'>
+              <Link to='/airdrop/' className='bond-exchange__lead-link'>
                 Claim your AirBonds
               </Link>
             </p>
