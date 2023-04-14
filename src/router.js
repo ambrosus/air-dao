@@ -7,6 +7,9 @@ import NotFound from './pages/NotFound';
 import Ambassadors from './pages/Ambassadors';
 import Claim from './pages/Claim';
 import BondExchange from './pages/BondExchange';
+import BondExchangeMock from './pages/BondExchangeMock';
+
+const hideBondExchange = process.env.REACT_APP_HIDE_BOND_EXCHANGE === 'true';
 
 const router = createBrowserRouter([
   {
@@ -35,7 +38,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/bond-exchange/',
-    element: <BondExchange />,
+    element: hideBondExchange ? <BondExchangeMock /> : <BondExchange />,
   },
   {
     path: '*',

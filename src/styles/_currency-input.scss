@@ -12,7 +12,7 @@
   border: 1px solid #edf3ff;
   box-sizing: border-box;
   @include devices(mobile) {
-    grid-template-columns: minmax(auto, 50%) minmax(auto, 25%) minmax(auto, 25%);
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
