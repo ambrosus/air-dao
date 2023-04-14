@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     element: <Ambassadors />,
   },
   {
-    path: '/claim/',
+    path: '/airdrop/',
     element: <Claim />,
   },
   {

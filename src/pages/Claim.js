@@ -15,6 +15,7 @@ import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 import OhNo from '../components/Claim/OhNo';
 import Awesome from '../components/Claim/Awesome';
 import Giveaway from '../components/Claim/Giveaway';
+import BondsEnds from "../components/Claim/BondsEnds";
 
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
@@ -50,6 +51,7 @@ const Claim = () => {
   const [showClaimPage, setShowClaimPage] = useState(false);
   const [isSuccessClaim, setIsSuccessClaim] = useState(false);
   const [showNotTodayPage, setShowNotTodayPage] = useState(false);
+  const [isBondEnds, setIsBondEnds] = useState(false);
   const [totalClaimed, setTotalClaimed] = useState(0);
   const [callData, setCallData] = useState('');
   const [isClaimLoading, setIsClaimLoading] = useState(false);
@@ -186,7 +188,7 @@ const Claim = () => {
       })
       .catch((e) => {
         if (e.message === 'Run out of tokens') {
-          console.log(e.message);
+          setIsBondEnds(true);
         }
       });
 
@@ -239,6 +241,8 @@ const Claim = () => {
   const currentStepBlock = useMemo(() => {
     if (!account) {
       return <ConnectWallet loginMetamask={loginMetamask} />;
+    } else if (isBondEnds) {
+      return <BondsEnds />;
     } else if (showClaimPage) {
       return (
         <ClaimReward
@@ -269,6 +273,7 @@ const Claim = () => {
     isSuccessClaim,
     showNotTodayPage,
     isClaimLoading,
+    isBondEnds,
   ]);
 
   const scrollPage = () => {

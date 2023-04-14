@@ -358,3 +358,13 @@
   display: block;
   width: fit-content;
 }
+
+.claim-block__socials {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.claim-block__socials-item {
+  margin-right: 26px;
+}
