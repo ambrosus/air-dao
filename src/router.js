@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     element: <Claim />,
   },
   {
-    path: '/bond-exchange/',
+    path: '/bond-marketplace/',
     element: hideBondExchange ? <BondExchangeMock /> : <BondExchange />,
   },
   {
