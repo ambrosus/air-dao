@@ -189,7 +189,6 @@ const Claim = () => {
           console.log(e.message);
         }
       });
-    console.log(tx);
 
     if (tx) {
       provider
@@ -198,6 +197,15 @@ const Claim = () => {
           setIsSuccessClaim(true);
           setTotalClaimed((state) => state + availableReward);
           setShowClaimPage(false);
+          setEligibility((state) => {
+            const obj = { ...state };
+            for (let key in obj) {
+              if (obj[key].amount !== 0) {
+                obj[key].claimed = true;
+              }
+            }
+            return obj;
+          });
         })
         .finally(() => setIsClaimLoading(false));
     }
