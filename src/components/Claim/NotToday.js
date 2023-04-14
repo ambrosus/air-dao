@@ -11,7 +11,12 @@ const NotToday = ({ nextClaimTimeRemaining }) => (
     <p className='claim-block__subtitle'>
       Click the link below to learn more about our airdrop.
     </p>
-    <a href='/' className='claim-block__not-today'>
+    <a
+      href='https://blog.airdao.io/airdao-blockchain-fourth-anniversary-airdrop-f0388c837476?gi=5790fe133fd6'
+      target='_blank'
+      rel='noreferrer'
+      className='claim-block__not-today'
+    >
       Learn more →
     </a>
   </>
