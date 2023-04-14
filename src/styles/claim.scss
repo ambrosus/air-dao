@@ -87,7 +87,7 @@
 }
 
 .claim-block__claimed {
-  padding: 5px 12px;
+  padding: 4px 12px;
   background: #159F80;
   border-radius: 16px;
   color: white;
@@ -379,4 +379,9 @@
 
 .claim-block__socials-item {
   margin-right: 26px;
+}
+
+.claim-block__add-token {
+  height: 24px;
+  margin-left: 8px;
 }

@@ -4,6 +4,7 @@ import check from '../assets/claim-check.svg';
 import cross from '../assets/claim-cross.svg';
 import doublecheck from '../assets/doublecheck.svg';
 import scroll from '../assets/claim-arrow.svg';
+import addToken from '../assets/add-token.svg';
 import { useWeb3React } from '@web3-react/core';
 import { useAuthorization } from 'airdao-components-and-tools/hooks';
 import ConnectWallet from '../components/Claim/ConnectWallet';
@@ -16,6 +17,7 @@ import OhNo from '../components/Claim/OhNo';
 import Awesome from '../components/Claim/Awesome';
 import Giveaway from '../components/Claim/Giveaway';
 import BondsEnds from '../components/Claim/BondsEnds';
+import { ethers } from 'ethers';
 
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
@@ -279,6 +281,33 @@ const Claim = () => {
     isBondEnds,
   ]);
 
+  const addTokenToMetamask = () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    const tokenAddress = '0xC6613c683f2d4684D806FAcb9D413f41221537c6';
+    const tokenSymbol = 'BOND';
+    const tokenDecimals = 18;
+    const tokenIcon = `${window.location.origin}/bond.png`;
+    provider
+      .send('wallet_watchAsset', {
+        type: 'ERC20',
+        options: {
+          address: tokenAddress,
+          symbol: tokenSymbol,
+          decimals: tokenDecimals,
+          image: tokenIcon,
+        },
+      })
+      .then(() => {
+        console.log(`Token ${tokenSymbol} added to Metamask!`);
+      })
+      .catch((error) => {
+        console.error(
+          `Error adding token ${tokenSymbol} to Metamask: ${error}`
+        );
+      });
+  };
+
   const scrollPage = () => {
     window.scrollTo(0, scrollUp ? 0 : document.body.scrollHeight);
   };
@@ -301,6 +330,13 @@ const Claim = () => {
                         <span className='claim-block__claimed'>
                           {totalClaimed}
                         </span>
+                        <button
+                          onClick={addTokenToMetamask}
+                          type='button'
+                          className='claim-block__add-token'
+                        >
+                          <img src={addToken} alt='add token' />
+                        </button>
                       </>
                     ) : (
                       <span className='claim-block__claimed-text'>
