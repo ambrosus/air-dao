@@ -11,7 +11,7 @@ const SuccessClaim = () => (
       withBorder
       className='claim-block__btn claim-block__btn_marketplace'
     >
-      <a href='/bond-exchange/'>Bond Marketplace</a>
+      <a href='/bond-marketplace/'>Bond Marketplace</a>
     </UiButton>
   </>
 );
