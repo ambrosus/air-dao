@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import question from '../assets/question.svg';
 import check from '../assets/claim-check.svg';
 import cross from '../assets/claim-cross.svg';
+import doublecheck from '../assets/doublecheck.svg';
 import scroll from '../assets/claim-arrow.svg';
 import { useWeb3React } from '@web3-react/core';
 import { useAuthorization } from 'airdao-components-and-tools/hooks';
@@ -13,7 +14,7 @@ import NotToday from '../components/Claim/NotToday';
 import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 import OhNo from '../components/Claim/OhNo';
 import Awesome from '../components/Claim/Awesome';
-import Giveaway from "../components/Claim/Giveaway";
+import Giveaway from '../components/Claim/Giveaway';
 
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
@@ -177,12 +178,14 @@ const Claim = () => {
     const provider = new AmbErrorProviderWeb3(window.ethereum);
     const signer = provider.getSigner();
 
-    const tx = await signer.sendTransaction({
-      to: contractAddress,
-      data: callData,
-    });
-
-    setIsClaimLoading(true);
+    const tx = await signer
+      .sendTransaction({ to: contractAddress, data: callData })
+      .then(() => setIsClaimLoading(true))
+      .catch((e) => {
+        if (e.message === 'Run out of tokens') {
+          console.log(e.message)
+        }
+      });
 
     provider
       .waitForTransaction(tx.hash)
@@ -201,7 +204,11 @@ const Claim = () => {
     const imgs = {};
 
     Object.keys(eligibility).forEach((el) => {
-      imgs[el] = eligibility[el].amount ? check : cross;
+      if (eligibility[el].claimed) {
+        imgs[el] = doublecheck;
+      } else {
+        imgs[el] = eligibility[el].amount ? check : cross;
+      }
     });
     return imgs;
   }, [eligibility]);
@@ -263,14 +270,21 @@ const Claim = () => {
               <div className='claim-block'>
                 <div className='claim-block__heading'>
                   <span className='claim-block__day'>Day {currentDay}</span>
-                  {!!totalClaimed && (
-                    <>
+                  {!!account &&
+                    (totalClaimed ? (
+                      <>
+                        <span className='claim-block__claimed-text'>
+                          Total AirBonds claimed:
+                        </span>
+                        <span className='claim-block__claimed'>
+                          {totalClaimed}
+                        </span>
+                      </>
+                    ) : (
                       <span className='claim-block__claimed-text'>
-                        Total AirBonds claimed:
+                        No AirBonds Claimed Yet
                       </span>
-                      <span className='claim-block__claimed'>{totalClaimed}</span>
-                    </>
-                  )}
+                    ))}
                 </div>
                 {currentStepBlock}
               </div>

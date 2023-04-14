@@ -338,8 +338,15 @@
 }
 
 .claim-block__warning {
-  color: #FFAC23;
+  color: #A2B2D8;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
   margin-top: 8px;
+
+  img {
+    margin-right: 8px;
+  }
 }
 
 .claim-scroll__img-rotate {
