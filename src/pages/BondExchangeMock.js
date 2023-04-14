@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import UiButton from '../components/UiButton';
 import CurrencyInput from './BondExchange/components/CurrencyInput';
 import AmbIcon from '../assets/icons/amb.svg';
-import AirBondIcon from '../assets/icons/airbond.png';
+import AirBondIcon from '../assets/icons/airbond.svg';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 
 export default function BondExchangeMock() {
