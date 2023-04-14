@@ -104,6 +104,7 @@ const Claim = () => {
     setShowNotTodayPage(false);
     setIsSuccessClaim(false);
     setShowClaimPage(false);
+    setIsBondEnds(false);
     setTotalClaimed(0);
     setEligibility(null);
   };
