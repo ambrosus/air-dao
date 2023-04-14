@@ -15,7 +15,7 @@ import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 import OhNo from '../components/Claim/OhNo';
 import Awesome from '../components/Claim/Awesome';
 import Giveaway from '../components/Claim/Giveaway';
-import BondsEnds from "../components/Claim/BondsEnds";
+import BondsEnds from '../components/Claim/BondsEnds';
 
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
