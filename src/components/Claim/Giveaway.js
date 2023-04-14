@@ -8,7 +8,13 @@ const Giveaway = () => (
       Complete a new task every two days to win an airdrop. You must hold 1000
       AMB in your wallet to be eligible to participate.
     </p>
-    <a href='/'>Read Announcement →</a>
+    <a
+      href='https://blog.airdao.io/airdao-blockchain-fourth-anniversary-airdrop-f0388c837476?gi=5790fe133fd6'
+      target='_blank'
+      rel='noreferrer'
+    >
+      Read Announcement →
+    </a>
     <div className='giveaway__dates'>
       <div className='giveaway__dates-item'>
         <div className='giveaway__info'>Start</div>
