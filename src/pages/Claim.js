@@ -180,21 +180,27 @@ const Claim = () => {
 
     const tx = await signer
       .sendTransaction({ to: contractAddress, data: callData })
-      .then(() => setIsClaimLoading(true))
+      .then((res) => {
+        setIsClaimLoading(true);
+        return res;
+      })
       .catch((e) => {
         if (e.message === 'Run out of tokens') {
-          console.log(e.message)
+          console.log(e.message);
         }
       });
+    console.log(tx);
 
-    provider
-      .waitForTransaction(tx.hash)
-      .then(() => {
-        setIsSuccessClaim(true);
-        setTotalClaimed((state) => state + availableReward);
-        setShowClaimPage(false);
-      })
-      .finally(() => setIsClaimLoading(false));
+    if (tx) {
+      provider
+        .waitForTransaction(tx.hash)
+        .then(() => {
+          setIsSuccessClaim(true);
+          setTotalClaimed((state) => state + availableReward);
+          setShowClaimPage(false);
+        })
+        .finally(() => setIsClaimLoading(false));
+    }
   };
 
   const stepStatusImg = useMemo(() => {
