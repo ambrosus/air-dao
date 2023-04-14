@@ -41,7 +41,7 @@ const getTimeRemaining = (futureDate) => {
   }${hours} hours ${minutes < 10 ? '0' : ''}${minutes} minutes`;
 };
 
-const backendApi = 'https://airdrop-backend-api.ambrosus-test.io/';
+const backendApi = 'https://airdrop-backend-api.ambrosus.io/';
 
 const Claim = () => {
   const web3ReactInstance = useWeb3React();
