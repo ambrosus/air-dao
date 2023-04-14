@@ -22,7 +22,7 @@ export default function BondExchangeMock() {
               <CurrencyInput
                 onChange={() => {}}
                 value={'1000'}
-                selectedCoin={{ symbol: 'AirBond', icon: AirBondIcon }}
+                selectedCoin={{ symbol: 'BOND', icon: AirBondIcon }}
                 balance={'-'}
                 disabled
               />
