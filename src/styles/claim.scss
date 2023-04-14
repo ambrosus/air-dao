@@ -20,6 +20,14 @@
     margin: 0 auto;
     align-items: flex-start;
   }
+
+  &.content {
+    padding-top: 34px;
+
+    @include media(1050px) {
+      padding-top: 115px;
+    }
+  }
 }
 
 .claim-top-wrapper {
