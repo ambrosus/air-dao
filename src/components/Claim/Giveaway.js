@@ -5,8 +5,8 @@ const Giveaway = () => (
   <div className='giveaway'>
     <h2 className='giveaway__title'>5 000 000 BOND Giveaway!</h2>
     <p className='giveaway__text'>
-      Complete a new task every two days to win an airdrop. You must hold 1000
-      AMB in your wallet to be eligible to participate.
+      New airdrop eligibility criteria will be revealed every two days. You must
+      hold 1000 AMB in your wallet to participate.
     </p>
     <a
       href='https://blog.airdao.io/airdao-blockchain-fourth-anniversary-airdrop-f0388c837476?gi=5790fe133fd6'
