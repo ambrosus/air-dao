@@ -26,7 +26,7 @@ const BondsEnds = () => (
     <ul className='claim-block__socials'>
       {socials.map((el) => (
         <li key={el.url} className='claim-block__socials-item'>
-          <a href={el.url}>
+          <a href={el.url} target='_blank' rel='noreferrer'>
             <img src={el.icon} alt='social' />
           </a>
         </li>
