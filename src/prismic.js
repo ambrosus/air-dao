@@ -33,5 +33,13 @@ export const client = prismic.createClient(repositoryName, {
       type: 'binance',
       path: '/binance',
     },
+    {
+      type: 'airdrop',
+      path: '/airdrop',
+    },
+    {
+      type: 'bondmarketplace',
+      path: '/bond-marketplace',
+    },
   ],
 });
