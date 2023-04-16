@@ -262,7 +262,9 @@ const Claim = () => {
     } else if (showNotTodayPage) {
       const nextClaim = data.find((el) => !el.key);
       if (!nextClaim) {
-        const isAnyClaimed = Object.values(eligibility).find((el) => el.claimed);
+        const isAnyClaimed = Object.values(eligibility).find(
+          (el) => el.claimed
+        );
 
         return isAnyClaimed ? <Awesome /> : <OhNo />;
       }
@@ -284,7 +286,7 @@ const Claim = () => {
   const addTokenToMetamask = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-    const tokenAddress = '0xC6613c683f2d4684D806FAcb9D413f41221537c6';
+    const tokenAddress = '0x096B5914C95C34Df19500DAff77470C845EC749D';
     const tokenSymbol = 'BOND';
     const tokenDecimals = 18;
     const tokenIcon = `${window.location.origin}/bond.png`;
@@ -361,7 +363,7 @@ const Claim = () => {
                           src={stepStatusImg[el.key] || question}
                           alt='question mark'
                         />
-                        Day {((i + 1) * 2) - 1} - {(i + 1) * 2}
+                        Day {(i + 1) * 2 - 1} - {(i + 1) * 2}
                       </div>
 
                       {el.label ||
