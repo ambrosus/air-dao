@@ -41,7 +41,7 @@ const getTimeRemaining = (futureDate) => {
   }${hours} hours ${minutes < 10 ? '0' : ''}${minutes} minutes`;
 };
 
-const backendApi = 'https://airdrop-backend-api.ambrosus-test.io/';
+const backendApi = 'https://airdrop-backend-api.ambrosus.io/';
 
 const Claim = () => {
   const web3ReactInstance = useWeb3React();
@@ -182,7 +182,7 @@ const Claim = () => {
   };
 
   const claimRewards = async () => {
-    const provider = new AmbErrorProviderWeb3(window.ethereum);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
     const tx = await signer
