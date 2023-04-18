@@ -182,21 +182,23 @@ const Claim = () => {
   const claimRewards = async () => {
     const signer = library.getSigner();
 
-    const tx = await signer
-      .sendTransaction({ to: contractAddress, data: callData })
-      .then((res) => {
-        setIsClaimLoading(true);
-        return res;
-      })
-      .catch((e) => {
-        if (e.message === 'Run out of tokens') {
-          setIsBondEnds(true);
-        }
-      });
+    let tx;
+
+    try {
+      tx = await signer
+        .sendTransaction({ to: contractAddress, data: callData })
+        .then((tx) => {
+          setIsClaimLoading(true);
+          return tx;
+        });
+    } catch (e) {
+      if (e.message === 'Run out of tokens') {
+        setIsBondEnds(true);
+      }
+    }
 
     if (tx) {
-      signer
-        .waitForTransaction(tx.hash)
+      tx.wait()
         .then(() => {
           setIsSuccessClaim(true);
           setTotalClaimed((state) => state + availableReward);
