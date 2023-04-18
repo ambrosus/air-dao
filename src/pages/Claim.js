@@ -12,12 +12,10 @@ import CheckEligibility from '../components/Claim/CheckEligibility';
 import ClaimReward from '../components/Claim/ClaimReward';
 import SuccessClaim from '../components/Claim/SuccessClaim';
 import NotToday from '../components/Claim/NotToday';
-import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 import OhNo from '../components/Claim/OhNo';
 import Awesome from '../components/Claim/Awesome';
 import Giveaway from '../components/Claim/Giveaway';
 import BondsEnds from '../components/Claim/BondsEnds';
-import { ethers } from 'ethers';
 
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
@@ -45,7 +43,7 @@ const backendApi = 'https://airdrop-backend-api.ambrosus.io/';
 
 const Claim = () => {
   const web3ReactInstance = useWeb3React();
-  const { account } = web3ReactInstance;
+  const { account, library } = web3ReactInstance;
   const { loginMetamask } = useAuthorization(web3ReactInstance);
 
   const [data, setData] = useState(null);
@@ -182,24 +180,25 @@ const Claim = () => {
   };
 
   const claimRewards = async () => {
-    const provider = new AmbErrorProviderWeb3(window.ethereum);
-    const signer = provider.getSigner();
+    const signer = library.getSigner();
 
-    const tx = await signer
-      .sendTransaction({ to: contractAddress, data: callData })
-      .then((res) => {
-        setIsClaimLoading(true);
-        return res;
-      })
-      .catch((e) => {
-        if (e.message === 'Run out of tokens') {
-          setIsBondEnds(true);
-        }
-      });
+    let tx;
+
+    try {
+      tx = await signer
+        .sendTransaction({ to: contractAddress, data: callData })
+        .then((tx) => {
+          setIsClaimLoading(true);
+          return tx;
+        });
+    } catch (e) {
+      if (e.message === 'Run out of tokens') {
+        setIsBondEnds(true);
+      }
+    }
 
     if (tx) {
-      provider
-        .waitForTransaction(tx.hash)
+      tx.wait()
         .then(() => {
           setIsSuccessClaim(true);
           setTotalClaimed((state) => state + availableReward);
@@ -284,7 +283,7 @@ const Claim = () => {
   ]);
 
   const addTokenToMetamask = () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const provider = library;
 
     const tokenAddress = '0x096B5914C95C34Df19500DAff77470C845EC749D';
     const tokenSymbol = 'BOND';
