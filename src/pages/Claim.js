@@ -16,7 +16,6 @@ import OhNo from '../components/Claim/OhNo';
 import Awesome from '../components/Claim/Awesome';
 import Giveaway from '../components/Claim/Giveaway';
 import BondsEnds from '../components/Claim/BondsEnds';
-import { ethers } from 'ethers';
 
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
@@ -44,7 +43,7 @@ const backendApi = 'https://airdrop-backend-api.ambrosus.io/';
 
 const Claim = () => {
   const web3ReactInstance = useWeb3React();
-  const { account } = web3ReactInstance;
+  const { account, library } = web3ReactInstance;
   const { loginMetamask } = useAuthorization(web3ReactInstance);
 
   const [data, setData] = useState(null);
@@ -181,8 +180,7 @@ const Claim = () => {
   };
 
   const claimRewards = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
+    const signer = library.getSigner();
 
     const tx = await signer
       .sendTransaction({ to: contractAddress, data: callData })
@@ -197,7 +195,7 @@ const Claim = () => {
       });
 
     if (tx) {
-      provider
+      signer
         .waitForTransaction(tx.hash)
         .then(() => {
           setIsSuccessClaim(true);
@@ -261,7 +259,9 @@ const Claim = () => {
     } else if (showNotTodayPage) {
       const nextClaim = data.find((el) => !el.key);
       if (!nextClaim) {
-        const isAnyClaimed = Object.values(eligibility).find((el) => el.claimed);
+        const isAnyClaimed = Object.values(eligibility).find(
+          (el) => el.claimed
+        );
 
         return isAnyClaimed ? <Awesome /> : <OhNo />;
       }
@@ -281,9 +281,9 @@ const Claim = () => {
   ]);
 
   const addTokenToMetamask = () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const provider = library;
 
-    const tokenAddress = '0xC6613c683f2d4684D806FAcb9D413f41221537c6';
+    const tokenAddress = '0x096B5914C95C34Df19500DAff77470C845EC749D';
     const tokenSymbol = 'BOND';
     const tokenDecimals = 18;
     const tokenIcon = `${window.location.origin}/bond.png`;
@@ -360,7 +360,7 @@ const Claim = () => {
                           src={stepStatusImg[el.key] || question}
                           alt='question mark'
                         />
-                        Day {((i + 1) * 2) - 1} - {(i + 1) * 2}
+                        Day {(i + 1) * 2 - 1} - {(i + 1) * 2}
                       </div>
 
                       {el.label ||
