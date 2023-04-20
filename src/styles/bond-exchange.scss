@@ -133,3 +133,47 @@
 .bond-exchange__button-loader div {
   background: #A2B2D8;
 }
+
+.exchange-control-panel .bond-exchange__content{
+  margin: 0 auto 0 265px;
+}
+
+.exchange-control-panel .bond-exchange__content{
+  flex-flow: row wrap;
+  gap: 32px;
+}
+
+.bond-exchange__pool-info {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #FFFFFF;
+  box-shadow: 0 8px 32px rgba(105, 142, 226, 0.11);
+  border-radius: 24px;
+  padding: 48px 34px 32px;
+}
+
+.auto-fix-liquidity {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #FFFFFF;
+  box-shadow: 0 8px 32px rgba(105, 142, 226, 0.11);
+  border-radius: 24px;
+  padding: 48px 34px 32px;
+}
+
+.info-list {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 170%;
+  /* or 22px */
+  color: #1D1D1D;
+}
+
+.info-list__key {
+  font-weight: bold;
+}

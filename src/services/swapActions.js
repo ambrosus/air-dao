@@ -7,13 +7,20 @@ const {
   REACT_APP_ROUTER_ADDRESS: routerAddress,
 } = process.env;
 
-export async function getAmountToReceive(amountToSell) {
+const tokenAddresses = {
+  BOND: airBondAddress,
+  SAMB: sambAddress,
+};
+
+export async function getAmountsOut(amountToSell, tokens) {
   const routerContract = await createRouterContract();
 
-  const [, amountToReceive] = await routerContract.getAmountsOut(amountToSell, [
-    airBondAddress,
-    sambAddress,
-  ]);
+  const path = tokens.map((token) => tokenAddresses[token]);
+
+  const [, amountToReceive] = await routerContract.getAmountsOut(
+    amountToSell,
+    path
+  );
 
   return amountToReceive;
 }
@@ -25,16 +32,31 @@ export function calculatePrice(amountToSell = '', amountToReceive = '') {
   return decPrice.toFixed(18);
 }
 
-export async function swapTokens(amountToSell, receiver, signer) {
+export async function swapBondForAmb(amountToSell, receiver, signer) {
   const routerContract = await createRouterContract(signer);
-  const amountToReceive = await getAmountToReceive(amountToSell);
+  const amountToReceive = await getAmountsOut(amountToSell, ['BOND', 'SAMB']);
+  const amountToReceiveWithSlippage = amountToReceive.div(100).mul(95);
   const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
   return routerContract.swapExactTokensForETH(
     amountToSell,
-    amountToReceive,
+    amountToReceiveWithSlippage,
     [airBondAddress, sambAddress],
     receiver,
     deadline
+  );
+}
+
+export async function swapAmbForBond(amountToSell, receiver, signer) {
+  const routerContract = await createRouterContract(signer);
+  const amountToReceive = await getAmountsOut(amountToSell, ['SAMB', 'BOND']);
+  const amountToReceiveWithSlippage = amountToReceive.div(100).mul(95);
+  const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
+  return routerContract.swapExactETHForTokens(
+    amountToReceiveWithSlippage,
+    [sambAddress, airBondAddress],
+    receiver,
+    deadline,
+    { value: amountToSell }
   );
 }
 

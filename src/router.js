@@ -8,8 +8,11 @@ import Ambassadors from './pages/Ambassadors';
 import Claim from './pages/Claim';
 import BondExchange from './pages/BondExchange';
 import BondExchangeMock from './pages/BondExchangeMock';
+import ChangeBondPrice from './pages/ChangeBondPrice/ChangeBondPrice';
 
 const hideBondExchange = process.env.REACT_APP_HIDE_BOND_EXCHANGE === 'true';
+const hideChangeBondPrice =
+  process.env.REACT_APP_HIDE_CHANGE_BOND_PRICE === 'true';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: '/bond-marketplace/',
     element: hideBondExchange ? <BondExchangeMock /> : <BondExchange />,
+  },
+  {
+    path: '/change-bond-price/',
+    element: hideChangeBondPrice ? <NotFound /> : <ChangeBondPrice />,
   },
   {
     path: '*',
