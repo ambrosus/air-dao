@@ -2,8 +2,9 @@ import { useCallback } from 'react';
 import {
   approveToRouter,
   checkIsApprovalRequired,
-  getAmountToReceive,
-  swapTokens,
+  getAmountsOut,
+  swapAmbForBond,
+  swapBondForAmb,
 } from '../../../services/swapActions';
 import { ethers } from 'ethers';
 import { useWeb3React } from '@web3-react/core';
@@ -11,15 +12,23 @@ import { useWeb3React } from '@web3-react/core';
 export default function useSwapActions() {
   const { library, account } = useWeb3React();
 
-  const getAmountOut = useCallback((amountToSell) => {
+  const wrappedGetAmountsOut = useCallback((amountToSell, tokens) => {
     const bnAmountToSell = ethers.utils.parseEther(amountToSell);
-    return getAmountToReceive(bnAmountToSell);
+    return getAmountsOut(bnAmountToSell, tokens);
   }, []);
 
-  const swap = useCallback(
+  const wrappedSwapBondForAmb = useCallback(
     (amountToSell) => {
       const bnAmountToSell = ethers.utils.parseEther(amountToSell);
-      return swapTokens(bnAmountToSell, account, library.getSigner());
+      return swapBondForAmb(bnAmountToSell, account, library.getSigner());
+    },
+    [library, account]
+  );
+
+  const wrappedSwapAmbForBond = useCallback(
+    (amountToSell) => {
+      const bnAmountToSell = ethers.utils.parseEther(amountToSell);
+      return swapAmbForBond(bnAmountToSell, account, library.getSigner());
     },
     [library, account]
   );
@@ -40,5 +49,11 @@ export default function useSwapActions() {
     [library, account]
   );
 
-  return { swap, approve, checkAllowance, getAmountOut };
+  return {
+    swap: wrappedSwapBondForAmb,
+    approve,
+    checkAllowance,
+    getAmountsOut: wrappedGetAmountsOut,
+    swapAmbForBond: wrappedSwapAmbForBond,
+  };
 }
