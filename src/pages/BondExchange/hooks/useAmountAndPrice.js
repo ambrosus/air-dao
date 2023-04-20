@@ -6,25 +6,28 @@ import useSwapActions from './useSwapActions';
 import { ethers } from 'ethers';
 import formatFloatString from '../../../utils/formatFloatString';
 
-export default function useAmountAndPrice(amountToSell) {
+export default function useAmountAndPrice(
+  amountToSell,
+  tokens = ['BOND', 'SAMB']
+) {
   const [{ amount, price }, setData] = useState({
     amount: '',
     price: '',
   });
 
-  const { getAmountOut } = useSwapActions();
+  const { getAmountsOut } = useSwapActions();
 
   async function getAmountAndPrice(amountToSell) {
     const bnOne = ethers.utils.parseEther('1');
     const bnAmountToSell = ethers.utils.parseEther(amountToSell || '0');
 
     if (bnAmountToSell.lt(bnOne)) {
-      const bnBriceForOneToken = await getAmountOut('1');
+      const bnBriceForOneToken = await getAmountsOut('1', tokens);
       const price = BnToString(bnBriceForOneToken);
       return { amount: '', price };
     }
 
-    const bnAmountToReceive = await getAmountOut(amountToSell);
+    const bnAmountToReceive = await getAmountsOut(amountToSell, tokens);
     const amountToReceive = BnToString(bnAmountToReceive);
 
     const price = calculatePrice(amountToSell, amountToReceive);
@@ -33,14 +36,14 @@ export default function useAmountAndPrice(amountToSell) {
   }
 
   useEffect(() => {
-    function getDataAndSetState() {
+    function getAmountAndPriceAndSetToState() {
       getAmountAndPrice(amountToSell).then(setData);
     }
 
-    getDataAndSetState();
+    getAmountAndPriceAndSetToState();
 
-    provider.on('block', getDataAndSetState);
-    return () => provider.off('block', getDataAndSetState);
+    provider.on('block', getAmountAndPriceAndSetToState);
+    return () => provider.off('block', getAmountAndPriceAndSetToState);
   }, [amountToSell]);
 
   return { amount, price };

@@ -51,7 +51,7 @@ const BondExchange = () => {
             <div className='bond-exchange__price-row'>
               <div className='bond-exchange__price-name'>Price:</div>
               <div className='bond-exchange__price-value'>
-                {price} AirBond per 1 AMB
+                {price} AMB per 1 BOND
               </div>
             </div>
 
