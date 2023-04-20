@@ -42,7 +42,6 @@ const Content = () => {
     } else return [];
   }, [data]);
 
-  console.log(data);
   return (
     data && (
       <div className='container main-page'>
