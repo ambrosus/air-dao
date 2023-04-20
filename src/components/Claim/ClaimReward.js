@@ -1,6 +1,7 @@
 import UiButton from '../UiButton';
 import PropTypes from 'prop-types';
 import InlineLoader from '../InlineLoader';
+import info from '../../assets/circle-information.svg';
 import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 import { ethers } from 'ethers';
 import { useState } from 'react';
@@ -46,6 +47,7 @@ const ClaimRewards = ({
       )}
       {insufficient && (
         <p className='claim-block__warning'>
+          <img src={info} alt='info' />
           You must hold 1000 AMB in your wallet to be eligible to participate.
           Your funds will remain untouched.
         </p>

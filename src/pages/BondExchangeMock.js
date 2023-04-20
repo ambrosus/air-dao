@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import UiButton from '../components/UiButton';
 import CurrencyInput from './BondExchange/components/CurrencyInput';
 import AmbIcon from '../assets/icons/amb.svg';
-import AirBondIcon from '../assets/icons/airbond.png';
+import AirBondIcon from '../assets/icons/airbond.svg';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 
 export default function BondExchangeMock() {
@@ -14,7 +14,7 @@ export default function BondExchangeMock() {
             <h2 className='bond-exchange__heading'>Bond Marketplace</h2>
             <p className='bond-exchange__lead'>
               AirBonds were rewarded to active community members.{' '}
-              <Link to='/claim/' className='bond-exchange__lead-link'>
+              <Link to='/airdrop/' className='bond-exchange__lead-link'>
                 Claim your AirBonds
               </Link>
             </p>
@@ -22,7 +22,7 @@ export default function BondExchangeMock() {
               <CurrencyInput
                 onChange={() => {}}
                 value={'1000'}
-                selectedCoin={{ symbol: 'AirBond', icon: AirBondIcon }}
+                selectedCoin={{ symbol: 'BOND', icon: AirBondIcon }}
                 balance={'-'}
                 disabled
               />
@@ -42,7 +42,7 @@ export default function BondExchangeMock() {
             <div className='bond-exchange__price-row'>
               <div className='bond-exchange__price-name'>Price:</div>
               <div className='bond-exchange__price-value'>
-                0.8 AirBond per 1 AMB
+                1.2 AMB per 1 AirBond
               </div>
             </div>
             <UiButton

@@ -36,11 +36,11 @@ const router = createBrowserRouter([
     element: <Ambassadors />,
   },
   {
-    path: '/claim/',
+    path: '/airdrop/',
     element: <Claim />,
   },
   {
-    path: '/bond-exchange/',
+    path: '/bond-marketplace/',
     element: hideBondExchange ? <BondExchangeMock /> : <BondExchange />,
   },
   {

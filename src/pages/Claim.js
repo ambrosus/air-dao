@@ -2,7 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import question from '../assets/question.svg';
 import check from '../assets/claim-check.svg';
 import cross from '../assets/claim-cross.svg';
+import doublecheck from '../assets/doublecheck.svg';
 import scroll from '../assets/claim-arrow.svg';
+import addToken from '../assets/add-token.svg';
 import { useWeb3React } from '@web3-react/core';
 import { useAuthorization } from 'airdao-components-and-tools/hooks';
 import ConnectWallet from '../components/Claim/ConnectWallet';
@@ -10,10 +12,10 @@ import CheckEligibility from '../components/Claim/CheckEligibility';
 import ClaimReward from '../components/Claim/ClaimReward';
 import SuccessClaim from '../components/Claim/SuccessClaim';
 import NotToday from '../components/Claim/NotToday';
-import { AmbErrorProviderWeb3 } from '@airdao/airdao-node-contracts';
 import OhNo from '../components/Claim/OhNo';
 import Awesome from '../components/Claim/Awesome';
-import Giveaway from "../components/Claim/Giveaway";
+import Giveaway from '../components/Claim/Giveaway';
+import BondsEnds from '../components/Claim/BondsEnds';
 
 const getTimeRemaining = (futureDate) => {
   const futureTime = new Date(futureDate).getTime();
@@ -37,11 +39,11 @@ const getTimeRemaining = (futureDate) => {
   }${hours} hours ${minutes < 10 ? '0' : ''}${minutes} minutes`;
 };
 
-const backendApi = 'https://airdrop-backend-api.ambrosus-test.io/';
+const backendApi = 'https://airdrop-backend-api.ambrosus.io/';
 
 const Claim = () => {
   const web3ReactInstance = useWeb3React();
-  const { account } = web3ReactInstance;
+  const { account, library } = web3ReactInstance;
   const { loginMetamask } = useAuthorization(web3ReactInstance);
 
   const [data, setData] = useState(null);
@@ -49,6 +51,7 @@ const Claim = () => {
   const [showClaimPage, setShowClaimPage] = useState(false);
   const [isSuccessClaim, setIsSuccessClaim] = useState(false);
   const [showNotTodayPage, setShowNotTodayPage] = useState(false);
+  const [isBondEnds, setIsBondEnds] = useState(false);
   const [totalClaimed, setTotalClaimed] = useState(0);
   const [callData, setCallData] = useState('');
   const [isClaimLoading, setIsClaimLoading] = useState(false);
@@ -57,8 +60,6 @@ const Claim = () => {
   const [scrollUp, setScrollUp] = useState(false);
 
   useEffect(() => {
-    getClaimCategories();
-
     const handleScroll = () => {
       setScrollUp(false);
       if (
@@ -71,6 +72,10 @@ const Claim = () => {
     document.addEventListener('scroll', handleScroll);
     return () => document.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    getClaimCategories();
+  }, [account]);
 
   useEffect(() => {
     if (!account) {
@@ -101,6 +106,7 @@ const Claim = () => {
     setShowNotTodayPage(false);
     setIsSuccessClaim(false);
     setShowClaimPage(false);
+    setIsBondEnds(false);
     setTotalClaimed(0);
     setEligibility(null);
   };
@@ -174,24 +180,41 @@ const Claim = () => {
   };
 
   const claimRewards = async () => {
-    const provider = new AmbErrorProviderWeb3(window.ethereum);
-    const signer = provider.getSigner();
+    const signer = library.getSigner();
 
-    const tx = await signer.sendTransaction({
-      to: contractAddress,
-      data: callData,
-    });
+    let tx;
 
-    setIsClaimLoading(true);
+    try {
+      tx = await signer
+        .sendTransaction({ to: contractAddress, data: callData })
+        .then((tx) => {
+          setIsClaimLoading(true);
+          return tx;
+        });
+    } catch (e) {
+      if (e.message === 'Run out of tokens') {
+        setIsBondEnds(true);
+      }
+    }
 
-    provider
-      .waitForTransaction(tx.hash)
-      .then(() => {
-        setIsSuccessClaim(true);
-        setTotalClaimed((state) => state + availableReward);
-        setShowClaimPage(false);
-      })
-      .finally(() => setIsClaimLoading(false));
+    if (tx) {
+      tx.wait()
+        .then(() => {
+          setIsSuccessClaim(true);
+          setTotalClaimed((state) => state + availableReward);
+          setShowClaimPage(false);
+          setEligibility((state) => {
+            const obj = { ...state };
+            for (let key in obj) {
+              if (obj[key].amount !== 0) {
+                obj[key].claimed = true;
+              }
+            }
+            return obj;
+          });
+        })
+        .finally(() => setIsClaimLoading(false));
+    }
   };
 
   const stepStatusImg = useMemo(() => {
@@ -201,7 +224,11 @@ const Claim = () => {
     const imgs = {};
 
     Object.keys(eligibility).forEach((el) => {
-      imgs[el] = eligibility[el].amount ? check : cross;
+      if (eligibility[el].claimed) {
+        imgs[el] = doublecheck;
+      } else {
+        imgs[el] = eligibility[el].amount ? check : cross;
+      }
     });
     return imgs;
   }, [eligibility]);
@@ -218,6 +245,8 @@ const Claim = () => {
   const currentStepBlock = useMemo(() => {
     if (!account) {
       return <ConnectWallet loginMetamask={loginMetamask} />;
+    } else if (isBondEnds) {
+      return <BondsEnds />;
     } else if (showClaimPage) {
       return (
         <ClaimReward
@@ -232,7 +261,9 @@ const Claim = () => {
     } else if (showNotTodayPage) {
       const nextClaim = data.find((el) => !el.key);
       if (!nextClaim) {
-        const isAnyClaimed = Object.values(eligibility).find((el) => el.claimed);
+        const isAnyClaimed = Object.values(eligibility).find(
+          (el) => el.claimed
+        );
 
         return isAnyClaimed ? <Awesome /> : <OhNo />;
       }
@@ -248,7 +279,35 @@ const Claim = () => {
     isSuccessClaim,
     showNotTodayPage,
     isClaimLoading,
+    isBondEnds,
   ]);
+
+  const addTokenToMetamask = () => {
+    const provider = library;
+
+    const tokenAddress = '0x096B5914C95C34Df19500DAff77470C845EC749D';
+    const tokenSymbol = 'BOND';
+    const tokenDecimals = 18;
+    const tokenIcon = `${window.location.origin}/bond.png`;
+    provider
+      .send('wallet_watchAsset', {
+        type: 'ERC20',
+        options: {
+          address: tokenAddress,
+          symbol: tokenSymbol,
+          decimals: tokenDecimals,
+          image: tokenIcon,
+        },
+      })
+      .then(() => {
+        console.log(`Token ${tokenSymbol} added to Metamask!`);
+      })
+      .catch((error) => {
+        console.error(
+          `Error adding token ${tokenSymbol} to Metamask: ${error}`
+        );
+      });
+  };
 
   const scrollPage = () => {
     window.scrollTo(0, scrollUp ? 0 : document.body.scrollHeight);
@@ -263,14 +322,28 @@ const Claim = () => {
               <div className='claim-block'>
                 <div className='claim-block__heading'>
                   <span className='claim-block__day'>Day {currentDay}</span>
-                  {!!totalClaimed && (
-                    <>
+                  {!!account &&
+                    (totalClaimed ? (
+                      <>
+                        <span className='claim-block__claimed-text'>
+                          Total AirBonds claimed:
+                        </span>
+                        <span className='claim-block__claimed'>
+                          {totalClaimed}
+                        </span>
+                        <button
+                          onClick={addTokenToMetamask}
+                          type='button'
+                          className='claim-block__add-token'
+                        >
+                          <img src={addToken} alt='add token' />
+                        </button>
+                      </>
+                    ) : (
                       <span className='claim-block__claimed-text'>
-                        Total AirBonds claimed:
+                        No AirBonds Claimed Yet
                       </span>
-                      <span className='claim-block__claimed'>{totalClaimed}</span>
-                    </>
-                  )}
+                    ))}
                 </div>
                 {currentStepBlock}
               </div>
@@ -289,7 +362,7 @@ const Claim = () => {
                           src={stepStatusImg[el.key] || question}
                           alt='question mark'
                         />
-                        Day {((i + 1) * 2) - 1} - {(i + 1) * 2}
+                        Day {(i + 1) * 2 - 1} - {(i + 1) * 2}
                       </div>
 
                       {el.label ||
