@@ -42,6 +42,7 @@ const Content = () => {
     } else return [];
   }, [data]);
 
+  console.log(data);
   return (
     data && (
       <div className='container main-page'>
@@ -56,23 +57,23 @@ const Content = () => {
         <div className='content'>
           <img className='background' src={bg} alt='background' />
           <div className='white-overlay' />
-          <div className='we-are-hiring'>
-            <p className='we-are-hiring__lead'>
-              Check out our openings here at AirDAO{' '}
-              <br className='desktop-only' />
-              and join our global, remote team.
-            </p>
-            <UiButton>
-              <a
-                className='we-are-hiring__button'
-                target='_blank'
-                rel='noreferrer'
-                href='https://airdao.academy/careers'
-              >
-                Open Positions →
-              </a>
-            </UiButton>
-          </div>
+          {data['promo-block-active'] && (
+            <div className='we-are-hiring'>
+              <p className='we-are-hiring__lead'>
+                <PrismicText field={data['promo-block-text']} />
+              </p>
+              <UiButton>
+                <a
+                  className='we-are-hiring__button'
+                  target='_blank'
+                  rel='noreferrer'
+                  href={data['promo-block-link'].url}
+                >
+                  <PrismicText field={data['promo-block-link-text']} />
+                </a>
+              </UiButton>
+            </div>
+          )}
           <div id='about' className='about-us'>
             <img
               src={logoSymbol}
