@@ -70,3 +70,22 @@ export async function approveToRouter(amount, signer) {
   const AirBondsContract = await createAirBondContract(signer);
   return AirBondsContract.approve(routerAddress, amount);
 }
+
+export async function addLiquidityAmbToBond(
+  amountAmb,
+  amountBond,
+  account,
+  signer
+) {
+  const routerContract = await createRouterContract(signer);
+  const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
+  return routerContract.addLiquidityETH(
+    airBondAddress,
+    amountBond,
+    0,
+    0,
+    account,
+    deadline,
+    { value: amountAmb }
+  );
+}

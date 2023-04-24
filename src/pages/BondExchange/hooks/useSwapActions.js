@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import {
+  addLiquidityAmbToBond,
   approveToRouter,
   checkIsApprovalRequired,
   getAmountsOut,
@@ -49,11 +50,26 @@ export default function useSwapActions() {
     [library, account]
   );
 
+  const wrappedAddLiquidityAmbToBond = useCallback(
+    (amountAmb, amountBond) => {
+      const bnAmountAmb = ethers.utils.parseEther(amountAmb);
+      const bnAmountBond = ethers.utils.parseEther(amountBond);
+      return addLiquidityAmbToBond(
+        bnAmountAmb,
+        bnAmountBond,
+        account,
+        library.getSigner()
+      );
+    },
+    [library, account]
+  );
+
   return {
     swap: wrappedSwapBondForAmb,
     approve,
     checkAllowance,
     getAmountsOut: wrappedGetAmountsOut,
     swapAmbForBond: wrappedSwapAmbForBond,
+    addLiquidityAmbToBond: wrappedAddLiquidityAmbToBond,
   };
 }
