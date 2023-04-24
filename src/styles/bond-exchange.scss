@@ -140,7 +140,15 @@
 
 .exchange-control-panel .bond-exchange__content{
   flex-flow: row wrap;
+  justify-content: space-between;
   gap: 32px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.exchange-control-panel .bond-exchange__input-block {
+  max-width: 380px;
+  justify-content: space-between;
 }
 
 .bond-exchange__pool-info {
