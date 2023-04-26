@@ -9,6 +9,7 @@ export default function ActionButton({
   setIsPending,
   amount,
   successCallback,
+  connectWallet,
   ...props
 }) {
   const { swap, approve } = useSwapActions();
@@ -36,7 +37,7 @@ export default function ActionButton({
     [stateList.NOT_CONNECTED]: {
       disabled: false,
       children: 'Connect Wallet',
-      onClick: () => alert('connect wallet'),
+      onClick: connectWallet,
     },
     [stateList.NO_VALUE]: {
       disabled: true,
@@ -78,4 +79,5 @@ ActionButton.propTypes = {
   setIsPending: PropTypes.func,
   amount: PropTypes.string,
   successCallback: PropTypes.func,
+  connectWallet: PropTypes.func,
 };
