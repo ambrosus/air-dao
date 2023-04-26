@@ -39,7 +39,7 @@ const getTimeRemaining = (futureDate) => {
   }${hours} hours ${minutes < 10 ? '0' : ''}${minutes} minutes`;
 };
 
-const backendApi = 'https://airdrop-backend-api.ambrosus-test.io/';
+const backendApi = 'https://airdrop-backend-api.ambrosus.io/';
 
 const Claim = () => {
   const web3ReactInstance = useWeb3React();
@@ -285,7 +285,7 @@ const Claim = () => {
   const addTokenToMetamask = () => {
     const provider = library;
 
-    const tokenAddress = '0xC6613c683f2d4684D806FAcb9D413f41221537c6';
+    const tokenAddress = '0x096B5914C95C34Df19500DAff77470C845EC749D';
     const tokenSymbol = 'BOND';
     const tokenDecimals = 18;
     const tokenIcon = `${window.location.origin}/bond.png`;
