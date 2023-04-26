@@ -4,8 +4,17 @@ const Footer = () => {
       className={`footer 
       ${window.location.pathname.includes('binance') ? 'footer_binance' : ''}
       ${window.location.pathname.includes('mexc') ? 'footer_mexc' : ''}
-      ${window.location.pathname.includes('ambassadors') ? 'footer_ambassadors' : ''}
+      ${
+        window.location.pathname.includes('ambassadors')
+          ? 'footer_ambassadors'
+          : ''
+      }
       ${window.location.pathname.includes('airdrop') ? 'footer_claim' : ''}
+      ${
+        window.location.pathname.includes('bond-marketplace')
+          ? 'footer_bond-marketplace'
+          : ''
+      }
       `}
     >
       <div className='container footer__wrapper'>
