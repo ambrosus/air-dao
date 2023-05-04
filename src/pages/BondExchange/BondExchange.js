@@ -18,7 +18,7 @@ const BondExchange = () => {
 
   const { amount: ambToReceive, price } = useAmountAndPrice(airBondsToSell);
   const { ambBalance, airBondBalance } = useBalances();
-  const { state, stateList, setIsPending } = useSwapLayoutState(
+  const { state, stateList, setIsPending, setIsSuccess } = useSwapLayoutState(
     airBondsToSell,
     airBondBalance
   );
@@ -81,6 +81,7 @@ const BondExchange = () => {
               <ActionButton
                 state={state}
                 setIsPending={setIsPending}
+                setIsSuccess={setIsSuccess}
                 stateList={stateList}
                 amount={airBondsToSell}
                 successCallback={() => setAirBondsToSell('')}

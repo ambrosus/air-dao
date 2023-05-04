@@ -170,6 +170,16 @@
 
 .bond-exchange__swap-button {
   height: 48px;
+  transition: 0.5s ease-in-out all;
+}
+
+.bond-exchange__swap-button_success {
+  border-color: #15d378;
+  color: #15d378;
+}
+
+.bond-exchange__swap-button_success path {
+  stroke: #15d378;
 }
 
 .bond-exchange__button-loader div {
