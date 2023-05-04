@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CurrencyInput from './components/CurrencyInput';
 import AmbIcon from '../../assets/icons/amb.svg';
+import AirBondIcon from '../../assets/icons/airbond.svg';
 import { ReactComponent as Arrow } from '../../assets/arrow.svg';
 import useAmountAndPrice from './hooks/useAmountAndPrice';
 import useBalances from './hooks/useBalances';
@@ -47,14 +48,14 @@ const BondExchange = () => {
               <h2 className='bond-exchange__heading'>Bond Marketplace</h2>
               <p className='bond-exchange__lead'>
                 AirBonds were rewarded to active community members.
-                <Link to='/claim/' className='bond-exchange__lead-link'>
+                <Link to='/airdrop/' className='bond-exchange__lead-link'>
                   Claim your AirBonds
                 </Link>
               </p>
               <CurrencyInput
                 onChange={setAirBondsToSell}
                 value={airBondsToSell}
-                selectedCoin={{ symbol: 'AirBond', icon: AmbIcon }}
+                selectedCoin={{ symbol: 'AirBond', icon: AirBondIcon }}
                 balance={airBondBalance || '-'}
               />
               <div className='bond-exchange__divider'>

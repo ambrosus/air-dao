@@ -26,8 +26,8 @@
                 y2="12.1417"
                 gradientUnits="userSpaceOnUse"
         >
-            <stop stopColor="#3568DD" />
-            <stop offset="1" stopColor="#3568DD" stop-opacity="0.66" />
+            <stop stop-color="#3568DD" />
+            <stop offset="1" stop-color="#3568DD" stop-opacity="0.66" />
         </linearGradient>
         <clipPath id="clip0_1029_3723">
             <rect width="24" height="24" fill="white" />
