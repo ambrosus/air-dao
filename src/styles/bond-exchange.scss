@@ -34,6 +34,7 @@
 
   @include devices(mobile) {
     margin-bottom: 37vw;
+    padding: 20px 15px 14px;
   }
 }
 
@@ -67,6 +68,12 @@
   /* identical to box height */
   color: #3568DD;
   margin-bottom: 8px;
+
+  @include devices(mobile) {
+    font-size: 24px;
+    line-height: 28px;
+    padding-left: 15px;
+  }
 }
 
 .bond-exchange__lead {
@@ -79,6 +86,10 @@
   color: #1D1D1D;
 
   margin-bottom: 12px;
+
+  @include devices(mobile) {
+    padding-left: 15px;
+  }
 }
 
 .bond-exchange__lead-link {
