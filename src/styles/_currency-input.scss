@@ -2,7 +2,7 @@
   width: 100%;
   padding: 1rem;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "top-left top-right"
@@ -11,9 +11,6 @@
   border-radius: 16px;
   border: 1px solid #edf3ff;
   box-sizing: border-box;
-  @include devices(mobile) {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 
 .currency-input_receive .currency-input__input {
