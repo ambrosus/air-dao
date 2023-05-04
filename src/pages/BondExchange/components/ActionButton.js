@@ -9,6 +9,7 @@ export default function ActionButton({
   stateList,
   setIsPending,
   setIsSuccess,
+  setIsError,
   amount,
   successCallback,
   connectWallet,
@@ -30,6 +31,11 @@ export default function ActionButton({
       })
       .catch((e) => {
         setIsPending(false);
+        if (e.code === 'ACTION_REJECTED') return;
+        setIsError(true);
+        setTimeout(() => {
+          setIsError(false);
+        }, 3000);
         console.log(e);
       });
   }
@@ -39,7 +45,15 @@ export default function ActionButton({
     approve(amount)
       .then((tx) => tx.wait())
       .then(() => setIsPending(false))
-      .catch(() => setIsPending(false));
+      .catch((e) => {
+        setIsPending(false);
+        if (e.code === 'ACTION_REJECTED') return;
+        setIsError(true);
+        setTimeout(() => {
+          setIsError(false);
+        }, 3000);
+        console.log(e);
+      });
   }
 
   const buttonProps = {
@@ -76,6 +90,11 @@ export default function ActionButton({
       className:
         'bond-exchange__swap-button bond-exchange__swap-button_success',
     },
+    [stateList.ERROR]: {
+      disabled: true,
+      children: "There's some error",
+      className: 'bond-exchange__swap-button bond-exchange__swap-button_error',
+    },
   };
 
   return (
@@ -93,6 +112,7 @@ ActionButton.propTypes = {
   stateList: PropTypes.object,
   setIsPending: PropTypes.func,
   setIsSuccess: PropTypes.func,
+  setIsError: PropTypes.func,
   amount: PropTypes.string,
   successCallback: PropTypes.func,
   connectWallet: PropTypes.func,

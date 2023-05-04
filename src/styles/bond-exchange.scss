@@ -94,6 +94,7 @@
 
 .bond-exchange__lead-link {
   color: #3568DD;
+  font-weight: 300 !important;
 }
 
 .bond-exchange__input-container {
@@ -170,7 +171,7 @@
 
 .bond-exchange__swap-button {
   height: 48px;
-  transition: 0.5s ease-in-out all;
+  transition: 0.2s ease-in-out all;
 }
 
 .bond-exchange__swap-button_success {
@@ -180,6 +181,11 @@
 
 .bond-exchange__swap-button_success path {
   stroke: #15d378;
+}
+
+.bond-exchange__swap-button_error {
+  border-color: #ff4747;
+  color: #ff4747;
 }
 
 .bond-exchange__button-loader div {

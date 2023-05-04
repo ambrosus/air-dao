@@ -18,10 +18,8 @@ const BondExchange = () => {
 
   const { amount: ambToReceive, price } = useAmountAndPrice(airBondsToSell);
   const { ambBalance, airBondBalance } = useBalances();
-  const { state, stateList, setIsPending, setIsSuccess } = useSwapLayoutState(
-    airBondsToSell,
-    airBondBalance
-  );
+  const { state, stateList, setIsPending, setIsSuccess, setIsError } =
+    useSwapLayoutState(airBondsToSell, airBondBalance);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen((prev) => !prev);
@@ -82,6 +80,7 @@ const BondExchange = () => {
                 state={state}
                 setIsPending={setIsPending}
                 setIsSuccess={setIsSuccess}
+                setIsError={setIsError}
                 stateList={stateList}
                 amount={airBondsToSell}
                 successCallback={() => setAirBondsToSell('')}
