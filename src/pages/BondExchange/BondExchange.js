@@ -45,9 +45,10 @@ const BondExchange = () => {
         <div className='container'>
           <div className='content bond-exchange__content'>
             <div className='bond-exchange__input-block'>
+              <div className='bond-exchange__beta-mark'>Beta</div>
               <h2 className='bond-exchange__heading'>Bond Marketplace</h2>
               <p className='bond-exchange__lead'>
-                AirBonds were rewarded to active community members.
+                AirBonds were rewarded to active community members.{' '}
                 <Link to='/airdrop/' className='bond-exchange__lead-link'>
                   Claim your AirBonds
                 </Link>

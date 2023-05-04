@@ -1,6 +1,10 @@
 .bond-exchange {
-  background: #D8E2F6;
+  background: #D8E2F6 url("../assets/bg-bond.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
   min-height: 100vh;
+  padding-bottom: 160px;
 }
 
 .bond-exchange__content {
@@ -24,7 +28,28 @@
   background: #FFFFFF;
   box-shadow: 0 8px 32px rgba(105, 142, 226, 0.11);
   border-radius: 24px;
-  padding: 48px 34px 32px;
+  padding: 26px 34px 32px;
+}
+
+.bond-exchange__beta-mark {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 16px;
+
+  border: 2px solid rgba(255, 94, 13, 0.3);
+  border-radius: 29px;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #FF5E0D;
+  margin-left: auto;
+  margin-bottom: 23px;
 }
 
 .bond-exchange__heading {
