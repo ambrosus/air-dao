@@ -1,5 +1,10 @@
-import { createAirBondContract, createRouterContract } from '../contracts';
+import {
+  createAirBondContract,
+  createFactoryContract,
+  createRouterContract,
+} from '../contracts';
 import Decimal from 'decimal.js-light';
+import { ethers } from 'ethers';
 
 const {
   REACT_APP_AIR_BOND_ADDRESS: airBondAddress,
@@ -87,5 +92,36 @@ export async function addLiquidityAmbToBond(
     account,
     deadline,
     { value: amountAmb }
+  );
+}
+
+export async function removeAllUsersLiquidity(signer, account) {
+  const factoryContract = await createFactoryContract(signer);
+  const poolAddress = await factoryContract.getPair(
+    airBondAddress,
+    sambAddress
+  );
+
+  const POOL_ABI = [
+    'function getReserves() view returns (uint112 _reserve0, uint112 _reserve1, uint32 _blockTimestampLast)',
+    'function balanceOf(address owner) view returns (uint256)',
+    'function approve(address spender, uint256 amount) returns (bool)',
+  ];
+
+  const pool = new ethers.Contract(poolAddress, POOL_ABI, signer);
+
+  const liquidity = await pool.balanceOf(account);
+
+  await pool.approve(routerAddress, liquidity).then((tx) => tx.wait());
+
+  const routerContract = await createRouterContract(signer);
+  const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
+  return routerContract.removeLiquidityETH(
+    airBondAddress,
+    liquidity,
+    0,
+    0,
+    account,
+    deadline
   );
 }

@@ -15,6 +15,7 @@ export default function usePoolInfo() {
 
   const POOL_ABI = [
     'function getReserves() view returns (uint112 _reserve0, uint112 _reserve1, uint32 _blockTimestampLast)',
+    'function balanceOf(address owner) view returns (uint256)',
   ];
 
   // const router = useMemo(createRouterContract, []);
@@ -71,9 +72,3 @@ export default function usePoolInfo() {
 
   return data;
 }
-
-// amount of amb in pool
-// amount of bond in pool
-// price of bond in amb
-// price of amb in bond
-// last updated
