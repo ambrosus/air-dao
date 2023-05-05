@@ -32,6 +32,14 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
     isError,
     checkAllowance
   ) {
+    if (!account) {
+      setState(stateList.NOT_CONNECTED);
+      setIsPending(false);
+      setIsSuccess(false);
+      setIsError(false);
+      return;
+    }
+
     if (isPending) {
       setState(stateList.PENDING);
       return;
@@ -44,11 +52,6 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
 
     if (isError) {
       setState(stateList.ERROR);
-      return;
-    }
-
-    if (!account) {
-      setState(stateList.NOT_CONNECTED);
       return;
     }
 
