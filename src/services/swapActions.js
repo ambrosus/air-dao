@@ -37,7 +37,7 @@ export async function swapBondForAmb(amountToSell, receiver, signer) {
   const amountToReceive = await getAmountsOut(amountToSell, ['BOND', 'SAMB']);
   const amountToReceiveWithSlippage = amountToReceive.div(100).mul(95);
   const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
-  return routerContract.swapExactTokensForETH(
+  return routerContract.swapExactTokensForAMB(
     amountToSell,
     amountToReceiveWithSlippage,
     [airBondAddress, sambAddress],
