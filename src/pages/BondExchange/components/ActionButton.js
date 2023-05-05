@@ -86,7 +86,11 @@ export default function ActionButton({
     },
     [stateList.SUCCESS]: {
       disabled: true,
-      children: <Check />,
+      children: (
+        <>
+          <Check /> Success
+        </>
+      ),
       className:
         'bond-exchange__swap-button bond-exchange__swap-button_success',
     },
