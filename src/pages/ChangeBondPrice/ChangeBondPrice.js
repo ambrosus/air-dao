@@ -7,6 +7,8 @@ import useBalances from '../BondExchange/hooks/useBalances';
 import useSwapActions from '../BondExchange/hooks/useSwapActions';
 import UiButton from '../../components/UiButton';
 import usePoolInfo from './hooks/usePoolInfo';
+import { removeAllUsersLiquidity } from '../../services/swapActions';
+import { useWeb3React } from '@web3-react/core';
 
 const ChangeBondPrice = () => {
   const [amountToSell, setAmountToSell] = useState('');
@@ -19,6 +21,8 @@ const ChangeBondPrice = () => {
   const { ambBalance, airBondBalance } = useBalances();
 
   const [approveState, setApproveState] = useState(false);
+
+  const { account, library } = useWeb3React();
 
   // const { state, stateList, setIsPending } = useSwapLayoutState(
   //   amountToSell,
@@ -58,6 +62,12 @@ const ChangeBondPrice = () => {
 
   const approveAmbAndWait = async () => {
     const tx = await approve(bondLiquidityToAdd);
+    const res = await tx.wait();
+    console.log(res);
+  };
+
+  const removeAllLiquidityAndWait = async () => {
+    const tx = await removeAllUsersLiquidity(library.getSigner(), account);
     const res = await tx.wait();
     console.log(res);
   };
@@ -147,13 +157,13 @@ const ChangeBondPrice = () => {
               Add liquidity
             </UiButton>
 
-            {/*<ActionButton*/}
-            {/*  state={state}*/}
-            {/*  setIsPending={setIsPending}*/}
-            {/*  stateList={stateList}*/}
-            {/*  amount={amountToSell}*/}
-            {/*  successCallback={() => setAmountToSell('')}*/}
-            {/*/>*/}
+            <UiButton
+              className='bond-exchange__swap-button'
+              withBorder
+              onClick={removeAllLiquidityAndWait}
+            >
+              Get back all liquidity
+            </UiButton>
           </div>
 
           <div className='bond-exchange__pool-info'>

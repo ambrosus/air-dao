@@ -10,11 +10,15 @@ const stateList = {
   APPROVAL_REQUIRED: 'APPROVAL_REQUIRED',
   PENDING: 'PENDING',
   READY: 'READY',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
 };
 
 export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
   const [state, setState] = useState('');
   const [isPending, setIsPending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const { account } = useWeb3React();
   const { checkAllowance } = useSwapActions();
@@ -24,15 +28,30 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
     airBondsToSell,
     airBondsBalance,
     isPending,
+    isSuccess,
+    isError,
     checkAllowance
   ) {
+    if (!account) {
+      setState(stateList.NOT_CONNECTED);
+      setIsPending(false);
+      setIsSuccess(false);
+      setIsError(false);
+      return;
+    }
+
     if (isPending) {
       setState(stateList.PENDING);
       return;
     }
 
-    if (!account) {
-      setState(stateList.NOT_CONNECTED);
+    if (isSuccess) {
+      setState(stateList.SUCCESS);
+      return;
+    }
+
+    if (isError) {
+      setState(stateList.ERROR);
       return;
     }
 
@@ -69,9 +88,19 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
       airBondsToSell,
       airBondsBalance,
       isPending,
+      isSuccess,
+      isError,
       checkAllowance
     );
-  }, [account, airBondsToSell, airBondsBalance, isPending, checkAllowance]);
+  }, [
+    account,
+    airBondsToSell,
+    airBondsBalance,
+    isPending,
+    isSuccess,
+    isError,
+    checkAllowance,
+  ]);
 
-  return { state, stateList, setIsPending };
+  return { state, stateList, setIsPending, setIsSuccess, setIsError };
 }
