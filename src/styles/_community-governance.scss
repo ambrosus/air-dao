@@ -1,0 +1,158 @@
+.community-governance {
+  background: linear-gradient(90deg, #C9D9FF 0%, #EDF3FF 100%);
+
+  padding-top: 100px;
+  padding-bottom: 165px;
+
+  @include devices(mobile) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  & .content a {
+    font-weight: initial;
+    white-space: initial;
+  }
+}
+
+.community-governance__heading {
+  font-family: 'Mersad', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 60px;
+
+  color: #3568DD;
+
+  margin-bottom: 24px;
+}
+
+.community-governance__lead {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 140%;
+
+  color: #1D1D1D;
+  padding-bottom: 12px;
+}
+
+.community-governance__lead p {
+  margin-bottom: 24px;
+}
+
+.community-governance__voting-start {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #1D1D1D;
+
+  margin-bottom: 70px;
+}
+
+.community-governance__subheading {
+  font-family: 'Mersad', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 85%;
+
+  color: #3568DD;
+  margin-bottom: 32px;
+}
+
+.community-governance__event-list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 32px;
+  width: 100%;
+}
+
+.governance-event {
+  width: 505px;
+  background: #FFFFFF;
+  border-radius: 32px;
+  padding: 32px 24px;
+
+  display: grid;
+  grid-template-columns: auto min-content;
+  grid-template-rows: auto;
+  grid-row-gap: 24px;
+
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 605px) {
+    width: 100%;
+  }
+
+  &_active {
+    box-shadow: 0 8px 24px rgba(47, 43, 67, 0.1);
+  }
+
+  &_done {
+    background: #EDF3FF;
+  }
+}
+
+.governance-event__date {
+  grid-column: 1 / span 1;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+
+  display: flex;
+  align-items: center;
+
+  color: #191919;
+}
+
+.governance-event__status {
+  grid-column: 2 / span 1;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  white-space: nowrap;
+
+  width: fit-content;
+  height: 24px;
+
+  padding: 0 12px;
+  border-radius: 16px;
+
+  &_done {
+    background: #fff;
+    color: #191919;
+  }
+
+  &_active {
+    background: #159F80;;
+    color: #fff;
+  }
+
+  &_not-started {
+    background: #A1A6B2;
+    color: #fff;
+  }
+}
+
+.governance-event__lead {
+  grid-column: 1 / span 2;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 140%;
+
+  color: #1D1D1D;
+}
