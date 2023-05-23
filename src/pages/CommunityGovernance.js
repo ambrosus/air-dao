@@ -17,7 +17,7 @@ export default function CommunityGovernance() {
               <PrismicRichText field={data.lead} />
             </div>
             <div className={'community-governance__voting-start'}>
-              Voting starts June 1st, 2023
+              {data.starting_date_text}
             </div>
             <h2 className={'community-governance__subheading'}>
               <PrismicText field={data.subheading} />
