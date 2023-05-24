@@ -15,6 +15,11 @@ const Footer = () => {
           ? 'footer_bond-marketplace'
           : ''
       }
+      ${
+        window.location.pathname.includes('transition-to-dao')
+          ? 'footer_transition-to-dao'
+          : ''
+      } 
       `}
     >
       <div className='container footer__wrapper'>

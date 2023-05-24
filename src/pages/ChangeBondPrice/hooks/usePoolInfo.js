@@ -29,8 +29,8 @@ export default function usePoolInfo() {
 
     const reserves = await pool.getReserves();
 
-    const sambReserve = ethers.utils.formatEther(reserves[0]);
-    const bondReserve = ethers.utils.formatEther(reserves[1]);
+    const bondReserve = ethers.utils.formatEther(reserves[0]);
+    const sambReserve = ethers.utils.formatEther(reserves[1]);
     const lastUpdated = new Date(reserves[2] * 1000).toString();
 
     const bnBondPerOneAmber = await getAmountsOut('1', ['SAMB', 'BOND']);

@@ -9,6 +9,7 @@ import Claim from './pages/Claim';
 import BondExchange from './pages/BondExchange';
 import BondExchangeMock from './pages/BondExchangeMock';
 import ChangeBondPrice from './pages/ChangeBondPrice/ChangeBondPrice';
+import CommunityGovernance from './pages/CommunityGovernance';
 
 const hideBondExchange = process.env.REACT_APP_HIDE_BOND_EXCHANGE === 'true';
 const hideChangeBondPrice =
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: '/change-bond-price/',
     element: hideChangeBondPrice ? <NotFound /> : <ChangeBondPrice />,
+  },
+  {
+    path: '/transition-to-dao/',
+    element: <CommunityGovernance />,
   },
   {
     path: '*',
