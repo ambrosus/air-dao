@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 export default function CommunityGovernance() {
   const data = usePrismicPageData('community_governance');
 
-  console.log(data);
-
   return (
     data && (
       <section className={'community-governance'}>
