@@ -40,7 +40,7 @@ export function calculatePrice(amountToSell = '', amountToReceive = '') {
 export async function swapBondForAmb(amountToSell, receiver, signer) {
   const routerContract = await createRouterContract(signer);
   const amountToReceive = await getAmountsOut(amountToSell, ['BOND', 'SAMB']);
-  const amountToReceiveWithSlippage = amountToReceive.div(100).mul(95);
+  const amountToReceiveWithSlippage = amountToReceive.div(100).mul(98);
   const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
   return routerContract.swapExactTokensForETH(
     amountToSell,
@@ -54,7 +54,7 @@ export async function swapBondForAmb(amountToSell, receiver, signer) {
 export async function swapAmbForBond(amountToSell, receiver, signer) {
   const routerContract = await createRouterContract(signer);
   const amountToReceive = await getAmountsOut(amountToSell, ['SAMB', 'BOND']);
-  const amountToReceiveWithSlippage = amountToReceive.div(100).mul(95);
+  const amountToReceiveWithSlippage = amountToReceive.div(100).mul(98);
   const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
   return routerContract.swapExactETHForTokens(
     amountToReceiveWithSlippage,

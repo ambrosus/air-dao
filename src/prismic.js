@@ -37,5 +37,13 @@ export const client = prismic.createClient(repositoryName, {
       type: 'community_governance',
       path: '/transition-to-dao',
     },
+    {
+      type: 'airdrop',
+      path: '/airdrop',
+    },
+    {
+      type: 'bondmarketplace',
+      path: '/bond-marketplace',
+    },
   ],
 });
