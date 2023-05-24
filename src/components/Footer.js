@@ -15,6 +15,11 @@ const Footer = () => {
           ? 'footer_bond-marketplace'
           : ''
       }
+      ${
+        window.location.pathname.includes('transition-to-community')
+          ? 'footer_transition-to-community'
+          : ''
+      } 
       `}
     >
       <div className='container footer__wrapper'>

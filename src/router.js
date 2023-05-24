@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     element: hideChangeBondPrice ? <NotFound /> : <ChangeBondPrice />,
   },
   {
-    path: '/community-governance/',
+    path: '/transition-to-community/',
     element: <CommunityGovernance />,
   },
   {

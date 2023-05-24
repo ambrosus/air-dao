@@ -33,5 +33,9 @@ export const client = prismic.createClient(repositoryName, {
       type: 'binance',
       path: '/binance',
     },
+    {
+      type: 'community_governance',
+      path: '/transition-to-community',
+    },
   ],
 });

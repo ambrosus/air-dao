@@ -25,6 +25,11 @@
   color: #3568DD;
 
   margin-bottom: 24px;
+
+  @include devices(mobile) {
+    font-size: 36px;
+    line-height: 41px;
+  }
 }
 
 .community-governance__lead {
@@ -63,6 +68,11 @@
 
   color: #3568DD;
   margin-bottom: 32px;
+
+  @include devices(mobile) {
+    font-size: 24px;
+    line-height: 85%;
+  }
 }
 
 .community-governance__event-list {
@@ -155,4 +165,28 @@
   line-height: 140%;
 
   color: #1D1D1D;
+
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 8px;
+}
+
+.governance-event__bottom-text {
+  grid-column: 1 / span 2;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #1D1D1D;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+a.governance-event__bottom-text:hover svg path {
+  stroke: #3568DD;
 }
