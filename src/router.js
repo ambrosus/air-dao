@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     element: hideChangeBondPrice ? <NotFound /> : <ChangeBondPrice />,
   },
   {
-    path: '/transition-to-community/',
+    path: '/transition-to-dao/',
     element: <CommunityGovernance />,
   },
   {

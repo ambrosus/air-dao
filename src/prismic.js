@@ -35,7 +35,7 @@ export const client = prismic.createClient(repositoryName, {
     },
     {
       type: 'community_governance',
-      path: '/transition-to-community',
+      path: '/transition-to-dao',
     },
   ],
 });

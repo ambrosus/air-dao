@@ -16,7 +16,7 @@ const Footer = () => {
           : ''
       }
       ${
-        window.location.pathname.includes('transition-to-community')
+        window.location.pathname.includes('transition-to-dao')
           ? 'footer_transition-to-community'
           : ''
       } 
