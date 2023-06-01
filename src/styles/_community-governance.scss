@@ -10,8 +10,8 @@
   }
 
   & .content a {
-    font-weight: initial;
     white-space: initial;
+    font-weight: 500;
   }
 }
 
@@ -80,6 +80,7 @@
   flex-flow: column nowrap;
   gap: 32px;
   width: 100%;
+  padding-bottom: 30px;
 }
 
 .governance-event {
@@ -105,6 +106,22 @@
 
   &_done {
     background: #EDF3FF;
+
+    .governance-event__lead {
+      padding-left: 32px;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: url("../assets/transition-check.svg") center center no-repeat;
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 }
 
@@ -147,6 +164,7 @@
   &_active {
     background: #159F80;;
     color: #fff;
+    box-shadow: 0px 8px 24px rgba(47, 43, 67, 0.1);
   }
 
   &_not-started {
@@ -195,6 +213,7 @@ a.governance-event__bottom-text:hover svg path {
   display: flex;
   align-items: center;
   width: fit-content;
+  font-weight: 500!important;
 
   &:hover svg path {
     stroke: #3568DD;
@@ -208,10 +227,6 @@ a.governance-event__bottom-text:hover svg path {
   position: relative;
   gap: 32px 24px;
 
-  @include media(880px) {
-    justify-content: center;
-  }
-
   @include media(663px) {
     gap: 32px 8px;
   }
@@ -220,7 +235,7 @@ a.governance-event__bottom-text:hover svg path {
 .governance-council {
   height: 280px;
   width: 192px;
-  border-radius: 18px;
+  border-radius: 16px;
   background: white;
   text-align: center;
 
@@ -233,7 +248,7 @@ a.governance-event__bottom-text:hover svg path {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  border-radius: 18px 18px 0 0;
+  border-radius: 16px 16px 0 0;
   width: 100%;
 }
 
@@ -249,6 +264,7 @@ a.governance-event__bottom-text:hover svg path {
 
 .governance-council__position {
   max-width: 150px;
+  font-size: 14px;
   margin: 0 auto;
 }
 
