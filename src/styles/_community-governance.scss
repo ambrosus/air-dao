@@ -40,7 +40,6 @@
   line-height: 140%;
 
   color: #1D1D1D;
-  padding-bottom: 12px;
 }
 
 .community-governance__lead p {
@@ -67,6 +66,7 @@
   line-height: 85%;
 
   color: #3568DD;
+  margin-top: 64px;
   margin-bottom: 32px;
 
   @include devices(mobile) {
@@ -189,4 +189,71 @@
 
 a.governance-event__bottom-text:hover svg path {
   stroke: #3568DD;
+}
+
+.community-governance__council-link {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  &:hover svg path {
+    stroke: #3568DD;
+  }
+}
+
+.community-governance__councils {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 44px;
+  position: relative;
+  gap: 32px 24px;
+
+  @include media(880px) {
+    justify-content: center;
+  }
+
+  @include media(663px) {
+    gap: 32px 8px;
+  }
+}
+
+.governance-council {
+  height: 280px;
+  width: 192px;
+  border-radius: 18px;
+  background: white;
+  text-align: center;
+
+  @include media(663px) {
+    width: 162px;
+  }
+}
+
+.governance-council__photo {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  border-radius: 18px 18px 0 0;
+  width: 100%;
+}
+
+.governance-council__photo img {
+  object-fit: contain;
+}
+
+.governance-council__name {
+  margin-top: 32px;
+  font-family: Mersad, sans-serif;
+  font-weight: 600;
+}
+
+.governance-council__position {
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+.community-governance__expand {
+  padding: 12px 24px;
+  margin: 32px auto 0;
+  display: block;
 }
