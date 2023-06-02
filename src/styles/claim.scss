@@ -380,4 +380,17 @@
 
 .giveaway__btn {
   margin-right: 24px;
+
+  @include media(391px) {
+    margin-bottom: 20px;
+  }
+}
+
+.giveaway__blog {
+  @include media(391px) {
+    margin-left: 22px;
+  }
+  &:focus {
+    color: #1d1d1d;
+  }
 }

@@ -16,6 +16,7 @@ const Giveaway = () => (
       href='https://blog.airdao.io/airdao-blockchain-fourth-anniversary-airdrop-wrap-up-47b2b89c4331'
       target='_blank'
       rel='noreferrer'
+      className='giveaway__blog'
     >
       Read Blogpost →
     </a>
