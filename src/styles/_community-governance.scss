@@ -108,18 +108,22 @@
     background: #EDF3FF;
 
     .governance-event__lead {
-      padding-left: 32px;
-      position: relative;
 
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background: url("../assets/transition-check.svg") center center no-repeat;
-        width: 24px;
-        height: 24px;
+      p {
+        position: relative;
+        padding-left: 32px;
+        display: block;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background: url("../assets/transition-check.svg") center center no-repeat;
+          width: 24px;
+          height: 24px;
+        }
       }
     }
   }
@@ -229,6 +233,14 @@ a.governance-event__bottom-text:hover svg path {
 
   @include media(663px) {
     gap: 32px 8px;
+  }
+
+  @media only screen and (min-width: 360px) and (max-width: 768px) {
+    justify-content: center;
+  }
+
+  @include media(380px) {
+    justify-content: center;
   }
 }
 
