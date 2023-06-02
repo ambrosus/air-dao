@@ -22,15 +22,7 @@
   }
 
   &.content {
-    padding-top: 34px;
-
-    @include media(1050px) {
-      padding-top: 115px;
-    }
-
-    @include media(481px) {
-      padding-top: 0;
-    }
+    padding-top: 86px;
   }
 }
 
@@ -279,7 +271,7 @@
 
 .giveaway__dates {
   display: flex;
-  margin-top: 100px;
+  margin-top: 50px;
 
   @include media(1150px) {
     margin-top: 60px;
@@ -384,4 +376,22 @@
 .claim-block__add-token {
   height: 24px;
   margin-left: 8px;
+}
+
+.giveaway__btn {
+  margin-right: 24px;
+
+  @include media(391px) {
+    margin-bottom: 20px;
+  }
+}
+
+.giveaway__blog {
+  @include media(391px) {
+    margin-left: 22px;
+  }
+  &:focus {
+    color: #1d1d1d;
+    text-decoration: none;
+  }
 }

@@ -10,8 +10,8 @@
   }
 
   & .content a {
-    font-weight: initial;
     white-space: initial;
+    font-weight: 500;
   }
 }
 
@@ -40,7 +40,6 @@
   line-height: 140%;
 
   color: #1D1D1D;
-  padding-bottom: 12px;
 }
 
 .community-governance__lead p {
@@ -67,6 +66,7 @@
   line-height: 85%;
 
   color: #3568DD;
+  margin-top: 64px;
   margin-bottom: 32px;
 
   @include devices(mobile) {
@@ -80,6 +80,7 @@
   flex-flow: column nowrap;
   gap: 32px;
   width: 100%;
+  padding-bottom: 30px;
 }
 
 .governance-event {
@@ -105,6 +106,26 @@
 
   &_done {
     background: #EDF3FF;
+
+    .governance-event__lead {
+
+      p {
+        position: relative;
+        padding-left: 32px;
+        display: block;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background: url("../assets/transition-check.svg") center center no-repeat;
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
   }
 }
 
@@ -147,6 +168,7 @@
   &_active {
     background: #159F80;;
     color: #fff;
+    box-shadow: 0px 8px 24px rgba(47, 43, 67, 0.1);
   }
 
   &_not-started {
@@ -185,8 +207,91 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  width: fit-content;
 }
 
 a.governance-event__bottom-text:hover svg path {
   stroke: #3568DD;
+}
+
+.community-governance__council-link {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  font-weight: 500!important;
+
+  &:hover svg path {
+    stroke: #3568DD;
+  }
+}
+
+.community-governance__councils {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 44px;
+  position: relative;
+  gap: 32px 24px;
+
+  @include media(663px) {
+    gap: 32px 8px;
+  }
+
+  //@media only screen and (min-width: 360px) and (max-width: 768px) {
+  //  justify-content: center;
+  //}
+
+  @include media(380px) {
+    justify-content: center;
+  }
+}
+
+.governance-council {
+  height: 280px;
+  width: 192px;
+  border-radius: 16px;
+  background: white;
+  text-align: center;
+
+  @include media(663px) {
+    width: 162px;
+  }
+}
+
+.governance-council__photo {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+}
+
+.governance-council__photo img {
+  object-fit: contain;
+}
+
+.governance-council__name {
+  margin-top: 32px;
+  font-family: Mersad, sans-serif;
+  font-weight: 600;
+}
+
+.governance-council__position {
+  max-width: 150px;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+.community-governance__expand {
+  padding: 12px 24px;
+  margin: 32px auto 0;
+  display: block;
+}
+
+.community-governance a:focus {
+  color: #1d1d1d;
+  text-decoration: none;
+
+  svg path {
+    stroke: #1d1d1d;
+  }
 }

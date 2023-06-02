@@ -2,15 +2,20 @@ import { usePrismicPageData } from '../hooks/usePrismicPageData';
 import { PrismicRichText, PrismicText } from '@prismicio/react';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import PropTypes from 'prop-types';
+import UiButton from '../components/UiButton';
+import {useState} from "react";
 
 export default function CommunityGovernance() {
   const data = usePrismicPageData('community_governance');
+  const [expanded, setExpanded] = useState(window.innerWidth > 663);
+
+  const handleExpand = () => setExpanded(true);
 
   return (
     data && (
       <section className={'community-governance'}>
         <div className={'container'}>
-          <div className={'content'}>
+          <div className={'content content_community'}>
             <h1 className={'community-governance__heading'}>
               <PrismicText field={data.heading} />
             </h1>
@@ -20,6 +25,47 @@ export default function CommunityGovernance() {
             <div className={'community-governance__voting-start'}>
               {data.starting_date_text}
             </div>
+            <h2 className={'community-governance__subheading'}>
+              <PrismicText field={data.elected_subheading} />
+            </h2>
+            <a
+              className={'community-governance__council-link'}
+              href={data.council_link.url}
+              target='_blank'
+              rel='noreferrer'
+            >
+              <PrismicText field={data.council_link_text} />
+              <Arrow />
+            </a>
+            <div className={'community-governance__councils'}>
+              {data.elected_counsil
+                .slice(0, expanded ? data.elected_counsil.length : 4)
+                .map((el) => (
+                  <div
+                    key={el.council_name[0].text}
+                    className={'governance-council'}
+                  >
+                    <div className={'governance-council__photo'}>
+                      <img src={el.council_photo.url} alt='council photo' />
+                    </div>
+                    <p className={'governance-council__name'}>
+                      <PrismicText field={el.council_name} />
+                    </p>
+                    <p className={'governance-council__position'}>
+                      <PrismicText field={el.council_position} />
+                    </p>
+                  </div>
+                ))}
+            </div>
+            {!expanded && (
+              <UiButton
+                onClick={handleExpand}
+                withBorder
+                className={'community-governance__expand'}
+              >
+                Extend Council List
+              </UiButton>
+            )}
             <h2 className={'community-governance__subheading'}>
               <PrismicText field={data.subheading} />
             </h2>

@@ -1,19 +1,24 @@
 import calendar from '../../assets/calendar.svg';
 import clock from '../../assets/clock.svg';
+import UiButton from '../UiButton';
 
 const Giveaway = () => (
   <div className='giveaway'>
     <h2 className='giveaway__title'>5 000 000 BOND Giveaway!</h2>
     <p className='giveaway__text'>
-      New airdrop eligibility criteria will be revealed every two days. You must
-      hold 1000 AMB in your wallet to participate.
+      We airdropped the AirBond Marketplace’s token to celebrate our
+      blockchain’s 4th anniversary.
     </p>
+    <UiButton withBorder className='giveaway__btn'>
+      <a href='/bond-marketplace/'>Go to Marketplace</a>
+    </UiButton>
     <a
-      href='https://blog.airdao.io/airdao-blockchain-fourth-anniversary-airdrop-f0388c837476?gi=5790fe133fd6'
+      href='https://blog.airdao.io/airdao-blockchain-fourth-anniversary-airdrop-wrap-up-47b2b89c4331'
       target='_blank'
       rel='noreferrer'
+      className='giveaway__blog'
     >
-      Read Announcement →
+      Read Blogpost →
     </a>
     <div className='giveaway__dates'>
       <div className='giveaway__dates-item'>
