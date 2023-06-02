@@ -207,6 +207,7 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  width: fit-content;
 }
 
 a.governance-event__bottom-text:hover svg path {
@@ -284,4 +285,13 @@ a.governance-event__bottom-text:hover svg path {
   padding: 12px 24px;
   margin: 32px auto 0;
   display: block;
+}
+
+.community-governance a:focus {
+  color: #1d1d1d;
+  text-decoration: none;
+
+  svg path {
+    stroke: #1d1d1d;
+  }
 }
