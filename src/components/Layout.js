@@ -1,8 +1,6 @@
 import { Menu } from 'airdao-components-and-tools/components';
-import {
-  metamaskConnector,
-  walletconnectConnector,
-} from 'airdao-components-and-tools/utils';
+import { metamaskConnector } from 'airdao-components-and-tools/utils';
+import { walletconnectConnector } from '../services/connectors';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
 

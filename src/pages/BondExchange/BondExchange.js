@@ -12,10 +12,9 @@ import ActionButton from './components/ActionButton';
 import { WalletModal } from 'airdao-components-and-tools/components';
 import { useAuthorization } from 'airdao-components-and-tools/hooks';
 
-import {
-  metamaskConnector,
-  walletconnectConnector,
-} from 'airdao-components-and-tools/utils';
+import { metamaskConnector } from 'airdao-components-and-tools/utils';
+
+import { walletconnectConnector } from '../../services/connectors';
 
 const BondExchange = () => {
   const [airBondsToSell, setAirBondsToSell] = useState('');

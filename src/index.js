@@ -11,9 +11,12 @@ import './styles/index.scss';
 import {
   metamaskConnector,
   metamaskHooks,
+} from 'airdao-components-and-tools/utils';
+
+import {
   walletconnectConnector,
   walletconnectHooks,
-} from 'airdao-components-and-tools/utils';
+} from './services/connectors';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
