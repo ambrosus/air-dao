@@ -11,7 +11,7 @@ import { ethers } from 'ethers';
 import { useWeb3React } from '@web3-react/core';
 
 export default function useSwapActions() {
-  const { library, account } = useWeb3React();
+  const { provider, account } = useWeb3React();
 
   const wrappedGetAmountsOut = useCallback((amountToSell, tokens) => {
     const bnAmountToSell = ethers.utils.parseEther(amountToSell);
@@ -21,33 +21,33 @@ export default function useSwapActions() {
   const wrappedSwapBondForAmb = useCallback(
     (amountToSell) => {
       const bnAmountToSell = ethers.utils.parseEther(amountToSell);
-      return swapBondForAmb(bnAmountToSell, account, library.getSigner());
+      return swapBondForAmb(bnAmountToSell, account, provider.getSigner());
     },
-    [library, account]
+    [provider, account]
   );
 
   const wrappedSwapAmbForBond = useCallback(
     (amountToSell) => {
       const bnAmountToSell = ethers.utils.parseEther(amountToSell);
-      return swapAmbForBond(bnAmountToSell, account, library.getSigner());
+      return swapAmbForBond(bnAmountToSell, account, provider.getSigner());
     },
-    [library, account]
+    [provider, account]
   );
 
   const approve = useCallback(
     (amount) => {
       const bnAmount = ethers.utils.parseEther(amount);
-      return approveToRouter(bnAmount, library.getSigner());
+      return approveToRouter(bnAmount, provider.getSigner());
     },
-    [library]
+    [provider]
   );
 
   const checkAllowance = useCallback(
     (amount) => {
       const bnAmount = ethers.utils.parseEther(amount);
-      return checkIsApprovalRequired(bnAmount, account, library.getSigner());
+      return checkIsApprovalRequired(bnAmount, account, provider.getSigner());
     },
-    [library, account]
+    [provider, account]
   );
 
   const wrappedAddLiquidityAmbToBond = useCallback(
@@ -58,10 +58,10 @@ export default function useSwapActions() {
         bnAmountAmb,
         bnAmountBond,
         account,
-        library.getSigner()
+        provider.getSigner()
       );
     },
-    [library, account]
+    [provider, account]
   );
 
   return {
