@@ -22,11 +22,11 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const { isActive, chainId, account } = useWeb3React();
+  const { isActive, chainId } = useWeb3React();
   const { checkAllowance } = useSwapActions();
 
   async function checkStates(
-    account,
+    isActive,
     airBondsToSell,
     airBondsBalance,
     isPending,
@@ -34,7 +34,7 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
     isError,
     checkAllowance
   ) {
-    if (!isActive || chainId !== ambChainId) {
+    if (!(isActive || chainId === +ambChainId)) {
       setState(stateList.NOT_CONNECTED);
       setIsPending(false);
       setIsSuccess(false);
@@ -86,7 +86,7 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
 
   useEffect(() => {
     checkStates(
-      account,
+      isActive,
       airBondsToSell,
       airBondsBalance,
       isPending,
@@ -95,7 +95,7 @@ export default function useSwapLayoutState(airBondsToSell, airBondsBalance) {
       checkAllowance
     );
   }, [
-    account,
+    isActive,
     airBondsToSell,
     airBondsBalance,
     isPending,
