@@ -292,15 +292,20 @@
   gap: 24px;
 
   a {
+    img {
+      transition: .2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
     @include devices(mobile) {
       flex-grow: 1;
 
       img {
         width: 100%;
 
-        &:hover {
-          filter: brightness(0.8);
-        }
+
       }
     }
 
