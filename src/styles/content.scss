@@ -236,6 +236,71 @@
   top: 14px;
 }
 
+.mobile-app {
+  border-radius: 24px;
+  background: var(--primary-main, #3568DD);
+  padding: 40px 32px 0;
+  display: flex;
+  gap: 42px;
+
+  @include media(724px) {
+    gap: 42px;
+    flex-direction: column-reverse;
+    margin: 0 auto;
+  }
+}
+
+.mobile-app__img {
+  @include media(1140px) {
+    max-width: 250px;
+  }
+
+  @include media(724px) {
+    max-width: 309px;
+  }
+
+  @include devices(mobile) {
+    max-width: 80%;
+  }
+}
+
+.mobile-app__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.mobile-app__title {
+  color: #FFF;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 110%; /* 35.2px */
+}
+
+.mobile-app__text {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 140%; /* 22.4px */
+}
+
+.mobile-app__btn-wrapper {
+  display: flex;
+  gap: 24px;
+
+  a {
+    @include devices(mobile) {
+      flex-grow: 1;
+
+      img {
+        width: 100%;
+      }
+    }
+
+  }
+}
+
 .firepot {
   display: flex;
   align-items: center;

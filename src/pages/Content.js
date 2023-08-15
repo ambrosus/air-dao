@@ -1,5 +1,6 @@
 import UiButton from '../components/UiButton';
 import check from '../assets/check.svg';
+import whitePhone from '../assets/white-phone.png';
 import highlight from '../assets/highlight.png';
 import ambassador from '../assets/ambassador.svg';
 import bridge from '../assets/bridge.svg';
@@ -7,6 +8,8 @@ import binance from '../assets/binance.svg';
 import swap from '../assets/swap.png';
 import firepot from '../assets/firepot.svg';
 import roadmap from '../assets/roadmap.svg';
+import appStore from '../assets/app-store.svg';
+import googlePlay from '../assets/google-play.svg';
 import logoSymbol from '../assets/logo-symbol.svg';
 import { ReactComponent as LogoInverted } from '../assets/logo-inverted.svg';
 import Contact from '../components/Contact';
@@ -41,7 +44,7 @@ const Content = () => {
       return groupArr(data.partners_link, 6);
     } else return [];
   }, [data]);
-
+  console.log(data);
   return (
     data && (
       <div className='container main-page'>
@@ -143,7 +146,25 @@ const Content = () => {
               </UiButton>
             </div>
           </section>
-
+          <section className='mobile-app'>
+            <img src={whitePhone} alt='mobile app' className='mobile-app__img' />
+            <div className='mobile-app__info'>
+              <h3 className='mobile-app__title'>
+                <PrismicText field={data.mobile_app_title} />
+              </h3>
+              <p className='mobile-app__text'>
+                <PrismicText field={data.mobile_app_text} />
+              </p>
+              <div className='mobile-app__btn-wrapper'>
+                <a href={data.mobile_app_appstore.url} target='_blank' rel='noreferrer'>
+                  <img src={appStore} alt='app store' />
+                </a>
+                <a href={data.mobile_app_google.url} target='_blank' rel='noreferrer'>
+                  <img src={googlePlay} alt='google play' />
+                </a>
+              </div>
+            </div>
+          </section>
           <section id='firepot' className='firepot firepot--swap'>
             <img className='firepot__img' src={swap} alt='firepot' />
             <div className='firepot__content firepot__content--swap'>
