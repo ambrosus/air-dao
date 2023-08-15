@@ -251,6 +251,8 @@
 }
 
 .mobile-app__img {
+  max-width: 309px;
+
   @include media(1140px) {
     max-width: 250px;
   }
