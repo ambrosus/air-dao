@@ -295,6 +295,10 @@
 
       img {
         width: 100%;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
       }
     }
 
