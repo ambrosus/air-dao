@@ -22,7 +22,7 @@ const ChangeBondPrice = () => {
 
   const [approveState, setApproveState] = useState(false);
 
-  const { account, library } = useWeb3React();
+  const { account, provider } = useWeb3React();
 
   // const { state, stateList, setIsPending } = useSwapLayoutState(
   //   amountToSell,
@@ -67,7 +67,7 @@ const ChangeBondPrice = () => {
   };
 
   const removeAllLiquidityAndWait = async () => {
-    const tx = await removeAllUsersLiquidity(library.getSigner(), account);
+    const tx = await removeAllUsersLiquidity(provider.getSigner(), account);
     const res = await tx.wait();
     console.log(res);
   };

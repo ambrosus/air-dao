@@ -11,7 +11,11 @@ import ActionButton from './components/ActionButton';
 
 import { WalletModal } from 'airdao-components-and-tools/components';
 import { useAuthorization } from 'airdao-components-and-tools/hooks';
-import { useWeb3React } from '@web3-react/core';
+
+import {
+  metamaskConnector,
+  walletconnectConnector,
+} from 'airdao-components-and-tools/utils';
 
 const BondExchange = () => {
   const [airBondsToSell, setAirBondsToSell] = useState('');
@@ -24,10 +28,10 @@ const BondExchange = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen((prev) => !prev);
 
-  const web3ReactInstance = useWeb3React();
-
-  const { loginMetamask, loginWalletConnect } =
-    useAuthorization(web3ReactInstance);
+  const { loginMetamask, loginWalletConnect } = useAuthorization(
+    metamaskConnector,
+    walletconnectConnector
+  );
 
   return (
     <>
